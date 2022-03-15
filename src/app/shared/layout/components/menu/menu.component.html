@@ -1,6 +1,6 @@
-<ng-container *ngFor="let group of groups">
-    <ng-container *ngIf="group.root">
-        <h6 >{{group.title}}</h6>
+<section class="mb-4" *ngFor="let group of groups">
+    <div class="mb-4" *ngIf="group.root">
+        <h6>{{group.title}}</h6>
         <ul>
             <li *ngFor="let sub of group.sub" class="mb-2">
                 <app-switch
@@ -10,5 +10,5 @@
                 ></app-switch>
             </li>
         </ul>
-    </ng-container>
-</ng-container>
+    </div>
+</section>
