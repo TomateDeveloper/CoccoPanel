@@ -1,7 +1,23 @@
+@import "~bootstrap/scss/bootstrap";
+
 .main {
 
   &__sidebar {
-    width: 20vw;
+
+    width: 100vw;
+
+    @include media-breakpoint-up(lg) {
+      width: 25vw;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 20vw;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      width: 300px;
+    }
+
   }
 
   &__content {
