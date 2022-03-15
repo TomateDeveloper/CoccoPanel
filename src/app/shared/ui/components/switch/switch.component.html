@@ -1,4 +1,7 @@
-<article class="switch" [class.switch--active]="active">
-    <i class="uil uil-tachometer-fast-alt"></i>
-    Overview
+<article
+        [class.switch--active]="active" (click)="clickAction.emit()"
+        class="switch"
+>
+    <i [class]="icon"></i>
+    {{name}}
 </article>

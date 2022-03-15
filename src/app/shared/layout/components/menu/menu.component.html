@@ -1,4 +1,14 @@
-<h6>Dashboard</h6>
-<ul>
-    <li *ngFor="let a of [1,2,3]; let i" class="mb-2"><app-switch [active]="i === 1"></app-switch></li>
-</ul>
+<ng-container *ngFor="let group of groups">
+    <ng-container *ngIf="group.root">
+        <h6 >{{group.title}}</h6>
+        <ul>
+            <li *ngFor="let sub of group.sub" class="mb-2">
+                <app-switch
+                        [name]="sub.title"
+                        [icon]="sub.icon"
+                        [active]="isActive(sub)"
+                ></app-switch>
+            </li>
+        </ul>
+    </ng-container>
+</ng-container>
