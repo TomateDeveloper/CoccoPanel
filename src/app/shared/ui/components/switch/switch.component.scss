@@ -1,0 +1,24 @@
+@import "~src/assets/scss/abstract/variables";
+
+.switch {
+
+  width: 100%;
+  border-radius: $radius-default;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  color: $color-grey-dark;
+  font-weight: 500;
+  font-size: 14px;
+
+  &--active {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  & i {
+    font-size: 25px;
+    margin-right: 20px;
+  }
+
+}

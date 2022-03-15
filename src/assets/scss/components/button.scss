@@ -1,0 +1,11 @@
+@import "~src/assets/scss/abstract/variables";
+
+.btn {
+
+  border: none;
+
+  &-primary {
+    background-color: $color-primary;
+  }
+
+}

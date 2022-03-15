@@ -1,0 +1,14 @@
+@import "~src/assets/scss/abstract/variables";
+
+h6 {
+  color: $color-grey-dark;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
