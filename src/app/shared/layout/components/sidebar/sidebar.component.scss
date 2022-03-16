@@ -1,6 +1,9 @@
 @import "~src/assets/scss/abstract/variables";
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
   border-right: 1px solid $color-grey-light;
   padding: 40px 20px;
