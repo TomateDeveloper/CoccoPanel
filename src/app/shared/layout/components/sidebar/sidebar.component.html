@@ -1,9 +1,9 @@
 <aside class="sidebar">
     <section>
-        <div class="mb-5 sidebar__logo">
+        <div class="mb-4 mb-lg-5 sidebar__logo">
             <app-logo [width]="150"></app-logo>
         </div>
-        <section style="height: 70vh">
+        <section [style]="'height: ' +getRelativeHeight() +'vh'">
             <ng-scrollbar visibility="hover">
                 <section style="padding: 0 15px">
                     <app-menu></app-menu>
@@ -11,7 +11,7 @@
             </ng-scrollbar>
         </section>
     </section>
-    <section class="position-relative">
+    <section class="sidebar__profile">
         <div class="sidebar__indicator">
             <app-profile-menu
                     [active]="profileExpanded"

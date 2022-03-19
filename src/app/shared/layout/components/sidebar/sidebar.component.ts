@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BreakpointUtils} from "../../../utilities/breakpoint.utils";
 
 @Component({
   selector: 'app-sidebar',
@@ -11,6 +12,10 @@ export class SidebarComponent {
 
   public switchStatus(): void {
     this.profileExpanded = !this.profileExpanded;
+  }
+
+  public getRelativeHeight(): number {
+    return BreakpointUtils.getWidth() >= 768 ? 70 : 90;
   }
 
 }

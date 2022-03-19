@@ -29,6 +29,27 @@
   &__logo {
     border: 1px solid $color-grey-light;
     padding: 20px 15px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 0;
+      border: none;
+    }
+
+  }
+
+  &__profile {
+
+    display: none;
+    position: relative;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      display: inherit;
+    }
+
+    & app-profile-indicator {
+      width: 100%;
+    }
   }
 
 }

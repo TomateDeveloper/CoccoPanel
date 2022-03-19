@@ -1,10 +1,11 @@
 @import "~src/assets/scss/abstract/variables";
+@import "~bootstrap/scss/bootstrap";
 
 .switch {
 
   width: 100%;
   border-radius: $radius-default;
-  padding: 12px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   color: $color-grey-dark;
@@ -12,6 +13,10 @@
   font-size: 14px;
   cursor: pointer;
   transition: $transition-default all;
+
+  @include media-breakpoint-up(lg) {
+    padding: 12px 20px;
+  }
 
   &:hover {
     background-color: darken($color-white, 3%);

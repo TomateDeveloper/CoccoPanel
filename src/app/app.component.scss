@@ -6,7 +6,11 @@
 
   &__sidebar {
 
-    width: 100vw;
+    width: 80vw;
+
+    @include media-breakpoint-up(sm) {
+      width: 40vw;
+    }
 
     @include media-breakpoint-up(lg) {
       width: 25vw;
@@ -23,6 +27,7 @@
   }
 
   &__content {
+    display: none;
     width: 80vw;
   }
 
