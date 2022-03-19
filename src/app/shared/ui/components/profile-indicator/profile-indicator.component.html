@@ -1,7 +1,11 @@
-<section class="profile-indicator">
+<section
+        [class.profile-indicator--active]="active"
+        class="profile-indicator"
+        (click)="switchStatus()"
+>
     <img src="../../../../../assets/img/placeholder.png" alt="A">
-    <section>
-        <h6>Ian Castaño</h6>
+    <section class="mx-1">
+        <h6>Ian Castaño Martinez</h6>
         <span>Administrator</span>
     </section>
     <i class="uil uil-direction"></i>

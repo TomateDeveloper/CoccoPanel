@@ -3,7 +3,23 @@
         <div class="mb-5">
             <app-logo [width]="150"></app-logo>
         </div>
-        <app-menu></app-menu>
+        <section style="height: 70vh">
+            <ng-scrollbar visibility="hover">
+                <section style="padding: 0 15px">
+                    <app-menu></app-menu>
+                </section>
+            </ng-scrollbar>
+        </section>
     </section>
-    <app-profile-indicator></app-profile-indicator>
+    <section class="position-relative">
+        <div class="sidebar__indicator">
+            <app-profile-menu
+                    [active]="profileExpanded"
+            ></app-profile-menu>
+        </div>
+        <app-profile-indicator
+                [active]="profileExpanded"
+                (clickAction)="switchStatus()"
+        ></app-profile-indicator>
+    </section>
 </aside>

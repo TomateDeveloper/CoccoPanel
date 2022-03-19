@@ -5,9 +5,24 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  position: sticky;
   justify-content: space-around;
   font-size: 14px;
   font-weight: 600;
+  padding: 15px 10px;
+  transition: $transition-default;
+  border-radius: $radius-default;
+
+  &:hover, &--active {
+
+    background-color: $color-navy-blue;
+    color: $color-white;
+
+    & span, h6 {
+      color: $color-white !important;
+    }
+
+  }
 
   & h6 {
     margin: 0;
@@ -17,10 +32,11 @@
 
   & span {
     color: $color-grey-dark;
+    transition: $transition-default;
   }
 
   & i {
-    font-size: 25px;
+    font-size: 30px;
   }
 
 

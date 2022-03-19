@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-profile-indicator',
   templateUrl: './profile-indicator.component.html',
   styleUrls: ['./profile-indicator.component.scss']
 })
-export class ProfileIndicatorComponent implements OnInit {
+export class ProfileIndicatorComponent {
 
-  constructor() { }
+  @Output() public clickAction: EventEmitter<void> = new EventEmitter<void>();
+  @Input() public active: boolean = false;
 
-  ngOnInit(): void {
+  public switchStatus(): void {
+    this.clickAction.emit();
   }
 
 }

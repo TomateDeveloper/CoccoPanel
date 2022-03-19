@@ -1,6 +1,8 @@
 @import "~src/assets/scss/abstract/variables";
 
 .sidebar {
+  position: sticky;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,6 +12,13 @@
 
   & app-logo {
     margin-left: 15px;
+  }
+
+  &__indicator {
+    position: absolute;
+    bottom: 65px;
+    right: 0;
+    width: 100%;
   }
 
 }

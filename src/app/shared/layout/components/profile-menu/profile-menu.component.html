@@ -1,0 +1,8 @@
+<div class="profile-menu" [class.profile-menu--active]="active">
+    <app-switch
+            *ngFor="let item of menu"
+            [name]="item.title"
+            [icon]="item.icon"
+            [active]="false"
+    ></app-switch>
+</div>

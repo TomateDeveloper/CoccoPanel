@@ -3,20 +3,25 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {UIModule} from "../ui/ui.module";
 import { MenuComponent } from './components/menu/menu.component';
+import {ProfileMenuComponent} from "./components/profile-menu/profile-menu.component";
+import {NgScrollbarModule} from "ngx-scrollbar";
 
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    MenuComponent
+    MenuComponent,
+    ProfileMenuComponent
   ],
   exports: [
-    SidebarComponent
+    SidebarComponent,
+    ProfileMenuComponent
   ],
     imports: [
         CommonModule,
-        UIModule
+        UIModule,
+        NgScrollbarModule
     ]
 })
 export class LayoutModule { }

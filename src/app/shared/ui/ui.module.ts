@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LogoComponent } from './components/logo/logo.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { ProfileIndicatorComponent } from './components/profile-indicator/profile-indicator.component';
+import { ProfileMenuComponent } from '../layout/components/profile-menu/profile-menu.component';
 
 
 

@@ -1,0 +1,48 @@
+@import "~src/assets/scss/abstract/variables";
+
+.profile-menu {
+
+  max-height: 0;
+  background-color: $color-grey-lighter;
+  border-radius: $radius-default $radius-default 0 0;
+  padding: 0 15px;
+  transition: $transition-default all;
+  overflow: hidden;
+
+  &:after {
+    display: none;
+    content: '';
+    width: 100px;
+    height: 5px;
+    border-radius: 300px;
+    background-color: darken($color-grey-light, 2%);
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+
+
+  :host ::ng-deep & {
+
+    .switch {
+
+      &:hover {
+        background-color: $color-white;
+      }
+
+    }
+
+  }
+
+  &--active {
+    padding: 20px 15px;
+    max-height: 300px;
+
+    &:after {
+      display: inherit;
+    }
+  }
+
+}
+
