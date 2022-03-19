@@ -1,4 +1,6 @@
 @import "~src/assets/scss/abstract/variables";
+@import "~bootstrap/scss/bootstrap";
+
 
 .sidebar {
   position: sticky;
@@ -8,7 +10,10 @@
   justify-content: space-between;
   height: 100vh;
   border-right: 1px solid $color-grey-light;
-  padding: 40px 20px;
+
+  @include media-breakpoint-up(lg) {
+    padding: 40px 20px;
+  }
 
   & app-logo {
     margin-left: 15px;
@@ -19,6 +24,11 @@
     bottom: 65px;
     right: 0;
     width: 100%;
+  }
+
+  &__logo {
+    border: 1px solid $color-grey-light;
+    padding: 20px 15px;
   }
 
 }
