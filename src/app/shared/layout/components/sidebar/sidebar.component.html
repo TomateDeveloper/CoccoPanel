@@ -3,12 +3,15 @@
         <div class="mb-4 mb-lg-5 sidebar__logo">
             <app-logo [width]="150"></app-logo>
         </div>
-        <section [style]="'height: ' +getRelativeHeight() +'vh'">
+        <section [style]="'height: calc(' + getRelativeHeight() +'vh - 80px)'">
             <ng-scrollbar visibility="hover">
                 <section style="padding: 0 15px">
                     <app-menu></app-menu>
                 </section>
             </ng-scrollbar>
+        </section>
+        <section class="d-lg-none mx-4">
+            <app-logo [width]="150"></app-logo>
         </section>
     </section>
     <section class="sidebar__profile">

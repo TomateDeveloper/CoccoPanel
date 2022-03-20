@@ -1,15 +1,17 @@
 @import "~src/assets/scss/abstract/variables";
 @import "~bootstrap/scss/bootstrap";
 
-
 .sidebar {
-  position: sticky;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
   border-right: 1px solid $color-grey-light;
+  background-color: white;
+  z-index: 50;
+  position: sticky;
+  padding: 20px 0;
 
   @include media-breakpoint-up(lg) {
     padding: 40px 20px;
@@ -27,12 +29,13 @@
   }
 
   &__logo {
-    border: 1px solid $color-grey-light;
+    display: none;
+    align-items: center;
     padding: 20px 15px;
 
     @include media-breakpoint-up(lg) {
       padding: 0;
-      border: none;
+      display: inherit;
     }
 
   }
