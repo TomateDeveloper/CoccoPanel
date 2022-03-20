@@ -3,7 +3,7 @@
         <div class="mb-4 mb-lg-5 sidebar__logo">
             <app-logo [width]="150"></app-logo>
         </div>
-        <section [style]="'height: calc(' + getRelativeHeight() +'vh - 80px)'">
+        <section [style]="'height: calc(' + getRelativeHeight() +'vh - ' + getDiscountablePixels() + 'px)'">
             <ng-scrollbar visibility="hover">
                 <section style="padding: 0 15px">
                     <app-menu></app-menu>

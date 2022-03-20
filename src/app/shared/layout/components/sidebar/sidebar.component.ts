@@ -18,4 +18,8 @@ export class SidebarComponent {
     return BreakpointUtils.getWidth() >= 768 ? 70 : 90;
   }
 
+  public getDiscountablePixels(): number {
+    return BreakpointUtils.getWidth() >= 768 ? 0 : 80;
+  }
+
 }
