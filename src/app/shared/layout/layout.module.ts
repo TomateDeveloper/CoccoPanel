@@ -7,6 +7,7 @@ import {ProfileMenuComponent} from "./components/profile-menu/profile-menu.compo
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {ResponsiveHeaderComponent} from "./components/responsive-header/responsive-header.component";
 import { SidebarLayoutComponent } from './pages/sidebar-layout/sidebar-layout.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -16,7 +17,8 @@ import { SidebarLayoutComponent } from './pages/sidebar-layout/sidebar-layout.co
         MenuComponent,
         ProfileMenuComponent,
         ResponsiveHeaderComponent,
-        SidebarLayoutComponent
+        SidebarLayoutComponent,
+        HeaderComponent
     ],
     exports: [
         SidebarComponent,
