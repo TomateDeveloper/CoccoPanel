@@ -1,0 +1,64 @@
+@import "~src/assets/scss/abstract/variables";
+@import "~bootstrap/scss/bootstrap";
+
+.main {
+
+  overflow: auto;
+
+  &__sidebar {
+
+    width: 80vw;
+    position: fixed;
+    bottom: 0;
+    left: -500px;
+    height: calc(100vh - 80px);
+    transition: $transition-default all;
+
+    &--active {
+      left: 0;
+    }
+
+    @include media-breakpoint-up(sm) {
+      width: 40vw;
+    }
+
+    @include media-breakpoint-up(lg) {
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 25vw;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 20vw;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      width: 300px;
+    }
+
+  }
+
+  &__content {
+
+    width: 100vw;
+    margin-top: 80px;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 0;
+      margin-left: 25vw;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 0;
+      margin-left: 20vw;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      margin-top: 0;
+      margin-left: 300px;
+    }
+
+  }
+
+}

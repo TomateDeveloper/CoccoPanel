@@ -1,0 +1,11 @@
+<main class="main">
+    <app-responsive-header (change)="switchActive()" [active]="active"></app-responsive-header>
+    <div class="main__sidebar" [class.main__sidebar--active]="active">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="main__content">
+        <div style="width: 350px; background-color: orange; height: 5500px;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias at eius inventore molestias praesentium repellendus voluptates. Doloremque earum nihil quaerat. Commodi dolorum excepturi illo ipsa magnam molestias optio, totam.
+        </div>
+    </div>
+</main>
