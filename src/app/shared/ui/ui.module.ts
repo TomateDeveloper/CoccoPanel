@@ -6,6 +6,7 @@ import { ProfileIndicatorComponent } from './components/profile-indicator/profil
 import { ProfileMenuComponent } from '../layout/components/profile-menu/profile-menu.component';
 import { BurgerComponent } from './components/burger/burger.component';
 import { ResponsiveHeaderComponent } from '../layout/components/responsive-header/responsive-header.component';
+import { IconActionableComponent } from './components/icon-actionable/icon-actionable.component';
 
 
 
@@ -15,12 +16,14 @@ import { ResponsiveHeaderComponent } from '../layout/components/responsive-heade
         SwitchComponent,
         ProfileIndicatorComponent,
         BurgerComponent,
+        IconActionableComponent,
     ],
     exports: [
         LogoComponent,
         SwitchComponent,
         ProfileIndicatorComponent,
-        BurgerComponent
+        BurgerComponent,
+        IconActionableComponent
     ],
     imports: [
         CommonModule

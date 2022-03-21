@@ -1,0 +1,29 @@
+@import "~src/assets/scss/abstract/variables";
+@import "~bootstrap/scss/bootstrap";
+
+.title {
+
+  & h1, h2 {
+    font-family: $font-headings;
+  }
+
+  & h1 {
+    font-weight: 600;
+    font-size: 15px;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 30px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      font-size: 40px;
+    }
+  }
+
+  & h2 {
+    @include media-breakpoint-up(xl) {
+      font-size: 25px;
+    }
+  }
+
+}
