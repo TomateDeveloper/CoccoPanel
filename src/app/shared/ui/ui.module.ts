@@ -7,6 +7,7 @@ import { ProfileMenuComponent } from '../layout/components/profile-menu/profile-
 import { BurgerComponent } from './components/burger/burger.component';
 import { ResponsiveHeaderComponent } from '../layout/components/responsive-header/responsive-header.component';
 import { IconActionableComponent } from './components/icon-actionable/icon-actionable.component';
+import { FloatingMenuComponent } from './components/floating-menu/floating-menu.component';
 
 
 
@@ -17,6 +18,7 @@ import { IconActionableComponent } from './components/icon-actionable/icon-actio
         ProfileIndicatorComponent,
         BurgerComponent,
         IconActionableComponent,
+        FloatingMenuComponent,
     ],
     exports: [
         LogoComponent,
