@@ -1,14 +1,34 @@
+<!--
 <main class="main">
     <app-responsive-header (change)="switchActive()" [active]="active"></app-responsive-header>
     <div class="main__sidebar" [class.main__sidebar--active]="active">
-        <app-sidebar></app-sidebar>
+
     </div>
     <div class="main__content">
         <section style="width: 1px; height: 1px;" class="d-lg-none"></section>
         <div class="container">
             <div class="my-3 my-lg-5 mx-2 p-md-5">
                 <app-header></app-header>
+                <div style="height: 3000px; background-color: orange; width: 50px;"></div>
             </div>
         </div>
     </div>
 </main>
+
+-->
+<app-responsive-header (change)="switchActive()" [active]="active"></app-responsive-header>
+<div class="row">
+    <div class="col-12 col-lg-3 col-xl-2">
+        <div class="main__sidebar" [class.main__sidebar--active]="active">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+    <div class="col-12 col-lg-9 col-xl-10">
+        <div class="container">
+            <div class="my-3 my-lg-5 mx-2 p-md-5">
+                <app-header></app-header>
+                <div style="height: 3000px; background-color: orange; width: 50px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

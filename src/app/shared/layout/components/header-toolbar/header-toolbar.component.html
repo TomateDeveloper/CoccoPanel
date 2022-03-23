@@ -1,6 +1,11 @@
-<div class="d-flex justify-content-end">
-    <app-icon-actionable
-            [active]="active"
-            (clickAction)="switchNotifications()"
-    ></app-icon-actionable>
+<div class="position-relative">
+    <div class="d-flex justify-content-end">
+        <app-icon-actionable
+                [active]="active"
+                (clickAction)="switchNotifications()"
+        ></app-icon-actionable>
+    </div>
+    <app-floating-menu [active]="active">
+        <app-notification-widget></app-notification-widget>
+    </app-floating-menu>
 </div>

@@ -10,6 +10,7 @@ import { SidebarLayoutComponent } from './pages/sidebar-layout/sidebar-layout.co
 import { HeaderComponent } from './components/header/header.component';
 import { TitleComponent } from './components/title/title.component';
 import { HeaderToolbarComponent } from './components/header-toolbar/header-toolbar.component';
+import {NotificationModule} from "../../notification/notification.module";
 
 
 
@@ -33,7 +34,8 @@ import { HeaderToolbarComponent } from './components/header-toolbar/header-toolb
     imports: [
         CommonModule,
         UIModule,
-        NgScrollbarModule
+        NgScrollbarModule,
+        NotificationModule
     ]
 })
 export class LayoutModule { }

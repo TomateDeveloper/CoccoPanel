@@ -1,22 +1,56 @@
 @import "~src/assets/scss/abstract/variables";
-@import "~bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 .main {
 
-  overflow: auto;
-
   &__sidebar {
 
-    width: 80vw;
     position: fixed;
     bottom: 0;
     left: -500px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 45px);
     transition: $transition-default all;
+    width: 80vw;
 
     &--active {
       left: 0;
     }
+
+
+    @include media-breakpoint-up(sm) {
+      width: 30vw;
+    }
+
+    @include media-breakpoint-up(lg) {
+      position: sticky;
+      height: 100vh;
+      width: auto;
+      top: 0;
+      left: 0;
+    }
+  }
+
+}
+
+/*
+
+.main {
+
+  @include media-breakpoint-up(lg) {
+    overflow: inherit;
+  }
+
+  &__sidebar {
+
+    width: 80vw;
+    position: sticky;
+    bottom: 0;
+    left: -500px;
+    height: calc(100vh - 80px);
+
+
 
     @include media-breakpoint-up(sm) {
       width: 40vw;
@@ -42,7 +76,7 @@
   &__content {
 
     width: 100vw;
-    margin-top: 80px;
+    //margin-top: 80px;
 
     @include media-breakpoint-up(lg) {
       margin-top: 0;
@@ -74,3 +108,4 @@
   }
 
 }
+ */

@@ -25,7 +25,8 @@ import { FloatingMenuComponent } from './components/floating-menu/floating-menu.
         SwitchComponent,
         ProfileIndicatorComponent,
         BurgerComponent,
-        IconActionableComponent
+        IconActionableComponent,
+        FloatingMenuComponent
     ],
     imports: [
         CommonModule

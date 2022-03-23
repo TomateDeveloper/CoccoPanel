@@ -1,0 +1,21 @@
+<div class="notification-container">
+    <h4>Notificaciones</h4>
+    <ul>
+        <li class="notification" *ngFor="let i of [1,2,3,4,5]">
+            <section class="notification__image">
+                <img src="assets/img/placeholder.png" alt="">
+                <span>I</span>
+            </section>
+            <section class="notification__description">
+                <div class="notification__title">
+                    <h5>Name</h5>
+                    <span>5h</span>
+                </div>
+                <span class="notification__sub">Commented on <a href="#">Nose</a></span>
+            </section>
+        </li>
+    </ul>
+    <section class="d-flex justify-content-center mt-3">
+        <button class="btn-negative btn-padded">Ver toda la actividad</button>
+    </section>
+</div>

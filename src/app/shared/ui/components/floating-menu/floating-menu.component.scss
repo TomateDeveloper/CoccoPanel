@@ -1,0 +1,18 @@
+@import "~src/assets/scss/abstract/variables";
+
+.floating-menu {
+
+  box-shadow: $shadow-basic;
+  border-radius: $radius-default;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  z-index: 10;
+  padding: 10px;
+  display: none;
+
+  &--active {
+    display: inherit;
+  }
+
+}

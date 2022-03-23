@@ -1,11 +1,39 @@
 @import "~src/assets/scss/abstract/variables";
 
+@mixin normalizer() {
+  border: none;
+  font-family: $font-secondary;
+  font-weight: 600;
+  font-size: 14px;
+  transition: $transition-default;
+}
+
 .btn {
 
-  border: none;
-
   &-primary {
+    @include normalizer;
     background-color: $color-primary;
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+
+  }
+
+  &-negative {
+    @include normalizer;
+    background-color: $color-black;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary;
+    }
+
+  }
+
+  &-padded {
+    padding: 15px 30px;
+    border-radius: $radius-default;
   }
 
 }
