@@ -1,15 +1,23 @@
 @import "~src/assets/scss/abstract/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 .floating-menu {
 
   box-shadow: $shadow-basic;
   border-radius: $radius-default;
+  background-color: $color-white;
   position: absolute;
   top: 50px;
   right: 10px;
   z-index: 10;
-  padding: 10px;
   display: none;
+  max-width: 90vw;
+
+  @include media-breakpoint-up(sm) {
+    padding: 10px;
+  }
 
   &--active {
     display: inherit;

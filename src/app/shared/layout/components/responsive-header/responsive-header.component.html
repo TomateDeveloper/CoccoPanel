@@ -1,5 +1,16 @@
 <header class="py-4 px-4 responsive-header">
     <app-burger (clickAction)="change.emit()" [active]="active"></app-burger>
     <div class="mx-4">
+        <div class="responsive-header__icons">
+            <div class="d-flex justify-content-end">
+                <app-icon-actionable
+                        [active]="notificationActive"
+                        (clickAction)="switchNotifications()"
+                ></app-icon-actionable>
+            </div>
+        </div>
+        <app-floating-menu [active]="notificationActive">
+            <app-notification-widget></app-notification-widget>
+        </app-floating-menu>
     </div>
 </header>
