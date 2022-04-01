@@ -33,7 +33,16 @@
   :host ::ng-deep & {
 
     & .floating-menu {
+
       top: 90px;
+      left: 10px;
+
+      @include media-breakpoint-up(sm) {
+        width: 350px;
+        left: auto;
+        right: 20px;
+      }
+
     }
 
     & .hamburger-inner {
