@@ -1,0 +1,13 @@
+<div class="search">
+    <div class="search__holder" [class.search__holder--active]="searchWidgetActive">
+        <i
+                class="uil search__toggle"
+                [class]="searchWidgetActive ? 'uil-times' : 'uil-search'"
+                (click)="searchWidgetActive = !searchWidgetActive"
+        ></i>
+        <input type="text" placeholder="Buscar" class="search__input">
+    </div>
+    <section class="search__content" [class.search__content--active]="searchWidgetActive">
+        <div class="#" style="height: 300px; width: 5px;"></div>
+    </section>
+</div>

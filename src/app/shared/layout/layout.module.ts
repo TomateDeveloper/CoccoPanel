@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TitleComponent } from './components/title/title.component';
 import { HeaderToolbarComponent } from './components/header-toolbar/header-toolbar.component';
 import {NotificationModule} from "../../notification/notification.module";
+import {SearchModule} from "../../search/search.module";
 
 
 
@@ -35,7 +36,8 @@ import {NotificationModule} from "../../notification/notification.module";
         CommonModule,
         UIModule,
         NgScrollbarModule,
-        NotificationModule
+        NotificationModule,
+        SearchModule
     ]
 })
 export class LayoutModule { }

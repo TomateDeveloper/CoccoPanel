@@ -1,11 +1,13 @@
 <div class="position-relative">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end align-items-center">
+        <app-search-widget></app-search-widget>
         <app-icon-actionable
-                [active]="active"
+                [active]="notificationMenuActive"
                 (clickAction)="switchNotifications()"
+                [indicator]="'3'"
         ></app-icon-actionable>
     </div>
-    <app-floating-menu [active]="active">
+    <app-floating-menu [active]="notificationMenuActive">
         <app-notification-widget></app-notification-widget>
     </app-floating-menu>
 </div>

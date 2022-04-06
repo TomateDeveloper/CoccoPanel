@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderToolbarComponent {
 
-  public active: boolean = false;
+  public notificationMenuActive: boolean = false;
 
   public switchNotifications(): void {
-    this.active = !this.active;
+    this.notificationMenuActive = !this.notificationMenuActive;
   }
 
 }

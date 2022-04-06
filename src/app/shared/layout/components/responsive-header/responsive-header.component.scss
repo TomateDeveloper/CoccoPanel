@@ -30,7 +30,17 @@
     top: -5px;
   }
 
+  &__profile img {
+    height: 45px;
+    border-radius: 300px;
+    cursor: pointer;
+  }
+
   :host ::ng-deep & {
+
+    & .actionable--active, .actionable:hover {
+      box-shadow: none;
+    }
 
     & .floating-menu {
 
