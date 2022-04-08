@@ -12,6 +12,7 @@ import { TitleComponent } from './components/title/title.component';
 import { HeaderToolbarComponent } from './components/header-toolbar/header-toolbar.component';
 import {NotificationModule} from "../../notification/notification.module";
 import {SearchModule} from "../../search/search.module";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -37,7 +38,8 @@ import {SearchModule} from "../../search/search.module";
         UIModule,
         NgScrollbarModule,
         NotificationModule,
-        SearchModule
+        SearchModule,
+        RouterModule
     ]
 })
 export class LayoutModule { }

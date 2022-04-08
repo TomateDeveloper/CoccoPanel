@@ -20,6 +20,18 @@
 
   }
 
+  &-white {
+    @include normalizer;
+    background-color: $color-white;
+    color: $color-black;
+
+    &:hover {
+      color: $color-primary;
+
+    }
+
+  }
+
   &-negative {
     @include normalizer;
     background-color: $color-black;
