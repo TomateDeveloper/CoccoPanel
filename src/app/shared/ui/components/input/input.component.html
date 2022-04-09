@@ -1,0 +1,11 @@
+<div class="input" [class.input--active]="focus">
+    <div class="input__icon">
+        <i *ngIf="icon !== ''" [class]="icon" [class.input__icon--active]="focus"></i>
+    </div>
+    <input
+            class="input__field"
+            [type]="type"
+            [placeholder]="placeholder"
+            (focusin)="focus = true" (focusout)="focus = false"
+    >
+</div>

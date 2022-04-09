@@ -58,6 +58,7 @@
     border-radius: $radius-default;
     width: 100%;
     max-height: 0;
+    z-index: 30;
     transition: $transition-default max-height;
 
     &--active {

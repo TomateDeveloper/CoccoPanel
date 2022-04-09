@@ -8,7 +8,8 @@ import { BurgerComponent } from './components/burger/burger.component';
 import { ResponsiveHeaderComponent } from '../layout/components/responsive-header/responsive-header.component';
 import { IconActionableComponent } from './components/icon-actionable/icon-actionable.component';
 import { FloatingMenuComponent } from './components/floating-menu/floating-menu.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { InputComponent } from './components/input/input.component';
 
 
 
@@ -21,6 +22,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
         IconActionableComponent,
         FloatingMenuComponent,
         BreadcrumbComponent,
+        InputComponent,
     ],
     exports: [
         LogoComponent,
@@ -29,7 +31,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
         BurgerComponent,
         IconActionableComponent,
         FloatingMenuComponent,
-        BreadcrumbComponent
+        BreadcrumbComponent,
+        InputComponent
     ],
     imports: [
         CommonModule

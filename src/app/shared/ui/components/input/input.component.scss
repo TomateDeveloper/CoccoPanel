@@ -1,0 +1,50 @@
+@import "~src/assets/scss/abstract/variables";
+
+.input {
+
+  position: relative;
+  background-color: darken($color-white, 3%);
+  padding: 15px 15px 15px 45px;
+  border-radius: $radius-default;
+  border: 2px solid transparent;
+  transition: $transition-default;
+
+  &--active {
+    background-color: white;
+    border-color: $color-primary;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: $transition-default;
+
+    &:hover, &--active {
+      color: $color-primary;
+    }
+
+  }
+
+  &__field {
+
+    border: none;
+    margin: 0;
+    background-color: transparent;
+    width: 100%;
+
+    &::placeholder {
+      font-family: $font-headings;
+    }
+
+    &:focus, &:focus-visible {
+      outline: none;
+    }
+
+  }
+
+}
