@@ -9,7 +9,7 @@
   border: 2px solid transparent;
   transition: $transition-default;
 
-  &--active {
+  &--focus {
     background-color: white;
     border-color: $color-primary;
   }
@@ -24,7 +24,7 @@
     font-size: 25px;
     transition: $transition-default;
 
-    &:hover, &--active {
+    &:hover, &--focus {
       color: $color-primary;
     }
 
