@@ -10,6 +10,7 @@ import { IconActionableComponent } from './components/icon-actionable/icon-actio
 import { FloatingMenuComponent } from './components/floating-menu/floating-menu.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { InputComponent } from './components/input/input.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 
 
@@ -23,6 +24,7 @@ import { InputComponent } from './components/input/input.component';
         FloatingMenuComponent,
         BreadcrumbComponent,
         InputComponent,
+        CheckboxComponent,
     ],
     exports: [
         LogoComponent,
@@ -32,7 +34,8 @@ import { InputComponent } from './components/input/input.component';
         IconActionableComponent,
         FloatingMenuComponent,
         BreadcrumbComponent,
-        InputComponent
+        InputComponent,
+        CheckboxComponent
     ],
     imports: [
         CommonModule

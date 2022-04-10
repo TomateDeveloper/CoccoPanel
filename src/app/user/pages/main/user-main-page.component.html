@@ -7,9 +7,9 @@
     ></app-breadcrumb>
 </div>
 <div class="card">
-    <app-input
-            type="text"
-            placeholder="Buscar"
-            icon="uil uil-search"
-    ></app-input>
+
+    <app-user-filters></app-user-filters>
+
+    <app-user-card *ngFor="let item of [1,2,3]"></app-user-card>
+
 </div>
