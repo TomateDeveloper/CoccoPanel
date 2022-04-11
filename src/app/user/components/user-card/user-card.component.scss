@@ -13,7 +13,7 @@
     align-items: center;
     margin: 20px 0;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       margin: 0
     }
 
@@ -56,9 +56,11 @@
     border-radius: 8px;
     padding: 4px;
     font-size: 12px;
+    width: 100%;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
       border: none;
+      width: auto;
     }
 
     & p {

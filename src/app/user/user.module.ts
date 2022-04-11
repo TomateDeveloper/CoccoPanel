@@ -5,6 +5,7 @@ import {UserRoutingModule} from "./user-routing.module";
 import {UIModule} from "../shared/ui/ui.module";
 import { UserFiltersComponent } from './components/user-filters/user-filters.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserTableHeaderComponent } from './components/user-table-header/user-table-header.component';
 
 
 
@@ -12,7 +13,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
   declarations: [
     UserMainPageComponent,
     UserFiltersComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserTableHeaderComponent
   ],
   imports: [
     CommonModule,

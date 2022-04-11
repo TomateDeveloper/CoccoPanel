@@ -1,4 +1,7 @@
 @import "../../../../../assets/scss/abstract/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 .breadcrumb {
   background-color: $color-primary;
@@ -6,17 +9,54 @@
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  align-items: center;
   color: $color-white;
-  padding: 64px 64px 76px;
   font-family: $font-headings;
   overflow: hidden;
+  padding: 30px;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 64px 64px 76px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    align-items: start;
+    flex-direction: column;
+  }
 
   &__image {
-    position: absolute;
-    top: 40px;
-    right: 90px;
-    width: 540px;
+
+    width: 60%;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(sm) {
+      width: 50%;
+    }
+
+    @include media-breakpoint-up(md) {
+      width: 150px;
+    }
+
+
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      top: 100px;
+      right: 90px;
+      width: 400px;
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      top: 40px;
+      width: 540px;
+    }
+
   }
 
   & h1 {

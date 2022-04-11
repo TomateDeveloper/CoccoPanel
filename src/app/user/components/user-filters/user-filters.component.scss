@@ -1,0 +1,73 @@
+@import "~src/assets/scss/abstract/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.user-filters {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid $color-grey-light;
+
+  @include media-breakpoint-up(xl) {
+    flex-direction: row;
+    border: none;
+    margin-bottom: 15px;
+  }
+
+  &__search {
+
+    width: 100%;
+
+    @include media-breakpoint-up(xl) {
+      width: 25%;
+    }
+
+  }
+
+  &__actions {
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 0;
+
+    @include media-breakpoint-up(xl) {
+      margin: 0;
+      width: auto;
+      padding: 0;
+    }
+
+  }
+
+  &__checkbox {
+
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+
+  &__control {
+    display: flex;
+  }
+
+  :host ::ng-deep & {
+
+    .actionable {
+
+      @include media-breakpoint-down(xl) {
+        font-size: 18px;
+        width: 25px;
+        height: 25px;
+      }
+
+    }
+
+  }
+
+}

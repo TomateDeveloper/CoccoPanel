@@ -1,0 +1,18 @@
+@import "~src/assets/scss/abstract/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.user-table-header {
+
+  border-bottom: 1px solid $color-grey-light;
+  padding: 20px 0;
+  color: $color-grey-dark;
+  font-size: 14px;
+  display: none;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+
+}
