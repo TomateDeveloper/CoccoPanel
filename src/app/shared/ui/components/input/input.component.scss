@@ -9,6 +9,29 @@
   border: 2px solid transparent;
   transition: $transition-default;
 
+  &__label {
+
+    padding-left: 45px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: $color-grey-dark;
+
+    &--simple {
+      padding-left: 10px;
+    }
+
+  }
+
+  &__help {
+    font-size: 12px;
+    padding-left: 10px;
+    color: $color-grey-dark;
+  }
+
+  &--simple {
+    padding-left: 10px;
+  }
+
   &--focus {
     background-color: white;
     border-color: $color-primary;

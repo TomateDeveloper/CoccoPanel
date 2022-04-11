@@ -8,6 +8,6 @@ import {Component, Input} from '@angular/core';
 export class BreadcrumbComponent {
   @Input() public title: string = "Breadcrumb";
   @Input() public sub: string = "Awesome breadcrumb";
-  @Input() public button: string = "Do something";
+  @Input() public button: string = "";
   @Input() public action: () => void = () => {};
 }

@@ -6,6 +6,7 @@ import {UIModule} from "../shared/ui/ui.module";
 import { UserFiltersComponent } from './components/user-filters/user-filters.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserTableHeaderComponent } from './components/user-table-header/user-table-header.component';
+import { UserCreatePageComponent } from './pages/create/user-create-page.component';
 
 
 
@@ -14,7 +15,8 @@ import { UserTableHeaderComponent } from './components/user-table-header/user-ta
     UserMainPageComponent,
     UserFiltersComponent,
     UserCardComponent,
-    UserTableHeaderComponent
+    UserTableHeaderComponent,
+    UserCreatePageComponent
   ],
   imports: [
     CommonModule,

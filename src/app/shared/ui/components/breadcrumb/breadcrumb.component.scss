@@ -16,6 +16,11 @@
   overflow: hidden;
   padding: 30px;
 
+  & p {
+    width: 450px;
+    margin-bottom: 0;
+  }
+
   @include media-breakpoint-up(md) {
     flex-direction: row;
     justify-content: space-between;

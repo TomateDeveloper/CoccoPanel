@@ -7,9 +7,14 @@ import {Component, Input} from '@angular/core';
 })
 export class InputComponent {
 
+  @Input() public id: string = "";
   @Input() public icon: string = "";
   @Input() public placeholder: string = "";
   @Input() public type: string = "";
+  @Input() public label: string = "";
+  @Input() public tabIndex: number = 0;
+  @Input() public help: string = "";
 
   public focus: boolean = false;
+
 }

@@ -1,0 +1,49 @@
+<div class="mb-4">
+    <app-breadcrumb
+            title="Usuarios"
+            sub="Crea un usuario en la plataforma. Este usuario podrá acceder con usuario y contraseña a las funciones que asignes."
+            button="¿No es lo que buscas?"
+    ></app-breadcrumb>
+</div>
+<div class="card">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                <app-input
+                        [id]="'name'"
+                        label="Nombres"
+                        [tabIndex]="1"
+                        placeholder="Ej: Alejandro"
+                ></app-input>
+            </div>
+            <div class="mb-3">
+                <app-input
+                        [id]="'phone'"
+                        label="Teléfono"
+                        [tabIndex]="3"
+                        placeholder="Ej: +57 305 799 9999"
+                        help="* Se enviará un SMS para verificar la identidad de la cuenta."
+                ></app-input>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                <app-input
+                        [id]="'surname'"
+                        label="Apellidos"
+                        [tabIndex]="2"
+                        placeholder="Ej: Mejia Villa"
+                ></app-input>
+            </div>
+            <div class="mb-3">
+                <app-input
+                        [id]="'email'"
+                        label="Correo electrónico"
+                        [tabIndex]="4"
+                        placeholder="Ej: tucorreo@midominio.com"
+                        help="* Se enviará un email para verificar la identidad de la cuenta."
+                ></app-input>
+            </div>
+        </div>
+    </div>
+</div>

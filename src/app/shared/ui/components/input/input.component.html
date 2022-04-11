@@ -1,11 +1,22 @@
-<div class="input" [class.input--focus]="focus">
+<label
+        *ngIf="label !== ''"
+        class="input__label"
+        [class.input__label--simple]="icon === ''"
+        [for]="id"
+>{{label}}</label>
+
+<div class="input" [class.input--focus]="focus" [class.input--simple]="icon === ''">
     <div class="input__icon">
         <i *ngIf="icon !== ''" [class]="icon" [class.input__icon--focus]="focus"></i>
     </div>
     <input
+            [id]="id"
             class="input__field"
+            [tabindex]="tabIndex"
             [type]="type"
             [placeholder]="placeholder"
             (focusin)="focus = true" (focusout)="focus = false"
     >
 </div>
+
+<span class="input__help">{{help}}</span>
