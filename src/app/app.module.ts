@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LayoutModule} from "./shared/layout/layout.module";
+import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -11,8 +13,10 @@ import {LayoutModule} from "./shared/layout/layout.module";
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
-        LayoutModule
+        LayoutModule,
+        NgxIntlTelInputModule
     ],
     providers: [],
     bootstrap: [AppComponent]

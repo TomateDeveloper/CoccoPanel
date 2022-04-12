@@ -1,0 +1,16 @@
+.input {
+
+  &__label {
+
+    padding-left: 45px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: $color-grey-dark;
+
+    &--simple {
+      padding-left: 10px;
+    }
+
+  }
+
+}

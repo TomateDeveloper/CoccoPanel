@@ -17,8 +17,17 @@
   padding: 30px;
 
   & p {
-    width: 450px;
+    width: auto;
     margin-bottom: 0;
+
+    @include media-breakpoint-up(md) {
+      width: 300px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 400px;
+    }
+
   }
 
   @include media-breakpoint-up(md) {
@@ -53,7 +62,7 @@
       position: absolute;
       top: 100px;
       right: 90px;
-      width: 400px;
+      width: 380px;
       margin-bottom: 0;
     }
 

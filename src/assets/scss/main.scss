@@ -1,4 +1,6 @@
 @import "vendor/bootstrap";
+@import "vendor/selector";
+@import "vendor/phone";
 
 @import "abstract/variables";
 @import "abstract/typography";
@@ -6,3 +8,6 @@
 
 @import "components/button";
 @import "components/card";
+@import "components/input";
+@import "components/selector";
+@import "components/phone";

@@ -27,9 +27,18 @@
 
     &:hover {
       color: $color-primary;
-
     }
 
+  }
+
+  &-grey {
+
+    @include normalizer;
+    background-color: $color-grey-light;
+
+    &:hover {
+      background-color: darken($color-grey-light, 2%);
+    }
   }
 
   &-negative {
@@ -45,6 +54,10 @@
 
   &-padded {
     padding: 15px 30px;
+    border-radius: $radius-default;
+  }
+
+  &-rounded {
     border-radius: $radius-default;
   }
 

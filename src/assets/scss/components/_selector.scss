@@ -1,0 +1,49 @@
+@import "../abstract/variables";
+
+.selector {
+
+  & .ng-select-container {
+
+    border-radius: $radius-default;
+    height: auto !important;
+    padding: 15px 15px 15px 10px;
+    transition: $transition-default;
+    background-color: darken($color-white, 3%);
+    border: 2px solid transparent !important;
+    box-shadow: none !important;
+
+    & input {
+      background-color: darken($color-white, 3%);
+    }
+
+    & .ng-input {
+      top: 50% !important;
+      transform: translateY(-50%);
+    }
+
+    & .ng-value-container {
+
+      padding: 0;
+
+      & .ng-placeholder {
+        color: $color-grey-dark;
+      }
+
+    }
+
+  }
+
+  & .ng-dropdown-panel-items, {
+
+    &, & .ng-option-marked, & .ng-optgroup, & .ng-option-selected, & .ng-option-child {
+      font-weight: 700 !important;
+    }
+
+  }
+
+  & .ng-select-focused .ng-select-container, & .ng-select-opened .ng-select-container {
+    box-shadow: none !important;
+  }
+
+
+}
