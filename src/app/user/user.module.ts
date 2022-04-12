@@ -11,6 +11,7 @@ import {SharedModule} from "../shared/shared.module";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
+import { UserCreationHelpComponent } from './components/user-creation-help/user-creation-help.component';
 
 
 
@@ -20,7 +21,8 @@ import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
         UserFiltersComponent,
         UserCardComponent,
         UserTableHeaderComponent,
-        UserCreatePageComponent
+        UserCreatePageComponent,
+        UserCreationHelpComponent
     ],
     imports: [
         CommonModule,
