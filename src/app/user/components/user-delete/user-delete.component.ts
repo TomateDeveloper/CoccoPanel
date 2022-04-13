@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {InfoModalComponent} from "../../../shared/ui/components/info-modal/info-modal.component";
 
 @Component({
   selector: 'app-user-delete',
@@ -8,12 +9,14 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class UserDeleteComponent {
 
-  @ViewChild('userDeleteModal') public deleteModal?: Component;
-
-  constructor(private modalService: NgbModal) {}
+  @ViewChild('userDeleteModal') public deleteModal?: InfoModalComponent;
 
   open() {
-    this.modalService.open(this.deleteModal, { centered: true });
+    this.deleteModal!.open();
+  }
+
+  confirmDelete() {
+
   }
 
 }

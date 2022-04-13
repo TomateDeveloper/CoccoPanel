@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Router} from "@angular/router";
+import {InfoModalComponent} from "../../../shared/ui/components/info-modal/info-modal.component";
 
 @Component({
   selector: 'app-user-creation-help',
@@ -8,12 +9,17 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class UserCreationHelpComponent {
 
-  @ViewChild('userCreationHelpModal') public helpModal?: Component;
+  @ViewChild('userCreationHelpModal') public helpModal?: InfoModalComponent;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private router: Router) {}
 
-  open() {
-    this.modalService.open(this.helpModal, { centered: true });
+  navigateToContact(): void {
+    this.router.navigate(['/contacts/create']);
   }
+
+  open(): void {
+    this.helpModal!.open();
+  }
+
 
 }

@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
+import {InfoModalComponent} from "../../../shared/ui/components/info-modal/info-modal.component";
 
 @Component({
   selector: 'app-user-creation-confirm',
@@ -8,12 +8,15 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class UserCreationConfirmComponent {
 
-  @ViewChild('userCreationConfirmModal') public helpModal?: Component;
+  @ViewChild('userCreationConfirmModal') public helpModal?: InfoModalComponent;
+  @Output() public createConfirm: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private modalService: NgbModal) {}
+  open(): void {
+    this.helpModal!.open();
+  }
 
-  open() {
-    this.modalService.open(this.helpModal, { centered: true });
+  create(): void {
+    this.createConfirm.emit();
   }
 
 }

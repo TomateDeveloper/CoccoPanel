@@ -8,6 +8,11 @@ const routes: Routes = [
     component: SidebarLayoutComponent,
     loadChildren: () => import('./user/user.module').then(m => m.UserModule),
   },
+  {
+    path: 'groups',
+    component: SidebarLayoutComponent,
+    loadChildren: () => import('./group/group.module').then(m => m.GroupModule),
+  },
 ];
 
 @NgModule({

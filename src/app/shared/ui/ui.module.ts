@@ -12,6 +12,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { InputComponent } from './components/input/input.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { AvatarUpdateComponent } from './components/avatar-update/avatar-update.component';
+import { InfoModalComponent } from './components/info-modal/info-modal.component';
 
 
 
@@ -27,6 +28,7 @@ import { AvatarUpdateComponent } from './components/avatar-update/avatar-update.
         InputComponent,
         CheckboxComponent,
         AvatarUpdateComponent,
+        InfoModalComponent,
     ],
     exports: [
         LogoComponent,
@@ -38,7 +40,8 @@ import { AvatarUpdateComponent } from './components/avatar-update/avatar-update.
         BreadcrumbComponent,
         InputComponent,
         CheckboxComponent,
-        AvatarUpdateComponent
+        AvatarUpdateComponent,
+        InfoModalComponent
     ],
     imports: [
         CommonModule
