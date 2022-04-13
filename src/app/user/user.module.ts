@@ -12,6 +12,7 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { UserCreationHelpComponent } from './components/user-creation-help/user-creation-help.component';
+import { UserCreationConfirmComponent } from './components/user-creation-confirm/user-creation-confirm.component';
 
 
 
@@ -22,7 +23,8 @@ import { UserCreationHelpComponent } from './components/user-creation-help/user-
         UserCardComponent,
         UserTableHeaderComponent,
         UserCreatePageComponent,
-        UserCreationHelpComponent
+        UserCreationHelpComponent,
+        UserCreationConfirmComponent
     ],
     imports: [
         CommonModule,

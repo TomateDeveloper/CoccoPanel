@@ -3,7 +3,7 @@
         <h1>{{title}}</h1>
         <p>{{sub}}</p>
         <section class="mt-3" *ngIf="button !== ''">
-            <button class="btn btn-white btn-padded" (click)="action()">{{button}}</button>
+            <button class="btn btn-white btn-padded" (click)="clickAction.emit()">{{button}}</button>
         </section>
     </section>
     <img class="breadcrumb__image" src="../../../../../assets/img/breadcrumb.png" alt="Breadcrumb Decoration">

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {LayoutModule} from "./shared/layout/layout.module";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         BrowserAnimationsModule,
         AppRoutingModule,
         LayoutModule,
-        NgxIntlTelInputModule
+        NgxIntlTelInputModule,
+        NgbModule
     ],
     providers: [],
     bootstrap: [AppComponent]

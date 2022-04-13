@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -9,5 +9,5 @@ export class BreadcrumbComponent {
   @Input() public title: string = "Breadcrumb";
   @Input() public sub: string = "Awesome breadcrumb";
   @Input() public button: string = "";
-  @Input() public action: () => void = () => {};
+  @Output() public clickAction: EventEmitter<void> = new EventEmitter<void>();
 }

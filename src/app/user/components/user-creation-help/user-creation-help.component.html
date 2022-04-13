@@ -1,20 +1,19 @@
-<ng-template #content let-modal>
+<ng-template #userCreationHelpModal let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <form>
-            <div class="mb-3">
-                <label for="dateOfBirth">Date of birth</label>
-                <div class="input-group">
-                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-                    <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        <div class="text-center mx-4 mb-4">
+            <img src="assets/img/contact.png" alt="Contact Help" class="w-50 mb-3">
+            <h3>Crea un contacto</h3>
+            <p>Si no quieres que esta persona tenga acceso a la plataforma debes crear un <strong>contacto</strong>.</p>
+            <p>
+                <span class="badge rounded-pill bg-dark">Por ejemplo:</span> Quieres crear un proveedor para un material pero no quieres que el proveedor tenga acceso.
+            </p>
+            <section>
+                <button class="btn btn-grey btn-rounded mx-3">Seguir creando</button>
+                <a class="btn btn-primary btn-rounded mx-3" routerLink="/contacts/create">Cambiar a contacto</a>
+            </section>
+        </div>
     </div>
 </ng-template>

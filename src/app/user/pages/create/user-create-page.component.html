@@ -3,6 +3,7 @@
             title="Usuarios"
             sub="Crea un usuario en la plataforma. Este usuario podrá acceder con usuario y contraseña a las funciones que asignes."
             button="¿No es lo que buscas?"
+            (clickAction)="openCreateHelp()"
     ></app-breadcrumb>
 </div>
 <div class="card">
@@ -79,8 +80,11 @@
                 </p>
             </div>
             <div class="mb-3 d-flex justify-content-end">
-                <button class="btn btn-primary btn-padded">Crear usuario</button>
+                <button class="btn btn-primary btn-padded" (click)="openCreateConfirm()">Crear usuario</button>
             </div>
         </div>
     </div>
 </div>
+
+<app-user-creation-help #createHelpModal></app-user-creation-help>
+<app-user-creation-confirm #createConfirmModal></app-user-creation-confirm>
