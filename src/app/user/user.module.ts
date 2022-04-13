@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { UserCreationHelpComponent } from './components/user-creation-help/user-creation-help.component';
 import { UserCreationConfirmComponent } from './components/user-creation-confirm/user-creation-confirm.component';
+import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 
 
 
@@ -24,7 +25,8 @@ import { UserCreationConfirmComponent } from './components/user-creation-confirm
         UserTableHeaderComponent,
         UserCreatePageComponent,
         UserCreationHelpComponent,
-        UserCreationConfirmComponent
+        UserCreationConfirmComponent,
+        UserDeleteComponent
     ],
     imports: [
         CommonModule,

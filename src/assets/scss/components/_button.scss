@@ -1,4 +1,7 @@
 @import "~src/assets/scss/abstract/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 @mixin normalizer() {
   border: none;
@@ -29,6 +32,16 @@
       color: $color-primary;
     }
 
+  }
+
+  &-danger {
+
+    @include normalizer;
+    background-color: $red;
+
+    &:hover {
+      background-color: darken($red, 2%);
+    }
   }
 
   &-grey {

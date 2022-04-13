@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
+import {UserDeleteComponent} from "../../components/user-delete/user-delete.component";
 
 @Component({
   selector: 'app-main',
@@ -7,6 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./user-main-page.component.scss']
 })
 export class UserMainPageComponent implements OnInit {
+
+  @ViewChild(UserDeleteComponent) public userDeleteModal!: UserDeleteComponent;
 
   constructor(
       private router: Router
@@ -18,6 +21,11 @@ export class UserMainPageComponent implements OnInit {
   navigateCreation(): void {
     this.router.navigate(['/users/create']);
   }
+
+  openDeleteConfirm(): void {
+    this.userDeleteModal!.open();
+  }
+
 }
 
 

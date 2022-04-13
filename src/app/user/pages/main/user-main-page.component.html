@@ -7,7 +7,7 @@
     ></app-breadcrumb>
 </div>
 <div class="card">
-    <app-user-filters></app-user-filters>
+    <app-user-filters (deleteAction)="openDeleteConfirm()"></app-user-filters>
     <app-user-table-header></app-user-table-header>
     <div class="margin-grey" *ngFor="let item of [1,2,3]">
         <app-user-card ></app-user-card>
@@ -16,3 +16,5 @@
         <button class="btn btn-negative btn-padded">Cargar más...</button>
     </div>
 </div>
+
+<app-user-delete #deleteModal></app-user-delete>

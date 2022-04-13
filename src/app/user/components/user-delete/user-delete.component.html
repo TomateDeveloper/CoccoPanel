@@ -1,0 +1,22 @@
+<ng-template #userDeleteModal let-modal>
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="text-center mx-4 mb-4">
+            <img src="assets/img/delete.png" alt="Contact Help" class="w-50 mb-3">
+            <h3>Eliminar Usuario</h3>
+            <p><strong>Nombre</strong> no será eliminado completamente, pero si desaparecerá de todos los resultados de búsqueda y su acceso a la cuenta será desactivado.</p>
+            <p>
+                Nosotros no eliminamos completamente sus datos para poder llevar un registro correspondiente de las acciones realizadas por su perfil.
+            </p>
+            <div class="mb-4">
+                <span class="help"><span class="badge rounded-pill bg-danger">Cuidado:</span> Esta acción es irrevocable y su cuenta no se podrá volver a activar.</span>
+            </div>
+            <section>
+                <button class="btn btn-danger btn-rounded mx-3">Cancelar eliminación</button>
+                <a class="btn btn-grey btn-rounded mx-3" routerLink="/contacts/create">Eliminar Usuario</a>
+            </section>
+        </div>
+    </div>
+</ng-template>

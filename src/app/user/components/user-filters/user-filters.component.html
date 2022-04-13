@@ -15,7 +15,7 @@
                 <app-icon-actionable [icon]="'uil uil-pen'"></app-icon-actionable>
             </div>
             <div class="mx-3">
-                <app-icon-actionable [icon]="'uil uil-trash'"></app-icon-actionable>
+                <app-icon-actionable [icon]="'uil uil-trash'" (clickAction)="deleteAction.emit()"></app-icon-actionable>
             </div>
         </div>
     </section>
