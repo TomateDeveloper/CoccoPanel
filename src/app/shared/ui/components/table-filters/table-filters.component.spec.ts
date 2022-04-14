@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserFiltersComponent } from './user-filters.component';
+import { TableFiltersComponent } from './table-filters.component';
 
-describe('UserFiltersComponent', () => {
-  let component: UserFiltersComponent;
-  let fixture: ComponentFixture<UserFiltersComponent>;
+describe('TableFiltersComponent', () => {
+  let component: TableFiltersComponent;
+  let fixture: ComponentFixture<TableFiltersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserFiltersComponent ]
+      declarations: [ TableFiltersComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserFiltersComponent);
+    fixture = TestBed.createComponent(TableFiltersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

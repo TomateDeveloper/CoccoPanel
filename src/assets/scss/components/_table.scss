@@ -1,0 +1,13 @@
+.table-header {
+
+  border-bottom: 1px solid $color-grey-light;
+  padding: 20px 0;
+  color: $color-grey-dark;
+  font-size: 14px;
+  display: none;
+
+  @include media-breakpoint-up(xl) {
+    display: block;
+  }
+
+}

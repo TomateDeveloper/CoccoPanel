@@ -1,16 +1,17 @@
-<div class="user-filters">
-    <div class="user-filters__search">
+<div class="table-filters">
+    <ng-content></ng-content>
+    <div class="table-filters__search">
         <app-input
                 type="text"
                 placeholder="Buscar"
                 icon="uil uil-search"
         ></app-input>
     </div>
-    <section class="user-filters__actions">
-        <section class="user-filters__checkbox">
+    <section class="table-filters__actions">
+        <section class="table-filters__checkbox">
             <app-checkbox></app-checkbox>
         </section>
-        <div class="user-filters__control">
+        <div class="table-filters__control">
             <div class="mx-3">
                 <app-icon-actionable [icon]="'uil uil-pen'"></app-icon-actionable>
             </div>

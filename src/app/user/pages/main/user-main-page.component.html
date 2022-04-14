@@ -7,7 +7,7 @@
     ></app-breadcrumb>
 </div>
 <div class="card">
-    <app-user-filters (deleteAction)="openDeleteConfirm()"></app-user-filters>
+    <app-table-filters (deleteAction)="openDeleteConfirm()"></app-table-filters>
     <app-user-table-header></app-user-table-header>
     <div class="margin-grey" *ngFor="let item of [1,2,3]">
         <app-user-card ></app-user-card>
