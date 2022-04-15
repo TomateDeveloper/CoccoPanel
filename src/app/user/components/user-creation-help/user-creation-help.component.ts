@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-import {InfoModalComponent} from "../../../shared/ui/components/info-modal/info-modal.component";
+import {InfoModalComponent} from "../../../shared/ui/components/modal/info-modal/info-modal.component";
 
 @Component({
   selector: 'app-user-creation-help',

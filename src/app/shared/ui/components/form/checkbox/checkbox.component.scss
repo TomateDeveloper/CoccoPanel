@@ -1,4 +1,4 @@
-@import "../../../../../assets/scss/abstract/variables";
+@import "../../../../../../assets/scss/abstract/variables";
 
 $background: #fff;
 $border: #D1D6EE;
@@ -7,6 +7,11 @@ $border-active: $color-primary;
 $tick: #fff;
 
 .checkbox {
+
+  &__label {
+    margin-left: 10px;
+    color: $color-grey-dark;
+  }
 
   position: relative;
 

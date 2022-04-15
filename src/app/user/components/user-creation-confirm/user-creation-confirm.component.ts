@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {InfoModalComponent} from "../../../shared/ui/components/info-modal/info-modal.component";
+import {InfoModalComponent} from "../../../shared/ui/components/modal/info-modal/info-modal.component";
 
 @Component({
   selector: 'app-user-creation-confirm',

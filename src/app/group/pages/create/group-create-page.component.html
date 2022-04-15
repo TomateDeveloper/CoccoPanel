@@ -1,0 +1,105 @@
+<div class="mb-4">
+    <app-breadcrumb
+            title="Grupos"
+            sub="Crea un rol con permisos específicos para asignarle acceso a diversas partes de la plataforma a un grupo determinado de usuarios."
+    ></app-breadcrumb>
+</div>
+<div class="card mb-5">
+
+    <h3 class="mb-3">Información general</h3>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'name'"
+                        label="Nombre"
+                        [tabIndex]="1"
+                        placeholder="Ej: Administrador"
+                ></app-input>
+            </div>
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'badge'"
+                        label="Placa"
+                        [tabIndex]="2"
+                        placeholder="Ej: uil uil-users"
+                ></app-input>
+                <span class="help">* Para una lista de placas completa visita la web de <a href="https://iconscout.com/unicons/explore/line" target="_blank">Unicons.</a></span>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                <div class="color-input">
+                    <app-input
+                            [id]="'color'"
+                            label="Color"
+                            [tabIndex]="2"
+                            placeholder="Click para seleccionar un color"
+                            [cpAlphaChannel]="'disabled'"
+                            [cpCancelButton]="true"
+                            [cpPosition]="'bottom'"
+                            [cpOKButton]="true"
+                            [(colorPicker)]="color"
+                    ></app-input>
+                </div>
+            </div>
+            <div class="mb-3">
+                <app-input
+                        [id]="'priority'"
+                        label="Prioridad"
+                        type="number"
+                        [tabIndex]="2"
+                        placeholder="Ej: 100 (Entre menor el número más importa)"
+                        help="* Este nivel determinará cual es el grupo más importante de un usuario con varios grupos."
+                ></app-input>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card mb-5">
+            <h5 class="mb-3">Contactos 📚</h5>
+            <app-checkbox class="mb-3" label="Crear contactos"></app-checkbox>
+            <app-checkbox class="mb-3" label="Editar contactos"></app-checkbox>
+            <app-checkbox class="mb-3" label="Ver todos los contactos"></app-checkbox>
+            <app-checkbox class="mb-3" label="Eliminar contactos"></app-checkbox>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card mb-5">
+            <h5 class="mb-3">Productos 📦</h5>
+            <app-checkbox class="mb-3" label="Crear productos"></app-checkbox>
+            <app-checkbox class="mb-3" label="Editar productos"></app-checkbox>
+            <app-checkbox class="mb-3" label="Ver productos"></app-checkbox>
+            <app-checkbox class="mb-3" label="Eliminar productos"></app-checkbox>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card mb-5">
+            <h5 class="mb-3">Materiales ✂️</h5>
+            <app-checkbox class="mb-3" label="Crear materiales"></app-checkbox>
+            <app-checkbox class="mb-3" label="Editar materiales"></app-checkbox>
+            <app-checkbox class="mb-3" label="Ver materiales"></app-checkbox>
+            <app-checkbox class="mb-3" label="Eliminar materiales"></app-checkbox>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card mb-5">
+            <h5 class="mb-3">Administración ⭐</h5>
+            <app-checkbox class="mb-3" label="Crear y administrar usuarios"></app-checkbox>
+            <app-checkbox class="mb-3" label="Crear y administrar grupos"></app-checkbox>
+        </div>
+    </div>
+</div>
+
+<div class="mb-3 d-flex justify-content-center justify-content-lg-end">
+    <button class="btn btn-primary btn-padded" (click)="createConfirmModal.open()">Crear grupo</button>
+</div>
+
+<app-group-creation-confirm #createConfirmModal></app-group-creation-confirm>

@@ -1,0 +1,14 @@
+<app-info-modal
+    #confirmModal
+    [image]="image"
+    alt="Generic action confirm"
+    title="¿Estás seguro?"
+    firstButton="Cancelar"
+    firstClass="btn btn-grey btn-rounded"
+    (firstClickAction)="confirmModal.close('desist')"
+    secondButton="Confirmar"
+    secondClass="btn btn-primary btn-rounded"
+    (secondClickAction)="confirm.emit()"
+>
+    <p>Presiona en <strong>confirmar</strong> si estás quieres continuar realizando esta acción.</p>
+</app-info-modal>

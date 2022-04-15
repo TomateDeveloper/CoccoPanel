@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {InfoModalComponent} from "../../../shared/ui/components/info-modal/info-modal.component";
+import {InfoModalComponent} from "../../../shared/ui/components/modal/info-modal/info-modal.component";
 
 @Component({
   selector: 'app-user-delete',

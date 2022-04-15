@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoComponent } from './components/logo/logo.component';
-import { SwitchComponent } from './components/switch/switch.component';
-import { ProfileIndicatorComponent } from './components/profile-indicator/profile-indicator.component';
-import { BurgerComponent } from './components/burger/burger.component';
-import { IconActionableComponent } from './components/icon-actionable/icon-actionable.component';
-import { FloatingMenuComponent } from './components/floating-menu/floating-menu.component';
-import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
-import { InputComponent } from './components/input/input.component';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
-import { AvatarUpdateComponent } from './components/avatar-update/avatar-update.component';
-import { InfoModalComponent } from './components/info-modal/info-modal.component';
+import { LogoComponent } from './components/layout/logo/logo.component';
+import { SwitchComponent } from './components/button/switch/switch.component';
+import { ProfileIndicatorComponent } from './components/layout/profile-indicator/profile-indicator.component';
+import { BurgerComponent } from './components/layout/burger/burger.component';
+import { IconActionableComponent } from './components/button/icon-actionable/icon-actionable.component';
+import { FloatingMenuComponent } from './components/layout/floating-menu/floating-menu.component';
+import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb.component';
+import { InputComponent } from './components/form/input/input.component';
+import { CheckboxComponent } from './components/form/checkbox/checkbox.component';
+import { AvatarUpdateComponent } from './components/layout/avatar-update/avatar-update.component';
+import { InfoModalComponent } from './components/modal/info-modal/info-modal.component';
 import { TableFiltersComponent } from './components/table-filters/table-filters.component';
+import { ModalConfirmComponent } from './components/modal/modal-confirm/modal-confirm.component';
 
 
 
@@ -29,6 +30,7 @@ import { TableFiltersComponent } from './components/table-filters/table-filters.
         AvatarUpdateComponent,
         InfoModalComponent,
         TableFiltersComponent,
+        ModalConfirmComponent,
     ],
     exports: [
         LogoComponent,
@@ -42,7 +44,8 @@ import { TableFiltersComponent } from './components/table-filters/table-filters.
         CheckboxComponent,
         AvatarUpdateComponent,
         InfoModalComponent,
-        TableFiltersComponent
+        TableFiltersComponent,
+        ModalConfirmComponent
     ],
     imports: [
         CommonModule

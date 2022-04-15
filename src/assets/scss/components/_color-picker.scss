@@ -1,0 +1,58 @@
+.color-input {
+
+  .color-picker {
+    border: none;
+    background-color: darken($color-white, 3%);
+    border-radius: $radius-default;
+  }
+
+  & .input__field {
+    border: none !important;
+  }
+
+  & input {
+
+    border: 2px solid transparent !important;
+    border-radius: $radius-default;
+    transition: $transition-default;
+
+    &:focus, &:focus-visible {
+      outline: none;
+      border-color: $color-primary !important;
+    }
+
+  }
+
+  .saturation-lightness {
+    border-radius: $radius-default;
+  }
+
+  .cp-cancel-button-class, .cp-ok-button-class {
+    border: none;
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: 14px;
+    transition: $transition-default;
+    padding: 5px 15px;
+    border-radius: $radius-default;
+
+  }
+
+  .cp-cancel-button-class {
+    background-color: $color-grey-light;
+
+    &:hover {
+      background-color: darken($color-grey-light, 2%);
+    }
+  }
+
+  .cp-ok-button-class {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+  }
+
+}

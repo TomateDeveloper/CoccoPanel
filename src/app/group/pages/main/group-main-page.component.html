@@ -7,7 +7,7 @@
     ></app-breadcrumb>
 </div>
 <div class="card">
-    <app-table-filters></app-table-filters>
+    <app-table-filters (deleteAction)="deleteConfirm.open()"></app-table-filters>
     <app-group-table-header></app-group-table-header>
     <div class="margin-grey" *ngFor="let item of [1,2,3]">
         <app-group-card></app-group-card>
@@ -16,3 +16,5 @@
         <button class="btn btn-negative btn-padded">Cargar más...</button>
     </div>
 </div>
+
+<app-modal-confirm #deleteConfirm></app-modal-confirm>

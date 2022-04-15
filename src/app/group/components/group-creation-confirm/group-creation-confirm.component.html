@@ -1,0 +1,20 @@
+<app-info-modal
+    #groupCreationConfirmModal
+    image="assets/img/alert.png"
+    alt="Group creation"
+    title="Confirmar Creación"
+    firstButton="Corregir datos"
+    firstClass="btn btn-grey btn-rounded"
+    (firstClickAction)="groupCreationConfirmModal.close('desist')"
+    secondButton="Confirmar creación"
+    secondClass="btn btn-primary btn-rounded"
+    (secondClickAction)="create()"
+>
+    <p>El grupo <strong>Nombre</strong> podrá ser utilizado por <em>administradores de usuarios</em> cuando presiones el botón.</p>
+    <p>
+        Verifica dos veces si todos los permisos son correctos y evitar dar acceso a personas que no deberían conocer ciertas funciones.
+    </p>
+    <div class="mb-4">
+        <span class="help"><span class="badge rounded-pill bg-danger">No hay problema:</span> Si te equivocas, puedes modificar los permisos de un grupo nuevamente antes de empezar a añadir miembros.</span>
+    </div>
+</app-info-modal>
