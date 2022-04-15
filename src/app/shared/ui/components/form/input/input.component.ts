@@ -14,6 +14,7 @@ export class InputComponent {
   @Input() public label: string = "";
   @Input() public tabIndex: number = 0;
   @Input() public help: string = "";
+  @Input() public standaloneHelp: boolean = false;
 
   public focus: boolean = false;
 

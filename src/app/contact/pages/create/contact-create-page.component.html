@@ -1,0 +1,210 @@
+<div class="mb-4">
+    <app-breadcrumb
+            title="Contactos"
+            sub="Crea un contacto que servirá como referencia para utilizar en diversas partes de la aplicación."
+    ></app-breadcrumb>
+</div>
+
+<div class="card mb-4">
+
+    <h3 class="mb-3">Información básica</h3>
+
+    <div class="row">
+
+        <div class="col-12 col-lg-6">
+
+            <div class="mb-3">
+                <label for="type" class="input__label input__label--simple">Tipo de usuario</label>
+                <ng-select [items]="contactType"
+                           id="type"
+                           bindLabel="label"
+                           bindValue="value"
+                           [tabIndex]="1"
+                           [searchable]="false"
+                           placeholder="Seleccionar tipo de usuario"
+                >
+                </ng-select>
+            </div>
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'name'"
+                        label="Nombre"
+                        [tabIndex]="2"
+                        placeholder="Ej: Alejandro"
+                ></app-input>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-lg-6">
+
+            <div class="mb-3">
+                <label for="type" class="input__label input__label--simple">Tipo de documento</label>
+                <ng-select [items]="singleDocumentType"
+                           id="documentType"
+                           bindLabel="label"
+                           bindValue="value"
+                           [tabIndex]="3"
+                           [searchable]="false"
+                           placeholder="Seleccionar tipo de documento"
+                >
+                </ng-select>
+            </div>
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'document'"
+                        label="Identificación"
+                        [type]="'number'"
+                        [tabIndex]="4"
+                        placeholder="Ej: 1.111.110.052"
+                ></app-input>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card mb-4">
+
+    <h3 class="mb-3">Información de contacto</h3>
+
+    <div class="row">
+
+        <div class="col-12 col-lg-6">
+
+            <div class="mb-3">
+                <label for="country" class="input__label input__label--simple">País</label>
+                <ng-select [items]="countries"
+                           id="country"
+                           bindLabel="name"
+                           bindValue="isoCode"
+                           [tabIndex]="5"
+                           placeholder="Seleccionar país"
+                           (change)="updateStateList($event)"
+                >
+                    <ng-template ng-label-tmp ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                        <span>{{item.flag}}   </span>{{item.name}}
+                    </ng-template>
+                </ng-select>
+            </div>
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'city'"
+                        label="Ciudad"
+                        [tabIndex]="7"
+                        placeholder="Ej: Bogotá"
+                ></app-input>
+            </div>
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'addressSub'"
+                        label="Dirección Complementaria"
+                        [tabIndex]="9"
+                        placeholder="Ej: Torre, Apartamento, Piso."
+                        help="* Este campo es pocional"
+                ></app-input>
+            </div>
+
+            <div class="mb-3">
+
+                <app-input
+                        [id]="'postCode'"
+                        label="Código postal"
+                        [tabIndex]="11"
+                        [type]="'number'"
+                        placeholder="Ej: 111511"
+                        help="* Este campo es opcional"
+                ></app-input>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-lg-6">
+
+            <div class="mb-3">
+                <label for="state" class="input__label input__label--simple">Departamento / Estado</label>
+                <ng-select [items]="states"
+                           id="state"
+                           bindLabel="name"
+                           bindValue="isoCode"
+                           [tabIndex]="6"
+                           placeholder="Seleccionar departamento / estado"
+                           (change)="updateStateList($event)"
+                >
+                </ng-select>
+            </div>
+
+            <div class="mb-3">
+                <app-input
+                        [id]="'address'"
+                        label="Dirección"
+                        [tabIndex]="8"
+                        placeholder="Ej: Calle 1 # 2 - 3"
+                ></app-input>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="input__label input__label--simple">Teléfono</label>
+                <ngx-intl-tel-input
+                        [cssClass]="'phone-selector'"
+                        [preferredCountries]="[CountryISO.Colombia]"
+                        [enableAutoCountrySelect]="false"
+                        [enablePlaceholder]="true"
+                        [searchCountryFlag]="true"
+                        [selectFirstCountry]="false"
+                        [maxLength]="15"
+                        [phoneValidation]="true"
+                        [inputId]="'phone'"
+                        [tabindex]="10"
+                        id="phone"
+                ></ngx-intl-tel-input>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="card">
+            <div class="text-center">
+                <h3 class="mb-3">Visualización</h3>
+            </div>
+            <div class="my-2">
+                <label for="roles" class="input__label input__label--simple">¿Quienes pueden ver este contacto?</label>
+                <ng-select [items]="groupMock"
+                           id="roles"
+                           bindLabel="name"
+                           bindValue="id"
+                           [tabIndex]="5"
+                           [multiple]="true"
+                           placeholder="Seleccionar roles"
+                           labelForId="id"
+                >
+                </ng-select>
+                <span class="help">* Otros roles no podrán ver estos contactos</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <div class="card d-flex align-items-center">
+            <h3 class="mb-3">Foto de perfil</h3>
+            <div class="my-2">
+                <app-avatar-update></app-avatar-update>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="my-5 d-flex justify-content-end">
+    <button class="btn btn-primary btn-padded">Crear contacto</button>
+</div>

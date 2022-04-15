@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then(m => m.UserModule),
   },
   {
+    path: 'contacts',
+    component: SidebarLayoutComponent,
+    loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
+  },
+  {
     path: 'groups',
     component: SidebarLayoutComponent,
     loadChildren: () => import('./group/group.module').then(m => m.GroupModule),
