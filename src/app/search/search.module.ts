@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SearchWidgetComponent } from './components/search-widget/search-widget.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SearchWidgetComponent} from './components/search-widget/search-widget.component';
 
 
 @NgModule({

@@ -1,19 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {UIModule} from "../ui/ui.module";
-import { MenuComponent } from './components/menu/menu.component';
+import {MenuComponent} from './components/menu/menu.component';
 import {ProfileMenuComponent} from "./components/profile-menu/profile-menu.component";
 import {NgScrollbarModule} from "ngx-scrollbar";
 import {ResponsiveHeaderComponent} from "./components/responsive-header/responsive-header.component";
-import { SidebarLayoutComponent } from './pages/sidebar-layout/sidebar-layout.component';
-import { HeaderComponent } from './components/header/header.component';
-import { TitleComponent } from './components/title/title.component';
-import { HeaderToolbarComponent } from './components/header-toolbar/header-toolbar.component';
+import {SidebarLayoutComponent} from './pages/sidebar-layout/sidebar-layout.component';
+import {HeaderComponent} from './components/header/header.component';
+import {TitleComponent} from './components/title/title.component';
+import {HeaderToolbarComponent} from './components/header-toolbar/header-toolbar.component';
 import {NotificationModule} from "../../notification/notification.module";
 import {SearchModule} from "../../search/search.module";
 import {RouterModule} from "@angular/router";
-
 
 
 @NgModule({

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UserCreationHelpComponent } from './user-creation-help.component';
+import {UserCreationHelpComponent} from './user-creation-help.component';
 
 describe('UserCreationHelpComponent', () => {
   let component: UserCreationHelpComponent;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {MenuItem} from "../../menu-item.model";
 import {MENU} from "../../registry";
 import {Router} from "@angular/router";

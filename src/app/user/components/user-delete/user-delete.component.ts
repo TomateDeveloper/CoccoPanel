@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Component, ViewChild} from '@angular/core';
 import {InfoModalComponent} from "../../../shared/ui/components/modal/info-modal/info-modal.component";
 
 @Component({

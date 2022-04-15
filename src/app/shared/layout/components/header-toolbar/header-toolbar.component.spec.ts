@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HeaderToolbarComponent } from './header-toolbar.component';
+import {HeaderToolbarComponent} from './header-toolbar.component';
 
 describe('HeaderToolbarComponent', () => {
   let component: HeaderToolbarComponent;

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProfileMenuComponent } from './profile-menu.component';
+import {ProfileMenuComponent} from './profile-menu.component';
 
 describe('ProfileMenuComponent', () => {
   let component: ProfileMenuComponent;

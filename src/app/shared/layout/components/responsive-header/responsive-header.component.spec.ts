@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ResponsiveHeaderComponent } from './responsive-header.component';
+import {ResponsiveHeaderComponent} from './responsive-header.component';
 
 describe('ResponsiveHeaderComponent', () => {
   let component: ResponsiveHeaderComponent;

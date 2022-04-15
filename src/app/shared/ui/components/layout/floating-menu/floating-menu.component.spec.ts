@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FloatingMenuComponent } from './floating-menu.component';
+import {FloatingMenuComponent} from './floating-menu.component';
 
 describe('FloatingMenuComponent', () => {
   let component: FloatingMenuComponent;

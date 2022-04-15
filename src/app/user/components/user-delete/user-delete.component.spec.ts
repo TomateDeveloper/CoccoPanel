@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UserDeleteComponent } from './user-delete.component';
+import {UserDeleteComponent} from './user-delete.component';
 
 describe('UserDeleteComponent', () => {
   let component: UserDeleteComponent;

@@ -1,7 +1,5 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {
-  CountryISO,
-} from "ngx-intl-tel-input";
+import {Component, ViewChild} from '@angular/core';
+import {CountryISO,} from "ngx-intl-tel-input";
 import {UserCreationHelpComponent} from "../../components/user-creation-help/user-creation-help.component";
 import {UserCreationConfirmComponent} from "../../components/user-creation-confirm/user-creation-confirm.component";
 

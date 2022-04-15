@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { IconActionableComponent } from './icon-actionable.component';
+import {IconActionableComponent} from './icon-actionable.component';
 
 describe('IconActionableComponent', () => {
   let component: IconActionableComponent;

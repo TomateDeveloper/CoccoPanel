@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GroupCreatePageComponent } from './group-create-page.component';
+import {GroupCreatePageComponent} from './group-create-page.component';
 
 describe('GroupCreatePageComponent', () => {
   let component: GroupCreatePageComponent;

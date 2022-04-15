@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GroupMainPageComponent } from './group-main-page.component';
+import {GroupMainPageComponent} from './group-main-page.component';
 
 describe('GroupMainPageComponent', () => {
   let component: GroupMainPageComponent;

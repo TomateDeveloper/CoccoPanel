@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GroupTableHeaderComponent } from './group-table-header.component';
+import {GroupTableHeaderComponent} from './group-table-header.component';
 
 describe('GroupTableHeaderComponent', () => {
   let component: GroupTableHeaderComponent;

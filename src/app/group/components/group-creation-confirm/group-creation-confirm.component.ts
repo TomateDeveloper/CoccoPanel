@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {InfoModalComponent} from "../../../shared/ui/components/modal/info-modal/info-modal.component";
 
 @Component({

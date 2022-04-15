@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InfoModalComponent } from './info-modal.component';
+import {InfoModalComponent} from './info-modal.component';
 
 describe('InfoModalComponent', () => {
   let component: InfoModalComponent;

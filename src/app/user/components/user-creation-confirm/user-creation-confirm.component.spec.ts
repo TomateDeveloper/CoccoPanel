@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UserCreationConfirmComponent } from './user-creation-confirm.component';
+import {UserCreationConfirmComponent} from './user-creation-confirm.component';
 
 describe('UserCreationConfirmComponent', () => {
   let component: UserCreationConfirmComponent;
