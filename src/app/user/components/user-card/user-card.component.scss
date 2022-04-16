@@ -32,22 +32,6 @@
 
   }
 
-  &__name {
-
-    & h6 {
-      font-size: 14px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    & span {
-      font-size: 12px;
-      font-weight: 600;
-      color: $color-grey-dark;
-    }
-
-  }
-
   &__rank {
 
     display: flex;

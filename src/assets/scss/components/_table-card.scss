@@ -1,0 +1,81 @@
+.table-card {
+
+  margin: 35px 0;
+
+  &__details {
+    display: flex;
+    align-items: center;
+  }
+
+  &__main {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-up(lg) {
+      justify-content: start;
+    }
+
+    & i {
+      font-size: 40px;
+    }
+
+    & h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    & img {
+      width: 50px;
+      height: 50px;
+      margin: 0 15px;
+    }
+
+  }
+
+  &__indicator {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    margin: 15px 0;
+
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+      height: 100%;
+      flex-direction: row;
+    }
+
+    & span {
+      font-weight: 700;
+    }
+
+    & p {
+      margin: 0;
+    }
+
+  }
+
+  &__name {
+
+    & h6 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    & span {
+      font-size: 12px;
+      font-weight: 600;
+      color: $color-grey-dark;
+    }
+
+  }
+
+}

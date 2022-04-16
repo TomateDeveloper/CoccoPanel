@@ -6,13 +6,17 @@ import {UIModule} from "../shared/ui/ui.module";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { ContactMainPageComponent } from './pages/main/contact-main-page.component';
+import { ContactCardComponent } from './components/contact-card/contact-card.component';
+import { ContactTableHeaderComponent } from './components/contact-table-header/contact-table-header.component';
 
 
 
 @NgModule({
   declarations: [
     ContactCreatePageComponent,
-    ContactMainPageComponent
+    ContactMainPageComponent,
+    ContactCardComponent,
+    ContactTableHeaderComponent
   ],
     imports: [
         CommonModule,
