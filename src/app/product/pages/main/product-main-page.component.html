@@ -1,0 +1,20 @@
+<div class="mb-4">
+    <app-breadcrumb
+            title="Productos"
+            sub="Lista de productos y sus fichas técnicas para uso en una producción."
+            button="Crear producto"
+    ></app-breadcrumb>
+</div>
+
+<div class="card">
+    <app-table-filters (deleteAction)="deleteConfirm.open()"></app-table-filters>
+    <app-product-table-header></app-product-table-header>
+    <div class="margin-grey" *ngFor="let item of [1,2,3]">
+        <app-product-card></app-product-card>
+    </div>
+    <div class="d-flex mt-4 justify-content-center">
+        <button class="btn btn-negative btn-padded">Cargar más...</button>
+    </div>
+</div>
+
+<app-modal-confirm #deleteConfirm></app-modal-confirm>

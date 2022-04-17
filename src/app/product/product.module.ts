@@ -11,6 +11,9 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import { ProductBreakdownGroupComponent } from './components/breakdown-group/product-breakdown-group.component';
 import { ProductLaborComponent } from './components/labor/product-labor.component';
 import { ProductLaborItemComponent } from './components/labor-item/product-labor-item.component';
+import { ProductMainPageComponent } from './pages/main/product-main-page.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductTableHeaderComponent } from './components/product-table-header/product-table-header.component';
 
 
 
@@ -22,7 +25,10 @@ import { ProductLaborItemComponent } from './components/labor-item/product-labor
     ProductBreakdownComponent,
     ProductBreakdownGroupComponent,
     ProductLaborComponent,
-    ProductLaborItemComponent
+    ProductLaborItemComponent,
+    ProductMainPageComponent,
+    ProductCardComponent,
+    ProductTableHeaderComponent,
   ],
     imports: [
         CommonModule,
