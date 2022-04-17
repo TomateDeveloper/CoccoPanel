@@ -1,0 +1,66 @@
+<div class="mb-4">
+    <app-breadcrumb
+            title="Productos"
+            sub="Crea un producto con su ficha técnica para poder generar más adelante una orden de producción."
+    ></app-breadcrumb>
+</div>
+
+<form [formGroup]="createForm" (ngSubmit)="saveForm()">
+
+    <!-- Product basic info -->
+
+    <div class="card mb-5">
+        <div class="row">
+
+            <div class="col-12 col-lg-5">
+                <h4 class="mb-4">Crear producto</h4>
+                <app-product-identity-form [form]="createForm"></app-product-identity-form>
+            </div>
+
+            <app-product-summary
+                    class="col-12 col-lg-7 text-end d-flex flex-column justify-content-center"
+                    [form]="createForm"
+                    [materials]="material"
+            ></app-product-summary>
+
+        </div>
+    </div>
+
+    <div *ngFor="let control of formHelper.getArrayFromControl(createForm.controls['breakdownGroup']).controls; let i = index" class="card mb-5">
+        <app-product-breakdown-group
+                [breakdownGroup]="formHelper.getGroupFromAbstract(control)"
+                [form]="createForm"
+                [materials]="material"
+                (removeGroup)="removeBreakdownGroup(i)"
+        >
+        </app-product-breakdown-group>
+    </div>
+
+    <div class="card mb-5">
+        <app-product-labor
+                [laborGroup]="formHelper.getGroupFromAbstract(createForm.controls['labors'])"
+                (addLabor)="addLabor()"
+        ></app-product-labor>
+    </div>
+
+    <section class="d-flex justify-content-end w-100">
+        <button
+                type="submit"
+                class="btn btn-primary btn-padded h-auto mx-3"
+                (click)="addBreakdownGroup()"
+        >
+            <i class="uil uil-trash"></i>
+            Añadir Sección
+        </button>
+        <button
+                type="submit"
+                class="btn btn-primary btn-padded h-auto"
+                (click)="saveForm()"
+                [disabled]="!createForm.valid"
+        >
+            <i class="uil uil-save"></i>
+            Guardar Ficha
+        </button>
+    </section>
+
+</form>

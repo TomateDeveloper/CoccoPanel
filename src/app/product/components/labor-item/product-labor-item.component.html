@@ -1,0 +1,33 @@
+<ng-container [formGroup]="formHelper.getGroupFromAbstract(laborItem)">
+
+    <!-- Labor basic input -->
+
+    <section class="col-12 col-lg-3">
+        <app-input
+                [id]="'name'"
+                type="string"
+                placeholder="Nombre"
+                [standaloneHelp]="true"
+        ></app-input>
+    </section>
+
+    <section class="col-12 col-lg-3">
+        <app-input
+                [id]="'price'"
+                type="string"
+                placeholder="Precio"
+                [standaloneHelp]="true"
+        ></app-input>
+    </section>
+
+    <!-- Labor basic controls -->
+
+    <div class="col-12 col-lg-2 d-flex justify-content-center">
+        <app-icon-actionable
+                icon="uil uil-trash"
+                [disabled]="formHelper.getArrayFromControl(labor).controls.length < 2"
+                (clickAction)="emitRemovalEvent()"
+        ></app-icon-actionable>
+    </div>
+
+</ng-container>

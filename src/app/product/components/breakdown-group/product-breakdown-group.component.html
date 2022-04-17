@@ -1,0 +1,69 @@
+<ng-container [formGroup]="formHelper.getGroupFromAbstract(breakdownGroup)">
+
+    <!-- Input name of breakdown group -->
+
+    <div class="row mb-4">
+
+        <div class="col-12 col-md-6">
+            <app-input
+                    [id]="'breakdownName'"
+                    type="string"
+                    placeholder="Nombre de sección"
+            ></app-input>
+        </div>
+
+        <!-- Controls for breakdown add/removal -->
+
+        <div class="col-12 col-md-6 d-flex justify-content-end ">
+            <section class="mx-3">
+                <button
+                        type="submit"
+                        class="btn btn-primary btn-padded h-auto"
+                        [disabled]="formHelper.getArrayFromControl(form.controls['breakdownGroup']).length < 2"
+                        (click)="emitRemovalEvent()"
+                >
+                    <i class="uil uil-trash"></i>
+                    Eliminar Sección
+                </button>
+            </section>
+            <app-icon-actionable icon="uil uil-plus" (clickAction)="addBreakdown(formHelper.getArrayFromControl(breakdownGroup))"></app-icon-actionable>
+        </div>
+
+    </div>
+
+    <!-- Headers -->
+
+    <div class="row mb-3">
+
+        <section class="col-12 col-lg-2">
+            <strong class="d-block" style="margin-left: 15px;">Área</strong>
+        </section>
+
+        <section class="col-12 col-lg-3">
+            <strong class="d-block" style="margin-left: 15px;">Nombre Moldura</strong>
+        </section>
+
+        <section class="col-12 col-lg-3">
+            <strong class="d-block" style="margin-left: 15px;">Material</strong>
+        </section>
+
+        <section class="col-12 col-lg-1 d-flex align-items-center">
+            <strong>Uso</strong>
+        </section>
+
+        <section class="col-12 col-lg-1 d-flex align-items-center">
+            <strong class="m-0">Costo</strong>
+        </section>
+
+    </div>
+
+    <app-product-breakdown
+            *ngFor="let breakdown of formHelper.getArrayFromControl(breakdownGroup.controls['breakdowns']).controls; let b = index"
+            [breakdown]="breakdown"
+            [breakdownGroup]="breakdownGroup"
+            [materials]="materials"
+            (remove)="removeBreakdown(breakdownGroup, b)"
+            class="row mb-4"
+    ></app-product-breakdown>
+
+</ng-container>

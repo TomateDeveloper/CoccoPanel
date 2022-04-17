@@ -1,0 +1,44 @@
+<ng-container [formGroup]="formHelper.getGroupFromAbstract(laborGroup)">
+
+    <!-- Input name of breakdown group -->
+
+    <div class="row mb-4">
+
+        <div class="col-12 col-md-6">
+            <h4>Mano de obra</h4>
+        </div>
+
+        <div class="col-12 col-md-6 d-flex justify-content-end">
+            <section style="margin-left: 10px;">
+                <app-icon-actionable
+                        icon="uil uil-plus"
+                        (click)="emitAddEvent()"
+                ></app-icon-actionable>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Headers -->
+
+    <div class="row mb-3">
+
+        <section class="col-12 col-lg-3">
+            <strong class="d-block" style="margin-left: 15px;">Nombre</strong>
+        </section>
+
+        <section class="col-12 col-lg-3">
+            <strong class="d-block" style="margin-left: 15px;">Valor</strong>
+        </section>
+
+    </div>
+
+    <app-product-labor-item
+            *ngFor="let item of formHelper.getArrayFromControl(laborGroup).controls; let b = index"
+            [labor]="laborGroup"
+            [laborItem]="formHelper.getGroupFromAbstract(item)"
+            (removeLabor)="removeLaborGroup(b)"
+            class="row mb-4"
+    ></app-product-labor-item>
+
+</ng-container>

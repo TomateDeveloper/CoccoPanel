@@ -17,6 +17,11 @@
     @include normalizer;
     background-color: $color-primary;
 
+    &:disabled {
+      @include normalizer;
+      background-color: $color-grey-dark;
+    }
+
     &:hover {
       background-color: darken($color-primary, 5%);
     }

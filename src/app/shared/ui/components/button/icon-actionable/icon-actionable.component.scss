@@ -38,4 +38,10 @@
     box-shadow: $shadow-basic;
   }
 
+  &--disabled {
+    background-color: $color-grey-medium;
+    cursor: default;
+    color: $color-white;
+  }
+
 }

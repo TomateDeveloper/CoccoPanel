@@ -1,7 +1,8 @@
 <div
         class="actionable"
         [class.actionable--active]="active"
-        (click)="clickAction.emit()"
+        [class.actionable--disabled]="disabled"
+        (click)="emitAction()"
 >
     <i [class]="icon"></i>
     <span class="actionable__indicator" *ngIf="indicator !== ''">{{indicator}}</span>

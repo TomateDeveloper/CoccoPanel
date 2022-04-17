@@ -1,16 +1,16 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {MaterialCreatePageComponent} from "./pages/create/material-create-page.component";
-import {MaterialMainPageComponent} from "./pages/main/material-main-page.component";
+import {ProductCreatePageComponent} from "./pages/create/product-create-page.component";
 
 const routes: Routes = [
+    /*
     {
         path: '',
         component: MaterialMainPageComponent
-    },
+    },*/
     {
         path: 'create',
-        component: MaterialCreatePageComponent
+        component: ProductCreatePageComponent
     },
 ];
 
@@ -18,4 +18,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class MaterialRoutingModule { }
+export class ProductRoutingModule { }

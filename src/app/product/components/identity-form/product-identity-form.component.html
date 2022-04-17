@@ -1,0 +1,25 @@
+<ng-container [formGroup]="form">
+
+    <div class="mb-2">
+        <app-input
+                [id]="'name'"
+                icon="uil uil-bag"
+                placeholder="Nombre del producto"
+                type="text"
+                [tabIndex]="0"
+        >
+        </app-input>
+    </div>
+
+    <div class="mb-2">
+        <app-input
+                [id]="'referencia'"
+                icon="uil uil-tag-alt"
+                placeholder="Referencia"
+                type="text"
+                [tabIndex]="1"
+        >
+        </app-input>
+    </div>
+
+</ng-container>

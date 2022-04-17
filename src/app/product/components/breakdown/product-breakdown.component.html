@@ -1,0 +1,59 @@
+<ng-container [formGroup]="formHelper.getGroupFromAbstract(breakdown)">
+
+    <!-- Breakdown basic input -->
+
+    <section class="col-12 col-lg-2 ">
+        <app-input
+                [id]="'area'"
+                type="number"
+                placeholder="Area"
+                [standaloneHelp]="true"
+        >
+        </app-input>
+    </section>
+
+    <section class="col-12 col-lg-3">
+        <app-input
+                [id]="'mold'"
+                type="string"
+                placeholder="Moldura"
+                [standaloneHelp]="true"
+        >
+        </app-input>
+    </section>
+
+    <section class="col-12 col-lg-3">
+        <ng-select [items]="materials"
+                   id="type"
+                   bindLabel="name"
+                   bindValue="_id"
+                   [searchable]="false"
+                   formControlName="material"
+                   placeholder="Seleccionar"
+        >
+        </ng-select>
+    </section>
+
+    <!-- Breakdown consume indicators -->
+
+    <section class="col-12 col-lg-1 d-flex align-items-center">
+        <p class="m-0">{{productHelper.getConsumeFromControl(breakdown, materials).consume | number : '1.3-3'}}</p>
+    </section>
+
+    <section class="col-12 col-lg-1 d-flex align-items-center">
+        <p class="m-0">
+            {{productHelper.getConsumeFromControl(breakdown, materials).cost | currency :'USD' : 'symbol' : '1.0-0'}}
+        </p>
+    </section>
+
+    <!-- Breakdown basic controls -->
+
+    <div class="col-12 col-lg-2 d-flex justify-content-center">
+        <app-icon-actionable
+                icon="uil uil-trash"
+                [disabled]="formHelper.getArrayFromControl(breakdownGroup.controls['breakdowns']).controls.length < 2"
+                (clickAction)="emitRemovalEvent()"
+        ></app-icon-actionable>
+    </div>
+
+</ng-container>
