@@ -14,7 +14,7 @@
 
         <!-- Controls for breakdown add/removal -->
 
-        <div class="col-12 col-md-6 d-flex justify-content-end ">
+        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-sm-end">
             <section class="mx-3">
                 <button
                         type="submit"
@@ -23,7 +23,7 @@
                         (click)="emitRemovalEvent()"
                 >
                     <i class="uil uil-trash"></i>
-                    Eliminar Sección
+                    <span class="d-none d-lg-inline">Eliminar Sección</span>
                 </button>
             </section>
             <app-icon-actionable icon="uil uil-plus" (clickAction)="addBreakdown(formHelper.getArrayFromControl(breakdownGroup))"></app-icon-actionable>
@@ -33,7 +33,7 @@
 
     <!-- Headers -->
 
-    <div class="row mb-3">
+    <div class="row mb-3 d-none d-lg-flex">
 
         <section class="col-12 col-lg-2">
             <strong class="d-block" style="margin-left: 15px;">Área</strong>

@@ -2,7 +2,7 @@
 
     <!-- Breakdown basic input -->
 
-    <section class="col-12 col-lg-2 ">
+    <section class="col-12 col-lg-2 my-2 m-lg-0">
         <app-input
                 [id]="'area'"
                 type="number"
@@ -12,7 +12,7 @@
         </app-input>
     </section>
 
-    <section class="col-12 col-lg-3">
+    <section class="col-12 col-lg-3 my-2 m-lg-0">
         <app-input
                 [id]="'mold'"
                 type="string"
@@ -22,7 +22,7 @@
         </app-input>
     </section>
 
-    <section class="col-12 col-lg-3">
+    <section class="col-12 col-lg-3 my-2 m-lg-0">
         <ng-select [items]="materials"
                    id="type"
                    bindLabel="name"
@@ -36,11 +36,13 @@
 
     <!-- Breakdown consume indicators -->
 
-    <section class="col-12 col-lg-1 d-flex align-items-center">
+    <section class="col-6 col-lg-1 d-flex align-items-center flex-column flex-lg-row my-3 my-lg-0">
+        <h6 class="d-lg-none">Uso</h6>
         <p class="m-0">{{productHelper.getConsumeFromControl(breakdown, materials).consume | number : '1.3-3'}}</p>
     </section>
 
-    <section class="col-12 col-lg-1 d-flex align-items-center">
+    <section class="col-6 col-lg-1 d-flex align-items-center flex-column flex-lg-row my-3 my-lg-0">
+        <h6 class="d-lg-none">Costo</h6>
         <p class="m-0">
             {{productHelper.getConsumeFromControl(breakdown, materials).cost | currency :'USD' : 'symbol' : '1.0-0'}}
         </p>
