@@ -22,4 +22,8 @@ export class MenuComponent {
     return item.link === url;
   }
 
+  public navigate(route: string): void {
+    this.router.navigate([route]);
+  }
+
 }

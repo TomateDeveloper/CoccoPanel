@@ -7,6 +7,7 @@
                         [name]="sub.title"
                         [icon]="sub.icon"
                         [active]="isActive(sub)"
+                        (clickAction)="navigate(sub.link)"
                 ></app-switch>
             </li>
         </ul>
