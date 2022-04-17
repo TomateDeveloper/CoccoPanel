@@ -1,0 +1,19 @@
+<div class="mb-4">
+    <app-breadcrumb
+            title="Materiales"
+            sub="Lista de materiales que se utilizan para gestionar la ficha técnica de un artículo."
+    ></app-breadcrumb>
+</div>
+
+<div class="card">
+    <app-table-filters (deleteAction)="deleteConfirm.open()"></app-table-filters>
+    <app-material-table-header></app-material-table-header>
+    <div class="margin-grey" *ngFor="let item of [1,2,3]">
+        <app-material-card></app-material-card>
+    </div>
+    <div class="d-flex mt-4 justify-content-center">
+        <button class="btn btn-negative btn-padded">Cargar más...</button>
+    </div>
+</div>
+
+<app-modal-confirm #deleteConfirm></app-modal-confirm>

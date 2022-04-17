@@ -13,6 +13,7 @@ import {AvatarUpdateComponent} from './components/layout/avatar-update/avatar-up
 import {InfoModalComponent} from './components/modal/info-modal/info-modal.component';
 import {TableFiltersComponent} from './components/table-filters/table-filters.component';
 import {ModalConfirmComponent} from './components/modal/modal-confirm/modal-confirm.component';
+import { BiSelectorComponent } from './components/button/bi-selector/bi-selector.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {ModalConfirmComponent} from './components/modal/modal-confirm/modal-conf
         InfoModalComponent,
         TableFiltersComponent,
         ModalConfirmComponent,
+        BiSelectorComponent,
     ],
     exports: [
         LogoComponent,
@@ -44,7 +46,8 @@ import {ModalConfirmComponent} from './components/modal/modal-confirm/modal-conf
         AvatarUpdateComponent,
         InfoModalComponent,
         TableFiltersComponent,
-        ModalConfirmComponent
+        ModalConfirmComponent,
+        BiSelectorComponent
     ],
     imports: [
         CommonModule

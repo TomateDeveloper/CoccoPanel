@@ -1,0 +1,11 @@
+<app-info-modal
+    #materialCreateHelpModal
+    title="¿Unidad o metraje?"
+    firstButton="Entendido"
+    firstClass="btn btn-primary btn-rounded"
+    (firstClickAction)="materialCreateHelpModal.close('desist')"
+>
+    <p>Al momento de crear un producto se utilizará la distinción entre unidad y metraje para saber si el material perteneciente a la ficha técnica.</p>
+    <p>La diferencia consiste en computar la medida de la pieza indicada en los centimetros junto al ancho del material para calcular su costo.</p>
+    <p>Si el material es unitario <em>(Ej: Herrajes o sliders)</em> debes seleccionar unidad, pero si por el contrario, tu material se vende por metros <em>(Ej: Tela o Sintético)</em>.</p>
+</app-info-modal>

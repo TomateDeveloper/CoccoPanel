@@ -18,6 +18,11 @@ const routes: Routes = [
     component: SidebarLayoutComponent,
     loadChildren: () => import('./group/group.module').then(m => m.GroupModule),
   },
+  {
+    path: 'materials',
+    component: SidebarLayoutComponent,
+    loadChildren: () => import('./material/material.module').then(m => m.MaterialModule),
+  },
 ];
 
 @NgModule({

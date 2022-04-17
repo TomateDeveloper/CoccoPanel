@@ -4,17 +4,19 @@
     </div>
     <div class="modal-body">
         <div class="text-center mx-4 mb-4">
-            <img [src]="image" [alt]="alt" class="w-50 mb-3">
+            <img *ngIf="image !== ''" [src]="image" [alt]="alt" class="w-50 mb-3">
             <h3>{{title}}</h3>
             <div [innerHTML]="content"></div>
             <section>
                 <ng-content></ng-content>
                 <button
+                        *ngIf="firstButton !== ''"
                         class="mx-3"
                         [class]="firstClass"
                         (click)="firstClickAction.emit()"
                 >{{firstButton}}</button>
                 <button
+                        *ngIf="secondButton !== ''"
                         class="mx-3"
                         [class]="secondClass"
                         (click)="secondClickAction.emit()"
