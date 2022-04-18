@@ -1,0 +1,40 @@
+@import "~src/assets/scss/abstract/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.product-info {
+
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius-default;
+  background-color: darken($color-white, 3%);
+  padding: 10px;
+  text-align: center;
+
+  @include media-breakpoint-up(xl) {
+    padding: 30px;
+  }
+
+  & img {
+    height: 200px;
+    border-radius: $radius-default;
+    object-fit: cover;
+  }
+
+  & h5 {
+    margin: 20px 0;
+    font-size: 20px;
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    @include media-breakpoint-up(xl) {
+      flex-direction: row;
+    }
+  }
+
+}

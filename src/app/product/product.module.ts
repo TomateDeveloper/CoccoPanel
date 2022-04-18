@@ -14,6 +14,10 @@ import { ProductLaborItemComponent } from './components/labor-item/product-labor
 import { ProductMainPageComponent } from './pages/main/product-main-page.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductTableHeaderComponent } from './components/product-table-header/product-table-header.component';
+import { ProductViewPageComponent } from './pages/view/product-view-page.component';
+import { ProductInfoComponent } from './components/product-info/product-info.component';
+import { BreakdownInfoComponent } from './components/breakdown-info/breakdown-info.component';
+import {NgScrollbarModule} from "ngx-scrollbar";
 
 
 
@@ -29,13 +33,17 @@ import { ProductTableHeaderComponent } from './components/product-table-header/p
     ProductMainPageComponent,
     ProductCardComponent,
     ProductTableHeaderComponent,
+    ProductViewPageComponent,
+    ProductInfoComponent,
+    BreakdownInfoComponent,
   ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
         UIModule,
         ProductRoutingModule,
-        NgSelectModule
+        NgSelectModule,
+        NgScrollbarModule
     ]
 })
 export class ProductModule { }
