@@ -34,6 +34,7 @@
                     <button
                             type="submit"
                             class="btn btn-primary btn-padded h-auto mx-3"
+                            (click)="generateModal.open()"
                     >
                         <i class="uil uil-download-alt"></i>
                         Descargar ficha técnica
@@ -45,3 +46,5 @@
     </div>
 
 </div>
+
+<app-generate-product-modal #generateModal></app-generate-product-modal>

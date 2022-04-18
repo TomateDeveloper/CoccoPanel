@@ -18,6 +18,9 @@ import { ProductViewPageComponent } from './pages/view/product-view-page.compone
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { BreakdownInfoComponent } from './components/breakdown-info/breakdown-info.component';
 import {NgScrollbarModule} from "ngx-scrollbar";
+import { GenerateProductModalComponent } from './components/generate-product-modal/generate-product-modal.component';
+import { ProductSheetComponent } from './components/product-sheet/product-sheet.component';
+import {NgxPrintModule} from "ngx-print";
 
 
 
@@ -36,6 +39,8 @@ import {NgScrollbarModule} from "ngx-scrollbar";
     ProductViewPageComponent,
     ProductInfoComponent,
     BreakdownInfoComponent,
+    GenerateProductModalComponent,
+    ProductSheetComponent,
   ],
     imports: [
         CommonModule,
@@ -43,7 +48,8 @@ import {NgScrollbarModule} from "ngx-scrollbar";
         UIModule,
         ProductRoutingModule,
         NgSelectModule,
-        NgScrollbarModule
+        NgScrollbarModule,
+        NgxPrintModule
     ]
 })
 export class ProductModule { }
