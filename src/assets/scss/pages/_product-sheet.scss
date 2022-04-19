@@ -1,0 +1,54 @@
+@import "~src/assets/scss/abstract/variables";
+
+.product-sheet {
+
+  &__header {
+
+    display: flex;
+    justify-content: space-between;
+
+    & h6 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    & ul {
+      list-style: none;
+      padding: 0;
+    }
+
+  }
+
+  &__reference {
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+  }
+
+  &__costs {
+    text-align: end;
+    font-size: 14px;
+  }
+
+  &__breakdown {
+    margin: 15px 0;
+  }
+
+  &__breakdown-header {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 10px 0;
+  }
+
+  &__breakdown-content {
+    font-size: 14px;
+    padding: 5px 0;
+    border-top: 1px solid $color-grey-light;
+
+    &:last-of-type {
+      border-bottom: 1px solid $color-grey-light;
+    }
+
+  }
+
+}

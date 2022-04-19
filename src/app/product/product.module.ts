@@ -21,6 +21,7 @@ import {NgScrollbarModule} from "ngx-scrollbar";
 import { GenerateProductModalComponent } from './components/generate-product-modal/generate-product-modal.component';
 import { ProductSheetComponent } from './components/product-sheet/product-sheet.component';
 import {NgxPrintModule} from "ngx-print";
+import { ProductOrderSheetComponent } from './components/product-order-sheet/product-order-sheet.component';
 
 
 
@@ -41,6 +42,7 @@ import {NgxPrintModule} from "ngx-print";
     BreakdownInfoComponent,
     GenerateProductModalComponent,
     ProductSheetComponent,
+    ProductOrderSheetComponent,
   ],
     imports: [
         CommonModule,

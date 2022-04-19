@@ -1,12 +1,18 @@
 <div class="product-sheet">
 
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="my-3">
+            <app-logo [width]="150"></app-logo>
+        </div>
+        <h6>17 de abril de 2022</h6>
+    </div>
+
     <section class="product-sheet__header">
 
         <section class="product-sheet__reference">
 
-            <app-logo></app-logo>
 
-            <h6>Ficha de costos</h6>
+            <h6>Ficha técnica</h6>
 
             <ul>
                 <li><strong>Referencia:</strong> Andy Gris</li>
@@ -18,63 +24,65 @@
 
         <section class="product-sheet__costs">
 
-            <h6>17 de abril de 2022</h6>
-
             <ul>
-                <li><strong>Referencia:</strong> Andy Gris</li>
-                <li><strong>Cantidad:</strong> 120</li>
-                <li><strong>Remisión:</strong> 115</li>
+                <li><strong>Costo por unidad:</strong> $10.000</li>
+                <li><strong>Precio de venta:</strong> $30.000</li>
+                <li><strong>Utilidad unidad:</strong> $8.000</li>
+                <li><strong>Costo total:</strong> $8.000</li>
+                <li><strong>Utilidad total:</strong> $30.000</li>
             </ul>
 
         </section>
 
     </section>
 
-    <article class="product-sheet__breakdown">
+    <article *ngFor="let i of [1,2]" class="product-sheet__breakdown">
 
-        <h6>Materiales sintéticos</h6>
+        <h3>Materiales sintéticos</h3>
 
         <div class="product-sheet__breakdown-header">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-1"></div>
-                <div class="col-3"></div>
-                <div class="col-2"></div>
-                <div class="col-1"></div>
-                <div class="col-1"></div>
-                <div class="col-2"></div>
+                <div class="col-2">Molde</div>
+                <div class="col-1">Area</div>
+                <div class="col-3">Material</div>
+                <div class="col-2">Precio (m)</div>
+                <div class="col-1">Uso</div>
+                <div class="col-1">Costo</div>
+                <div class="col-2">Costo Total</div>
             </div>
         </div>
 
-        <div class="product-sheet__breakdown-content">
+        <div *ngFor="let a of [1,2,3,4,5,6]" class="product-sheet__breakdown-content">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-1"></div>
-                <div class="col-3"></div>
-                <div class="col-2"></div>
-                <div class="col-1"></div>
-                <div class="col-1"></div>
-                <div class="col-2"></div>
+                <div class="col-2">Frente</div>
+                <div class="col-1">1820</div>
+                <div class="col-3">Gris Grueso</div>
+                <div class="col-2">$25.000</div>
+                <div class="col-1">0,130</div>
+                <div class="col-1">$3.250</div>
+                <div class="col-2">$390.000</div>
             </div>
         </div>
 
     </article>
 
-    <article class="product-sheet__labor">
+    <article class="product-sheet__breakdown" style="width: 50%;">
 
-        <div class="product-sheet__labor-header">
+        <h3>Mano de obra</h3>
+
+        <div class="product-sheet__breakdown-header">
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-2"></div>
-                <div class="col-2"></div>
+                <div class="col-4">Tipo</div>
+                <div class="col-2">Precio</div>
+                <div class="col-2">Total</div>
             </div>
         </div>
 
-        <div class="product-sheet__labor-content">
+        <div *ngFor="let j of [1,2,3]" class="product-sheet__breakdown-content">
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-2"></div>
-                <div class="col-2"></div>
+                <div class="col-4">Armado</div>
+                <div class="col-2">$8.000</div>
+                <div class="col-2">$390.000</div>
             </div>
         </div>
 

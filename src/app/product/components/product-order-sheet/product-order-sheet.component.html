@@ -1,0 +1,57 @@
+<div class="product-sheet">
+
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="my-3">
+            <app-logo [width]="150"></app-logo>
+        </div>
+        <h6>17 de abril de 2022</h6>
+    </div>
+
+    <section class="product-sheet__header justify-content-end text-end">
+
+        <section class="product-sheet__reference">
+
+
+            <h6>Ficha técnica</h6>
+
+            <ul>
+                <li><strong>Referencia:</strong> Andy Gris</li>
+                <li><strong>Cantidad:</strong> 120</li>
+                <li><strong>Remisión:</strong> 115</li>
+            </ul>
+
+        </section>
+
+    </section>
+
+    <div class="row">
+
+        <div *ngFor="let i of [1,2]" class="col-6">
+
+            <article class="product-sheet__breakdown">
+
+                <h3>{{i == 1 ? 'Materiales' : 'Varios'}}</h3>
+
+                <div class="product-sheet__breakdown-header">
+                    <div class="row">
+                        <div class="col-4">Material</div>
+                        <div class="col-2">Total por unidad</div>
+                        <div class="col-2">Total</div>
+                    </div>
+                </div>
+
+                <div *ngFor="let j of [1,2,3]" class="product-sheet__breakdown-content">
+                    <div class="row">
+                        <div class="col-4">Seda</div>
+                        <div class="col-2">0,55</div>
+                        <div class="col-2">66,00</div>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</div>

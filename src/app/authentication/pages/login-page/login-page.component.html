@@ -1,0 +1,54 @@
+<div class="login__background">
+
+    <section class="login">
+
+        <div class="login__boarding">
+            <section class="d-flex flex-column align-items-center">
+                <img src="assets/img/login.png" alt="Login image">
+                <div class="mt-4">
+                    <h3>Bienvenido de vuelta</h3>
+                    <p>Inicia sesión para continuar</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="login__container">
+
+            <section class="px-0 px-md-5 w-100 login__form">
+
+                <div class="my-4 text-center">
+                    <app-logo [width]="150"></app-logo>
+                </div>
+
+                <div class="my-2">
+                    <app-input
+                            [id]="'email'"
+                            placeholder="nombre@micorreo.com"
+                            label="Correo electrónico"
+                            type="email"
+                    >
+                    </app-input>
+                </div>
+                <div class="my-2">
+                    <app-input
+                            [id]="'password'"
+                            placeholder="Ingresa tu contraseña"
+                            label="Contraseña"
+                            type="password"
+                    >
+                    </app-input>
+                </div>
+
+                <button class="btn btn-primary btn-padded w-100 my-2">Iniciar sesión</button>
+
+                <div class="text-center mt-3">
+                    <span class="login__help">¿No tienes acceso? <a href="#">Solicita acceso</a></span>
+                </div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+</div>
