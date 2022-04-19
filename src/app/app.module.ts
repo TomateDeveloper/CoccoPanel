@@ -7,6 +7,8 @@ import {LayoutModule} from "./shared/layout/layout.module";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {AngularFireModule} from "@angular/fire/compat";
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
     declarations: [
@@ -18,7 +20,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
         AppRoutingModule,
         LayoutModule,
         NgxIntlTelInputModule,
-        NgbModule
+        NgbModule,
+        AngularFireModule.initializeApp(environment.firebase)
     ],
     providers: [],
     bootstrap: [AppComponent]
