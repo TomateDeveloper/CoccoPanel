@@ -14,6 +14,7 @@ import {InfoModalComponent} from './components/modal/info-modal/info-modal.compo
 import {TableFiltersComponent} from './components/table-filters/table-filters.component';
 import {ModalConfirmComponent} from './components/modal/modal-confirm/modal-confirm.component';
 import { BiSelectorComponent } from './components/button/bi-selector/bi-selector.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { BiSelectorComponent } from './components/button/bi-selector/bi-selector
         BiSelectorComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
     ]
 })
 export class UIModule { }

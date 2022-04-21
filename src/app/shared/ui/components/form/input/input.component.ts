@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-input',
@@ -14,6 +15,10 @@ export class InputComponent {
   @Input() public label: string = "";
   @Input() public tabIndex: number = 0;
   @Input() public help: string = "";
+  @Input() public controlName: string = "";
+  @Input() public controlGroup?: FormGroup;
+  @Input() public invalid: boolean = true;
+  @Input() public invalidHelp: string = "";
   @Input() public standaloneHelp: boolean = false;
 
   public focus: boolean = false;

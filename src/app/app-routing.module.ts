@@ -5,7 +5,7 @@ import {SidebarLayoutComponent} from "./shared/layout/pages/sidebar-layout/sideb
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule),
+    loadChildren: () => import('./auth/authentication.module').then(m => m.AuthenticationModule),
   },
   {
     path: 'users',
