@@ -13,6 +13,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {AuthEffects} from "./auth/store/auth.effects";
 import {AuthService} from "./auth/store/auth.service";
 import {HttpClientModule} from "@angular/common/http";
+import {MaterialEffects} from "./material/store/material.effects";
 
 @NgModule({
     declarations: [
@@ -36,7 +37,7 @@ import {HttpClientModule} from "@angular/common/http";
                 }
             }
         ),
-        EffectsModule.forRoot([AuthEffects]),
+        EffectsModule.forRoot([AuthEffects, MaterialEffects]),
     ],
     providers: [
         AuthService

@@ -14,4 +14,9 @@ export class ModalConfirmComponent {
   open(): void {
     this.confirmModal!.open();
   }
+
+  close(): void {
+    this.confirmModal!.close();
+  }
+
 }

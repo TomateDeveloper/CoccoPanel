@@ -1,82 +1,105 @@
-<div class="mb-4">
-    <app-breadcrumb
-            title="Materiales"
-            sub="Crea un material que se utilizará para gestionar la ficha técnica de un artículo."
-    ></app-breadcrumb>
-</div>
+<form [formGroup]="createForm" (ngSubmit)="confirmModal!.open()">
 
-<div class="card mb-4">
-
-    <div class="d-flex justify-content-between mb-3 flex-column flex-md-row align-items-center align-items-lg-start">
-        <h3 class="mb-3 m-md-0">Datos básicos</h3>
-        <section class="d-flex align-items-center flex-column flex-md-row">
-            <app-bi-selector firstOption="Unidad" secondOption="Metraje"></app-bi-selector>
-            <div class="mx-3">
-                <app-icon-actionable icon="uil uil-question-circle" (clickAction)="helpModal.open()"></app-icon-actionable>
-            </div>
-        </section>
+    <div class="mb-4">
+        <app-breadcrumb
+                title="Materiales"
+                sub="Crea un material que se utilizará para gestionar la ficha técnica de un artículo."
+        ></app-breadcrumb>
     </div>
 
-    <div class="row">
+    <div class="card mb-4">
 
-        <div class="col-12 col-lg-6">
+        <div class="d-flex justify-content-between mb-3 flex-column flex-md-row align-items-center align-items-lg-start">
+            <h3 class="mb-3 m-md-0">Datos básicos</h3>
+            <section class="d-flex align-items-center flex-column flex-md-row">
+                <app-bi-selector
+                        firstOption="Unidad"
+                        secondOption="Metraje"
+                        [controlName]="'measurable'"
+                        [controlGroup]="createForm"
+                ></app-bi-selector>
+                <div class="mx-3">
+                    <app-icon-actionable
+                            icon="uil uil-question-circle"
+                            (clickAction)="helpModal.open()"
+                    ></app-icon-actionable>
+                </div>
+            </section>
+        </div>
 
-            <div class="mb-3">
-                <app-input
-                        [id]="'name'"
-                        label="Nombre"
-                        [tabIndex]="1"
-                        placeholder="Ej: Alejandro"
-                ></app-input>
+        <div class="row">
+
+            <div class="col-12 col-lg-6">
+
+                <div class="mb-3">
+                    <app-input
+                            [id]="'name'"
+                            label="Nombre"
+                            type="string"
+                            [tabIndex]="1"
+                            [controlGroup]="createForm"
+                            [controlName]="'name'"
+                            [invalid]="validate(createForm, 'name')"
+                            placeholder="Ej: Rosado Brillante"
+                    ></app-input>
+                </div>
+
+                <div class="mb-3">
+                    <label for="providers" class="input__label input__label--simple">Distrubuidoras</label>
+                    <ng-select [items]="dummyProviders"
+                               id="providers"
+                               bindLabel="name"
+                               bindValue="id"
+                               [tabIndex]="3"
+                               [multiple]="true"
+                               formControlName="providers"
+                               placeholder="Selecciona un contacto"
+                    >
+                    </ng-select>
+                </div>
+
             </div>
 
-            <div class="mb-3">
-                <label for="material" class="input__label input__label--simple">Distrubuidoras</label>
-                <ng-select [items]="dummyMaterial"
-                           id="material"
-                           bindLabel="name"
-                           bindValue="id"
-                           [tabIndex]="2"
-                           [multiple]="true"
-                           placeholder="Selecciona un contacto"
-                >
-                </ng-select>
+            <div class="col-12 col-lg-6">
+
+                <div class="mb-3">
+                    <app-input
+                            [id]="'price'"
+                            label="Precio"
+                            type="number"
+                            [tabIndex]="2"
+                            [controlGroup]="createForm"
+                            [controlName]="'price'"
+                            [invalid]="validate(createForm, 'price')"
+                            placeholder="Ingresa el precio del material"
+                    ></app-input>
+                </div>
+
+                <div class="mb-3" *ngIf="isMeasurable()">
+                    <app-input
+                            [id]="'length'"
+                            label="Metraje (cms)"
+                            [tabIndex]="4"
+                            type="number"
+                            placeholder="Ej: 140"
+                            [controlGroup]="createForm"
+                            [controlName]="'length'"
+                            [invalid]="validate(createForm, 'length')"
+                            help="* Se utilizará para calcular el gasto de una pieza."
+                    ></app-input>
+                </div>
+
             </div>
 
         </div>
 
-        <div class="col-12 col-lg-6">
-
-            <div class="mb-3">
-                <app-input
-                        [id]="'price'"
-                        label="Precio"
-                        type="number"
-                        [tabIndex]="1"
-                        placeholder="Ingresa el precio del material"
-                ></app-input>
-            </div>
-
-            <div class="mb-3">
-                <app-input
-                        [id]="'meter'"
-                        label="Metraje (cms)"
-                        [tabIndex]="1"
-                        type="number"
-                        placeholder="Ej: 140"
-                        help="* Se utilizará para calcular el gasto de una pieza."
-                ></app-input>
-            </div>
-
-        </div>
-
     </div>
 
-</div>
+    <div class="mb-3 d-flex justify-content-center justify-content-lg-end">
+        <button [disabled]="!createForm.valid" class="btn btn-primary btn-padded">Crear Material</button>
+    </div>
 
-<div class="mb-3 d-flex justify-content-center justify-content-lg-end">
-    <button class="btn btn-primary btn-padded" (click)="confirmCreate.open()">Crear Material</button>
-</div>
+    <app-modal-confirm #confirmCreate image="" (confirm)="submit()"></app-modal-confirm>
+    <app-material-create-help-modal #helpModal></app-material-create-help-modal>
 
-<app-modal-confirm #confirmCreate image=""></app-modal-confirm>
-<app-material-create-help-modal #helpModal></app-material-create-help-modal>
+</form>

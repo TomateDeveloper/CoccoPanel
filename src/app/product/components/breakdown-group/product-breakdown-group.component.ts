@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Material} from "../../../material/store/material.dto";
+import {Material} from "../../../material/store/material.model";
 import {AbstractControl, FormArray, FormGroup} from "@angular/forms";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";

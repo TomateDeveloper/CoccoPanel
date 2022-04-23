@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {Material} from "../../../material/store/material.dto";
+import {Material} from "../../../material/store/material.model";
 import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 
 @Component({

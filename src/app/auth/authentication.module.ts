@@ -5,8 +5,6 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import {UIModule} from "../shared/ui/ui.module";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {EffectsModule} from "@ngrx/effects";
-import { HttpClientModule} from "@angular/common/http";
 
 
 

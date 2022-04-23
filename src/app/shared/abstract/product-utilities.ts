@@ -1,6 +1,6 @@
 import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FormUtilities} from "./form-utilities";
-import {Material} from "../../material/store/material.dto";
+import {Material} from "../../material/store/material.model";
 
 export class ProductUtilities {
 
@@ -63,7 +63,7 @@ export class ProductUtilities {
       return null;
     }
 
-    return materials.filter(m => m._id === materialId)[0];
+    return materials.filter(m => m.id === materialId)[0];
 
   }
 

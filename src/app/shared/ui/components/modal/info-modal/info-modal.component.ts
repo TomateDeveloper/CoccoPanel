@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModalDirective} from "ngx-bootstrap/modal";
 
 @Component({
   selector: 'app-info-modal',
@@ -26,8 +27,8 @@ export class InfoModalComponent {
     this.modalService.open(this.helpModal, { centered: true });
   }
 
-  close(type: string) {
-    (this.helpModal as any).dismiss(type);
+  close() {
+    this.modalService.dismissAll();
   }
 
 }

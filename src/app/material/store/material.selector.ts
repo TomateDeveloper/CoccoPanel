@@ -1,0 +1,1 @@
+export const MATERIAL_STATE_NAME = 'material';

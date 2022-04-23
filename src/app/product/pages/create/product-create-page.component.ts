@@ -3,7 +3,7 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
-import {Material} from "../../../material/store/material.dto";
+import {Material} from "../../../material/store/material.model";
 
 @Component({
   selector: 'app-create',
@@ -20,13 +20,13 @@ export class ProductCreatePageComponent {
 
   public material: Material[] = [
     {
-      _id: "0123456789abcdef",
+      id: "0123456789abcdef",
       name: "Demo",
       measure: 140,
       price: 28000
     },
     {
-      _id: "abcdef0123456789",
+      id: "abcdef0123456789",
       name: "Demo 2",
       measure: 180,
       price: 24000

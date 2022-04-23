@@ -8,6 +8,7 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import { MaterialCreateHelpModalComponent } from './components/create-help-modal/material-create-help-modal.component';
 import { MaterialCardComponent } from './components/material-card/material-card.component';
 import { MaterialTableHeaderComponent } from './components/material-table-header/material-table-header.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -19,11 +20,12 @@ import { MaterialTableHeaderComponent } from './components/material-table-header
     MaterialCardComponent,
     MaterialTableHeaderComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialRoutingModule,
-    UIModule,
-    NgSelectModule
-  ]
+    imports: [
+        CommonModule,
+        MaterialRoutingModule,
+        UIModule,
+        NgSelectModule,
+        ReactiveFormsModule
+    ]
 })
 export class MaterialModule { }
