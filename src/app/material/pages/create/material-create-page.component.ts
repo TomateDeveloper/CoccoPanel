@@ -5,6 +5,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {ModalConfirmComponent} from "../../../shared/ui/components/modal/modal-confirm/modal-confirm.component";
 import {create} from "../../store/material.actions";
+import {FirestoreService} from "../../../core/service/firestore.service";
 
 @Component({
   selector: 'app-create',

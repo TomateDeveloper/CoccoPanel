@@ -7,7 +7,7 @@ export const environment = {
   firebase: {
     apiKey: "AIzaSyD0BYobMtwCySmocaOKq_iqyQA-kY2OXco",
     authDomain: "green-network-347702.firebaseapp.com",
-    projectId: "488632569582"
+    projectId: "green-network-347702"
   }
 };
 
