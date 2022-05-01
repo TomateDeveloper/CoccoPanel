@@ -11,7 +11,7 @@ export class ProductUtilities {
    * @param material
    */
   public static getAreaFromMaterial(material: Material): number {
-    return material.measure * 100;
+    return material.measurable ? material.length  * 100 : 1;
   }
 
   /**

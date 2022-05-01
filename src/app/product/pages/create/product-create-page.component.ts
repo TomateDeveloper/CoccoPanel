@@ -24,13 +24,13 @@ export class ProductCreatePageComponent {
       name: "Demo",
       measure: 140,
       price: 28000
-    },
+    } as any,
     {
       id: "abcdef0123456789",
       name: "Demo 2",
       measure: 180,
       price: 24000
-    }
+    }as any
   ];
 
   constructor() {

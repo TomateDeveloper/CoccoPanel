@@ -1,5 +1,6 @@
 import {createAction, props} from "@ngrx/store";
 import {Material} from "./material.model";
+import {Update} from "@ngrx/entity";
 
 export enum MaterialActionType {
     CREATE = '[Material] Create',
@@ -13,7 +14,9 @@ export enum MaterialActionType {
     UPDATE_ERROR = '[Material] Update error',
     DELETE = '[Material] Delete',
     DELETE_SUCCESS = '[Material] Delete success',
-    DELETE_ERROR = '[Material] Delete error'
+    DELETE_ERROR = '[Material] Delete error',
+    FOCUS = '[Material] Focus',
+    FOCUS_ALL = '[Material] Focus all'
 }
 
 export const create = createAction(
@@ -33,12 +36,12 @@ export const createError = createAction(
 
 export const list = createAction(
     MaterialActionType.LIST,
-    props<{ material: Material[] }>()
+    props<{ query: any }>()
 );
 
 export const listSuccess = createAction(
     MaterialActionType.LIST_SUCCESS,
-    props<{ material: Material[] }>()
+    props<{ materials: Material[] }>()
 );
 
 export const listError = createAction(
@@ -57,8 +60,18 @@ export const updateSuccess = createAction(
 );
 
 export const updateError = createAction(
-    MaterialActionType.LIST_ERROR,
+    MaterialActionType.UPDATE_ERROR,
     props<{ message: string }>()
+);
+
+export const focusMaterial = createAction(
+    MaterialActionType.FOCUS,
+    props<{material: Update<Material>}>()
+);
+
+export const focusAll = createAction(
+    MaterialActionType.FOCUS_ALL,
+    props<{selected: boolean}>()
 );
 
 export const deleteAction = createAction(

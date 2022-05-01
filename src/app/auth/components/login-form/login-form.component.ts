@@ -32,7 +32,6 @@ export class LoginFormComponent {
 
   public login(): void {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(a => {
-      console.log(a);
     });
     //this.store.dispatch(login({...this.loginForm.value}));
   }

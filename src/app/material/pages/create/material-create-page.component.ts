@@ -5,7 +5,6 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {ModalConfirmComponent} from "../../../shared/ui/components/modal/modal-confirm/modal-confirm.component";
 import {create} from "../../store/material.actions";
-import {FirestoreService} from "../../../core/service/firestore.service";
 
 @Component({
   selector: 'app-create',
@@ -41,11 +40,11 @@ export class MaterialCreatePageComponent {
           [Validators.required, Validators.minLength(3)]
       ),
       price: new FormControl(
-          0,
-          [Validators.required]
+          null,
+          [Validators.required, Validators.pattern(/^[1-9]\d*$/)]
       ),
-      providers: new FormControl([], []),
-      length: new FormControl(0),
+      providers: new FormControl([]),
+      length: new FormControl(0, Validators.pattern(/^[1-9]\d*$/)),
     });
   }
 

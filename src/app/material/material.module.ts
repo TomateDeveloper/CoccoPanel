@@ -9,23 +9,34 @@ import { MaterialCreateHelpModalComponent } from './components/create-help-modal
 import { MaterialCardComponent } from './components/material-card/material-card.component';
 import { MaterialTableHeaderComponent } from './components/material-table-header/material-table-header.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {StoreModule} from "@ngrx/store";
+import {MaterialReducer} from "./store/material.reducer";
+import {MATERIAL_STATE_NAME} from "./store/material.selector";
+import {EffectsModule} from "@ngrx/effects";
+import {MaterialEffects} from "./store/material.effects";
+import {MaterialMainPageGuard} from "./guards/material-main-page.guard";
 
 
 
 @NgModule({
-  declarations: [
-    MaterialMainPageComponent,
-    MaterialCreatePageComponent,
-    MaterialCreateHelpModalComponent,
-    MaterialCardComponent,
-    MaterialTableHeaderComponent
-  ],
+    declarations: [
+        MaterialMainPageComponent,
+        MaterialCreatePageComponent,
+        MaterialCreateHelpModalComponent,
+        MaterialCardComponent,
+        MaterialTableHeaderComponent
+    ],
     imports: [
         CommonModule,
         MaterialRoutingModule,
         UIModule,
         NgSelectModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        StoreModule.forFeature(MATERIAL_STATE_NAME, MaterialReducer),
+        EffectsModule.forFeature([MaterialEffects])
+    ],
+    providers: [
+        MaterialMainPageGuard
     ]
 })
 export class MaterialModule { }

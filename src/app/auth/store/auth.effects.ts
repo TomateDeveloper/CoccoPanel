@@ -20,11 +20,9 @@ export class AuthEffects {
             exhaustMap((action) =>
                 this.authService.login(action.email, action.password).pipe(
                     map((data) => {
-                        console.log("LLEGA ACA");
                         return loginSuccess({user: data, redirect: ""});
                     }),
                     catchError((message) => {
-                        console.log("ERROR XD");
                         return of(loginError(message));
                     })
                 )

@@ -7,10 +7,10 @@
 </div>
 
 <div class="card">
-    <app-table-filters (deleteAction)="deleteConfirm.open()"></app-table-filters>
-    <app-material-table-header></app-material-table-header>
-    <div class="margin-grey" *ngFor="let item of [1,2,3]">
-        <app-material-card></app-material-card>
+    <app-table-filters (selectionUpdate)="selectAll($event)" (deleteAction)="deleteConfirm.open()"></app-table-filters>
+    <app-material-table-header (selectionUpdate)="selectAll($event)"></app-material-table-header>
+    <div class="margin-grey" *ngFor="let material of materials | async">
+        <app-material-card [material]="material"></app-material-card>
     </div>
     <div class="d-flex mt-4 justify-content-center">
         <button class="btn btn-negative btn-padded">Cargar más...</button>

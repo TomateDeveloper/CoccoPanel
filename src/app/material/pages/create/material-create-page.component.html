@@ -40,6 +40,7 @@
                             [controlGroup]="createForm"
                             [controlName]="'name'"
                             [invalid]="validate(createForm, 'name')"
+                            [invalidHelp]="'Ingresa un nombre de más de tres letras'"
                             placeholder="Ej: Rosado Brillante"
                     ></app-input>
                 </div>
@@ -71,6 +72,7 @@
                             [controlGroup]="createForm"
                             [controlName]="'price'"
                             [invalid]="validate(createForm, 'price')"
+                            [invalidHelp]="'Ingresa un precio superior a cero'"
                             placeholder="Ingresa el precio del material"
                     ></app-input>
                 </div>
@@ -85,6 +87,7 @@
                             [controlGroup]="createForm"
                             [controlName]="'length'"
                             [invalid]="validate(createForm, 'length')"
+                            [invalidHelp]="'Ingresa un metraje mayor a cero'"
                             help="* Se utilizará para calcular el gasto de una pieza."
                     ></app-input>
                 </div>

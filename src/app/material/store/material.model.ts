@@ -1,7 +1,8 @@
-import {Model} from "../../core/model/model.dto";
+import {Model, Selectable} from "../../core/model/model.dto";
 
-export interface Material extends Model {
+export interface Material extends Model, Selectable {
   name: string;
-  measure: number;
+  measurable: boolean;
+  length: number;
   price: number;
 }

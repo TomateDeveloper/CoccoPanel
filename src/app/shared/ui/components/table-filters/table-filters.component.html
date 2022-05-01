@@ -4,13 +4,15 @@
         <app-input
                 type="text"
                 placeholder="Buscar"
+                [controlGroup]="searchForm"
+                [controlName]="'search'"
                 icon="uil uil-search"
                 [standaloneHelp]="true"
         ></app-input>
     </div>
     <section class="table-filters__actions">
         <section class="table-filters__checkbox">
-            <app-checkbox></app-checkbox>
+            <app-checkbox (checkChange)="this.updateSelection($event)"></app-checkbox>
         </section>
         <div class="table-filters__control">
             <div class="mx-3">
