@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProductTableHeaderComponent } from './product-table-header.component';
+import {ProductTableHeaderComponent} from './product-table-header.component';
 
 describe('ProductTableHeaderComponent', () => {
   let component: ProductTableHeaderComponent;

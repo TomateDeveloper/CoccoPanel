@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GenerateProductModalComponent } from './generate-product-modal.component';
+import {GenerateProductModalComponent} from './generate-product-modal.component';
 
 describe('GenerateProductModalComponent', () => {
   let component: GenerateProductModalComponent;

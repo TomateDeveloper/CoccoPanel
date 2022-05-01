@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MaterialCreateHelpModalComponent } from './material-create-help-modal.component';
+import {MaterialCreateHelpModalComponent} from './material-create-help-modal.component';
 
 describe('MaterialCreateHelpModalComponent', () => {
   let component: MaterialCreateHelpModalComponent;

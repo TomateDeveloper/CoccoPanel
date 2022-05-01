@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BreakdownInfoComponent } from './breakdown-info.component';
+import {BreakdownInfoComponent} from './breakdown-info.component';
 
 describe('BreakdownInfoComponent', () => {
   let component: BreakdownInfoComponent;

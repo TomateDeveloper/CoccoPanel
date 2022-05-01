@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MaterialCreatePageComponent } from './material-create-page.component';
+import {MaterialCreatePageComponent} from './material-create-page.component';
 
 describe('MaterialCreatePageComponent', () => {
   let component: MaterialCreatePageComponent;

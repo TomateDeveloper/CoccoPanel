@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {materialAdapter} from "./material.state";
-import {create, deleteAction, focusAll, focusMaterial, listSuccess, update} from "./material.actions";
+import {focusAll, focusMaterial, listSuccess} from "./material.actions";
 
 const initialState = materialAdapter.getInitialState();
 

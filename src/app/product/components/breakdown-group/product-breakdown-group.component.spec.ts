@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProductBreakdownGroupComponent } from './product-breakdown-group.component';
+import {ProductBreakdownGroupComponent} from './product-breakdown-group.component';
 
 describe('ProductBreakdownGroupComponent', () => {
   let component: ProductBreakdownGroupComponent;

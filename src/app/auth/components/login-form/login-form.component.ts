@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
-import {login} from "../../store/auth.actions";
 import {AuthService} from "../../store/auth.service";
 
 @Component({

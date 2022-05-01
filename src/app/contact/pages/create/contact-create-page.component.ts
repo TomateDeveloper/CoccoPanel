@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CountryISO,} from "ngx-intl-tel-input";
 import {SimpleSelectorIndicator} from "../../../shared/model/SimpleSelectorIndicator";
-import { Country, State, City }  from 'country-state-city';
+import {Country, State} from 'country-state-city';
 import {ICountry, IState} from "country-state-city/dist/lib/interface";
-import {count} from "rxjs";
 
 @Component({
   selector: 'app-create',

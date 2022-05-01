@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProductIdentityFormComponent } from './product-identity-form.component';
+import {ProductIdentityFormComponent} from './product-identity-form.component';
 
 describe('ProductIdentityFormComponent', () => {
   let component: ProductIdentityFormComponent;

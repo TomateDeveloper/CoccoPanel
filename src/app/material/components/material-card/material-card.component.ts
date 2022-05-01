@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Material} from "../../store/material.model";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {focusMaterial} from "../../store/material.actions";
-import {Update} from "@ngrx/entity";
 
 @Component({
   selector: 'app-material-card',

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BiSelectorComponent } from './bi-selector.component';
+import {BiSelectorComponent} from './bi-selector.component';
 
 describe('BiSelectorComponent', () => {
   let component: BiSelectorComponent;

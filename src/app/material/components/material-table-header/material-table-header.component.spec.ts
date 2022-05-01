@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MaterialTableHeaderComponent } from './material-table-header.component';
+import {MaterialTableHeaderComponent} from './material-table-header.component';
 
 describe('MaterialTableHeaderComponent', () => {
   let component: MaterialTableHeaderComponent;
