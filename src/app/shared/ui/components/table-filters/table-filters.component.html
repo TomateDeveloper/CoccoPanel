@@ -16,10 +16,10 @@
         </section>
         <div class="table-filters__control">
             <div class="mx-3">
-                <app-icon-actionable [icon]="'uil uil-pen'"></app-icon-actionable>
+                <app-icon-actionable [icon]="'uil uil-pen'" (clickAction)="editAction.emit()" [disabled]="focused !== 1"></app-icon-actionable>
             </div>
             <div class="mx-3">
-                <app-icon-actionable [icon]="'uil uil-trash'" (clickAction)="deleteAction.emit()"></app-icon-actionable>
+                <app-icon-actionable [icon]="'uil uil-trash'" (clickAction)="deleteAction.emit()" [disabled]="focused < 1"></app-icon-actionable>
             </div>
         </div>
     </section>

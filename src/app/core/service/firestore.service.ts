@@ -55,4 +55,12 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
         return this.client.delete<boolean>(this.URL + '/' + id);
     }
 
+    public deleteBulk(id: string[]): Observable<boolean> {
+        return this.client.delete<boolean>(this.URL + '/' + id);
+    }
+
+    private beginTransaction(options?: any): Observable<any> {
+        return this.client.post<any>(this.originURL + ':beginTransaction', options);
+    }
+
 }

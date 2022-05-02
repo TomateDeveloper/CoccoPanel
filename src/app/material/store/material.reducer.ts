@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
-import {materialAdapter} from "./material.state";
-import {focusAll, focusMaterial, listSuccess} from "./material.actions";
+import {materialAdapter, MaterialState} from "./material.state";
+import {focusAll, focusMaterial, get, getSuccess, listSuccess, setActive} from "./material.actions";
 
 const initialState = materialAdapter.getInitialState();
 
@@ -13,9 +13,11 @@ const _materialReducer = createReducer(
         )
     ),
     on(focusAll, (state, action) => materialAdapter.map(material => ({...material, selected: action.selected}), state)),
+    on(setActive, (state, action) => ({...state, activeMaterialId: action.id})),
+    on(getSuccess, (state, action) => materialAdapter.addOne(action.material, state)),
     on(focusMaterial, (state, action) => materialAdapter.updateOne(action.material, state)),
 );
 
-export function MaterialReducer(state: any, action: any) {
+export function MaterialReducer(state: MaterialState, action: any) {
     return _materialReducer(state, action);
 }

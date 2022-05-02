@@ -1,7 +1,17 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {MaterialService} from "./material.service";
-import {create, createError, createSuccess, list, listError, listSuccess} from "./material.actions";
+import {
+    create,
+    createError,
+    createSuccess,
+    deleteAction,
+    get, getError,
+    getSuccess,
+    list,
+    listError,
+    listSuccess
+} from "./material.actions";
 import {catchError, exhaustMap, map, of} from "rxjs";
 
 @Injectable()
@@ -31,6 +41,24 @@ export class MaterialEffects {
                 .pipe(
                     map(materials => listSuccess({materials})),
                     catchError((error) => of(listError(error)))
+                )
+            )
+        )
+    );
+
+    public delete$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(deleteAction)
+        )
+    );
+
+    public get$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(get),
+            exhaustMap((action) => this.materialService.get(action.id)
+                .pipe(
+                    map(material => getSuccess({material})),
+                    catchError((error) => of(getError(error)))
                 )
             )
         )

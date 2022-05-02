@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {MaterialCreatePageComponent} from "./pages/create/material-create-page.component";
 import {MaterialMainPageComponent} from "./pages/main/material-main-page.component";
 import {MaterialMainPageGuard} from "./guards/material-main-page.guard";
+import {MaterialEditPageGuard} from "./guards/material-edit-page.guard";
 
 const routes: Routes = [
     {
@@ -13,6 +14,11 @@ const routes: Routes = [
     {
         path: 'create',
         component: MaterialCreatePageComponent
+    },
+    {
+        path: 'edit/:id',
+        component: MaterialCreatePageComponent,
+        canActivate: [MaterialEditPageGuard]
     },
 ];
 

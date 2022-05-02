@@ -1,10 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {ModalConfirmComponent} from "../../../shared/ui/components/modal/modal-confirm/modal-confirm.component";
 import {create} from "../../store/material.actions";
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from "@angular/router";
+import {Material} from "../../store/material.model";
+import {getActiveMaterial} from "../../store/material.selector";
 
 @Component({
   selector: 'app-create',
@@ -13,7 +16,7 @@ import {create} from "../../store/material.actions";
 })
 export class MaterialCreatePageComponent {
 
-  public createForm: FormGroup;
+  public createForm!: FormGroup;
   @ViewChild('confirmCreate') public confirmModal?: ModalConfirmComponent;
   public validate = ValidationUtilities.validate;
 
@@ -28,8 +31,17 @@ export class MaterialCreatePageComponent {
     }
   ];
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
+
     this.createForm = this.initializeForm();
+
+    if (this.router.url.includes('/materials/edit')) {
+      this.store.select(getActiveMaterial).subscribe(material => {
+        console.log(material);
+        this.createForm.setValue({...material, id: undefined});
+      });
+    }
+
   }
 
   public initializeForm(): FormGroup {
@@ -40,7 +52,7 @@ export class MaterialCreatePageComponent {
           [Validators.required, Validators.minLength(3)]
       ),
       price: new FormControl(
-          null,
+          0,
           [Validators.required, Validators.pattern(/^[1-9]\d*$/)]
       ),
       providers: new FormControl([]),

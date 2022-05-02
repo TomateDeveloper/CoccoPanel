@@ -3,7 +3,7 @@ import {Material} from "./material.model";
 import {Selectable} from "../../core/model/model.dto";
 
 export interface MaterialState extends EntityState<Material & Selectable> {
-    selectedMaterialId: string | null;
+    activeMaterialId: string | null;
 }
 
 export function selectMaterialId(material: Material) {

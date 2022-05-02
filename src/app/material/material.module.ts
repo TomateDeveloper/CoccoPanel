@@ -15,6 +15,7 @@ import {MATERIAL_STATE_NAME} from "./store/material.selector";
 import {EffectsModule} from "@ngrx/effects";
 import {MaterialEffects} from "./store/material.effects";
 import {MaterialMainPageGuard} from "./guards/material-main-page.guard";
+import {MaterialEditPageGuard} from "./guards/material-edit-page.guard";
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MaterialMainPageGuard} from "./guards/material-main-page.guard";
         EffectsModule.forFeature([MaterialEffects])
     ],
     providers: [
-        MaterialMainPageGuard
+        MaterialMainPageGuard,
+        MaterialEditPageGuard
     ]
 })
 export class MaterialModule { }

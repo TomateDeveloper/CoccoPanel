@@ -9,12 +9,16 @@ export enum MaterialActionType {
     LIST = '[Material] List',
     LIST_SUCCESS = '[Material] List success',
     LIST_ERROR = '[Material] List error',
+    GET = '[Material] Get',
+    GET_SUCCESS = '[Material] Get success',
+    GET_ERROR = '[Material] Get error',
     UPDATE = '[Material] Update',
     UPDATE_SUCCESS = '[Material] Update success',
     UPDATE_ERROR = '[Material] Update error',
     DELETE = '[Material] Delete',
     DELETE_SUCCESS = '[Material] Delete success',
     DELETE_ERROR = '[Material] Delete error',
+    SET_ACTIVE = '[Material] Set active',
     FOCUS = '[Material] Focus',
     FOCUS_ALL = '[Material] Focus all'
 }
@@ -49,6 +53,21 @@ export const listError = createAction(
     props<{ message: string }>()
 );
 
+export const get = createAction(
+    MaterialActionType.GET,
+    props<{ id: string }>()
+);
+
+export const getSuccess = createAction(
+    MaterialActionType.GET_SUCCESS,
+    props<{ material: Material }>()
+);
+
+export const getError = createAction(
+    MaterialActionType.GET_ERROR,
+    props<{ message: string }>()
+);
+
 export const update = createAction(
     MaterialActionType.UPDATE,
     props<{ material: Material }>()
@@ -74,8 +93,10 @@ export const focusAll = createAction(
     props<{selected: boolean}>()
 );
 
-export const deleteAction = createAction(
-    MaterialActionType.DELETE,
+export const deleteAction = createAction(MaterialActionType.DELETE);
+
+export const setActive = createAction(
+    MaterialActionType.SET_ACTIVE,
     props<{id: string}>()
 );
 

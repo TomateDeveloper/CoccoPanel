@@ -4,6 +4,7 @@ import {Directive, EventEmitter, Input, Output} from "@angular/core";
 export abstract class AbstractCheckProvider {
 
     @Output() public deleteAction: EventEmitter<void> = new EventEmitter<void>();
+    @Output() public editAction: EventEmitter<void> = new EventEmitter<void>();
     @Output() public selectionUpdate: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Input() public selectedAll: boolean = false;
 
