@@ -1,9 +1,9 @@
-<form [formGroup]="createForm" (ngSubmit)="confirmModal!.open()">
+<form [formGroup]="getForm()" (ngSubmit)="confirmModal!.open()">
 
     <div class="mb-4">
         <app-breadcrumb
                 title="Materiales"
-                sub="Crea un material que se utilizará para gestionar la ficha técnica de un artículo."
+                sub="{{hasEditMode() ? 'Edita' : 'Crea'}} un material que se utilizará para gestionar la ficha técnica de un artículo."
         ></app-breadcrumb>
     </div>
 
@@ -16,7 +16,7 @@
                         firstOption="Unidad"
                         secondOption="Metraje"
                         [controlName]="'measurable'"
-                        [controlGroup]="createForm"
+                        [controlGroup]="getForm()"
                 ></app-bi-selector>
                 <div class="mx-3">
                     <app-icon-actionable
@@ -37,9 +37,9 @@
                             label="Nombre"
                             type="string"
                             [tabIndex]="1"
-                            [controlGroup]="createForm"
+                            [controlGroup]="getForm()"
                             [controlName]="'name'"
-                            [invalid]="validate(createForm, 'name')"
+                            [invalid]="validate(getForm(), 'name')"
                             [invalidHelp]="'Ingresa un nombre de más de tres letras'"
                             placeholder="Ej: Rosado Brillante"
                     ></app-input>
@@ -69,9 +69,9 @@
                             label="Precio"
                             type="number"
                             [tabIndex]="2"
-                            [controlGroup]="createForm"
+                            [controlGroup]="getForm()"
                             [controlName]="'price'"
-                            [invalid]="validate(createForm, 'price')"
+                            [invalid]="validate(getForm(), 'price')"
                             [invalidHelp]="'Ingresa un precio superior a cero'"
                             placeholder="Ingresa el precio del material"
                     ></app-input>
@@ -84,9 +84,9 @@
                             [tabIndex]="4"
                             type="number"
                             placeholder="Ej: 140"
-                            [controlGroup]="createForm"
+                            [controlGroup]="getForm()"
                             [controlName]="'length'"
-                            [invalid]="validate(createForm, 'length')"
+                            [invalid]="validate(getForm(), 'length')"
                             [invalidHelp]="'Ingresa un metraje mayor a cero'"
                             help="* Se utilizará para calcular el gasto de una pieza."
                     ></app-input>
@@ -99,7 +99,7 @@
     </div>
 
     <div class="mb-3 d-flex justify-content-center justify-content-lg-end">
-        <button [disabled]="!createForm.valid" class="btn btn-primary btn-padded">Crear Material</button>
+        <button [disabled]="!getForm().valid" class="btn btn-primary btn-padded">{{hasEditMode() ? 'Editar' : 'Crear'}} Material</button>
     </div>
 
     <app-modal-confirm #confirmCreate image="" (confirm)="submit()"></app-modal-confirm>

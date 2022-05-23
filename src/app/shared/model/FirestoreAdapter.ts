@@ -121,6 +121,20 @@ export class FirestoreAdapter {
         }
     }
 
+    public static getUpdateMask(updateObject: any): string {
+
+        let updateMask = "?";
+        const properties = Object.getOwnPropertyNames(updateObject);
+
+        for (let i = 0; i < properties.length; i++) {
+            if (properties[i] === "id") { continue; }
+            updateMask += "updateMask.fieldPaths=" + properties[i] + (i == (properties.length - 1) ? "" : "&")
+        }
+
+        return updateMask;
+
+    }
+
     public static transformDocument<T extends Model>(document: FirestoreDocument<T>) {
         return {
             ...FirestoreAdapter.fixValue(document.fields),

@@ -46,7 +46,8 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     public update(model: M): Observable<any> {
-        return this.client.patch<FirestoreDocument<M>>(this.URL + model.id, model).pipe(
+        const composedUpdateURL = this.URL + "/" + model.id + FirestoreAdapter.getUpdateMask(model);
+        return this.client.patch<FirestoreDocument<M>>(composedUpdateURL, {fields: FirestoreAdapter.sanitizeValue(model)}).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }

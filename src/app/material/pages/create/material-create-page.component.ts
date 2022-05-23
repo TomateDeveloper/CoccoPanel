@@ -1,22 +1,21 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {ModalConfirmComponent} from "../../../shared/ui/components/modal/modal-confirm/modal-confirm.component";
-import {create} from "../../store/material.actions";
-import {ActivatedRoute, ActivatedRouteSnapshot, Router} from "@angular/router";
-import {Material} from "../../store/material.model";
+import {create, update} from "../../store/material.actions";
+import {Router} from "@angular/router";
 import {getActiveMaterial} from "../../store/material.selector";
+import {EditableCreateComponent} from "../../../shared/abstract/editable-create.component";3
 
 @Component({
   selector: 'app-create',
   templateUrl: './material-create-page.component.html',
   styleUrls: ['./material-create-page.component.scss']
 })
-export class MaterialCreatePageComponent {
+export class MaterialCreatePageComponent extends EditableCreateComponent {
 
-  public createForm!: FormGroup;
   @ViewChild('confirmCreate') public confirmModal?: ModalConfirmComponent;
   public validate = ValidationUtilities.validate;
 
@@ -33,18 +32,20 @@ export class MaterialCreatePageComponent {
 
   constructor(private store: Store<AppState>, private router: Router) {
 
-    this.createForm = this.initializeForm();
+    super('/materials/edit', MaterialCreatePageComponent.initializeForm());
+    this.checkEditMode(this.router.url);
 
-    if (this.router.url.includes('/materials/edit')) {
-      this.store.select(getActiveMaterial).subscribe(material => {
-        console.log(material);
-        this.createForm.setValue({...material, id: undefined});
+    if (this.hasEditMode()) {
+      this.store.select(getActiveMaterial).subscribe((material: any) => {
+        if (material) {
+          this.patchFormValues(material);
+        }
       });
     }
 
   }
 
-  public initializeForm(): FormGroup {
+  public static initializeForm(): FormGroup {
     return new FormGroup({
       measurable: new FormControl(false),
       name: new FormControl(
@@ -56,17 +57,24 @@ export class MaterialCreatePageComponent {
           [Validators.required, Validators.pattern(/^[1-9]\d*$/)]
       ),
       providers: new FormControl([]),
-      length: new FormControl(0, Validators.pattern(/^[1-9]\d*$/)),
+      length: new FormControl(0, Validators.pattern(/^[0-9]\d*$/)),
     });
   }
 
   public isMeasurable(): boolean {
-    return this.createForm.value.measurable;
+    return this.getForm().value.measurable;
   }
 
   public submit(): void {
+
     this.confirmModal!.close();
-    this.store.dispatch(create({material: this.createForm.value}));
+
+    if (this.hasEditMode()) {
+      this.store.dispatch(update({material: {...this.getForm().value, id: this.getEditingId()}}));
+    } else {
+      this.store.dispatch(create({material: this.getForm().value}));
+    }
+
   }
 
 }

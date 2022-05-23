@@ -10,16 +10,18 @@ import {
     getSuccess,
     list,
     listError,
-    listSuccess
+    listSuccess, update, updateSuccess
 } from "./material.actions";
-import {catchError, exhaustMap, map, of} from "rxjs";
+import {catchError, empty, exhaustMap, map, of, tap} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class MaterialEffects {
 
     constructor(
         private actions$: Actions,
-        private materialService: MaterialService
+        private materialService: MaterialService,
+        private router: Router
     ) {}
 
     public create$ = createEffect(() =>
@@ -62,6 +64,28 @@ export class MaterialEffects {
                 )
             )
         )
+    );
+
+    public update$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(update),
+            exhaustMap((action) => this.materialService.update(action.material)
+                .pipe(
+                    map(material => updateSuccess({material})),
+                    catchError((error) => of(getError(error)))
+                )
+            )
+        )
+    );
+
+    public writeSuccess$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(...[createSuccess, updateSuccess]),
+            tap((action) => {
+                this.router.navigateByUrl('/materials');
+            })
+        ),
+        { dispatch: false }
     );
 
 }
