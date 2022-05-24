@@ -6,11 +6,11 @@
 
             <div class="table-card__details">
                 <div class="table-card__tick">
-                    <app-checkbox></app-checkbox>
+                    <app-checkbox (checkChange)="updateCheck($event)" [active]="product.selected"></app-checkbox>
                 </div>
                 <div class="table-card__main mx-4">
                     <div class="table-card__name">
-                        <h6>Nombre de producto</h6>
+                        <h6>{{product.name}}</h6>
                     </div>
                 </div>
             </div>
@@ -20,23 +20,22 @@
         <div class="col-6 col-lg-3 ">
             <div class="table-card__indicator">
                 <span class="d-xl-none">Costo</span>
-                <p>$100.000</p>
+                <p>$PIPE</p>
             </div>
         </div>
 
         <div class="col-6 col-lg-2">
             <div class="table-card__indicator">
                 <span class="d-xl-none">Referencia</span>
-                <p>MT-XXX0101010</p>
+                <p>{{product.reference}}</p>
             </div>
         </div>
 
         <div class="col-12 col-lg-1">
             <div class="d-flex justify-content-center">
-                <app-icon-actionable icon="uil uil-eye"></app-icon-actionable>
+                <app-icon-actionable icon="uil uil-eye" (clickAction)="navigateToProduct(product.id)"></app-icon-actionable>
             </div>
         </div>
-
 
     </div>
 

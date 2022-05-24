@@ -22,27 +22,30 @@ import {GenerateProductModalComponent} from './components/generate-product-modal
 import {ProductSheetComponent} from './components/product-sheet/product-sheet.component';
 import {NgxPrintModule} from "ngx-print";
 import {ProductOrderSheetComponent} from './components/product-order-sheet/product-order-sheet.component';
+import {StoreModule} from "@ngrx/store";
+import {PRODUCT_STATE_NAME} from "./store/product.selector";
+import {ProductReducer} from "./store/product.reducer";
 
 
 @NgModule({
-  declarations: [
-    ProductCreatePageComponent,
-    ProductIdentityFormComponent,
-    ProductSummaryComponent,
-    ProductBreakdownComponent,
-    ProductBreakdownGroupComponent,
-    ProductLaborComponent,
-    ProductLaborItemComponent,
-    ProductMainPageComponent,
-    ProductCardComponent,
-    ProductTableHeaderComponent,
-    ProductViewPageComponent,
-    ProductInfoComponent,
-    BreakdownInfoComponent,
-    GenerateProductModalComponent,
-    ProductSheetComponent,
-    ProductOrderSheetComponent,
-  ],
+    declarations: [
+        ProductCreatePageComponent,
+        ProductIdentityFormComponent,
+        ProductSummaryComponent,
+        ProductBreakdownComponent,
+        ProductBreakdownGroupComponent,
+        ProductLaborComponent,
+        ProductLaborItemComponent,
+        ProductMainPageComponent,
+        ProductCardComponent,
+        ProductTableHeaderComponent,
+        ProductViewPageComponent,
+        ProductInfoComponent,
+        BreakdownInfoComponent,
+        GenerateProductModalComponent,
+        ProductSheetComponent,
+        ProductOrderSheetComponent,
+    ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
@@ -50,7 +53,9 @@ import {ProductOrderSheetComponent} from './components/product-order-sheet/produ
         ProductRoutingModule,
         NgSelectModule,
         NgScrollbarModule,
-        NgxPrintModule
+        NgxPrintModule,
+        StoreModule.forFeature(PRODUCT_STATE_NAME, ProductReducer),
+        //EffectsModule.forFeature([MaterialEffects])
     ]
 })
 export class ProductModule { }

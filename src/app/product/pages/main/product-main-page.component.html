@@ -9,7 +9,7 @@
 <div class="card">
     <app-table-filters (deleteAction)="deleteConfirm.open()"></app-table-filters>
     <app-product-table-header></app-product-table-header>
-    <div class="margin-grey" *ngFor="let item of [1,2,3]">
+    <div class="margin-grey" *ngFor="let product of products | async">
         <app-product-card></app-product-card>
     </div>
     <div class="d-flex mt-4 justify-content-center">

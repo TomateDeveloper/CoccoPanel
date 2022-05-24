@@ -1,4 +1,6 @@
-export interface Product {
+import {Model, Selectable} from "../../core/model/model.dto";
+
+export interface Product extends Model, Selectable {
   name: string;
   reference: string;
   breakdownGroup: BreakdownGroup[];
