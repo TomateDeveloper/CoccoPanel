@@ -19,18 +19,30 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     public create(partial: P): Observable<M> {
-        return this.client.post<FirestoreDocument<M>>(this.URL, {fields: FirestoreAdapter.sanitizeValue(partial)}).pipe(
+        return this.createRaw<P, M>(partial, this.database);
+    }
+
+    public createRaw<OverridePartial extends Model, OverrideModel extends Model>(partial: OverridePartial, overrideCollection: string): Observable<OverrideModel> {
+        return this.client.post<FirestoreDocument<OverrideModel>>(this.originURL + "/" + overrideCollection, {fields: FirestoreAdapter.sanitizeValue(partial)}).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }
 
     public get(id: string): Observable<M> {
-        return this.client.get<FirestoreDocument<M>>(this.URL + '/' + id).pipe(
+        return this.getRaw(id, this.database);
+    }
+
+    public getRaw<OverrideModel extends Model>(id: string, overrideCollection: string): Observable<OverrideModel> {
+        return this.client.get<FirestoreDocument<OverrideModel>>(this.originURL + "/" + overrideCollection + '/' + id).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }
 
     public query(query: any): Observable<M[]> {
+        return this.queryRaw(query, this.database);
+    }
+
+    public queryRaw<OverrideModel extends Model>(query: any, overrideCollection?: string): Observable<OverrideModel[]> {
         return this.client.post<FirestoreQuery<M>[]>(
             this.originURL + ':runQuery',
             {
@@ -46,14 +58,18 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     public update(model: M): Observable<any> {
-        const composedUpdateURL = this.URL + "/" + model.id + FirestoreAdapter.getUpdateMask(model);
+        return this.updateRaw<M>(model, this.database);
+    }
+
+    public updateRaw<OverrideModel extends Model>(model: M, overrideCollection?: string): Observable<any> {
+        const composedUpdateURL = this.originURL + "/" + overrideCollection + "/" + model.id + FirestoreAdapter.getUpdateMask(model);
         return this.client.patch<FirestoreDocument<M>>(composedUpdateURL, {fields: FirestoreAdapter.sanitizeValue(model)}).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }
 
-    public delete(id: string): Observable<boolean> {
-        return this.client.delete<boolean>(this.URL + '/' + id);
+    public delete(id: string, overrideCollection?: string): Observable<boolean> {
+        return this.client.delete<boolean>((overrideCollection ? this.originURL + "/" + overrideCollection : this.URL) + '/' + id);
     }
 
     public deleteBulk(id: string[]): Observable<boolean> {
@@ -62,6 +78,10 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
 
     private beginTransaction(options?: any): Observable<any> {
         return this.client.post<any>(this.originURL + ':beginTransaction', options);
+    }
+
+    public getDatabase(): string {
+        return this.database;
     }
 
 }

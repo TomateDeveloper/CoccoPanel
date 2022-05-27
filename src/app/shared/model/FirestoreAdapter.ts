@@ -1,4 +1,4 @@
-import {Model} from "../../core/model/model.dto";
+import {DatabaseReference, Model} from "../../core/model/model.dto";
 import {FirestoreDocument} from "./FirestoreDocument";
 
 export class FirestoreAdapter {
@@ -53,6 +53,16 @@ export class FirestoreAdapter {
                 }
             }
             case "object": {
+
+                const typelessValue: any = value;
+
+                if (typelessValue.id && typelessValue.databaseCollection)
+                {
+                    return {
+                        referenceValue: typelessValue.id
+                    }
+                }
+
                 return {
                     mapValue: {
                         fields: this.sanitizeValue(value)
@@ -104,6 +114,7 @@ export class FirestoreAdapter {
         switch (tag) {
             case "stringValue":
             case "doubleValue":
+            case "integerValue":
             case "booleanValue": {
                 return value;
             }
@@ -114,6 +125,10 @@ export class FirestoreAdapter {
             }
             case "mapValue": {
                 return this.fixValue(value.fields);
+            }
+            case "referenceValue": {
+                const splitReference = value.split("/");
+                return {id: splitReference[splitReference.length - 1], databaseCollection: splitReference[splitReference.length - 2]};
             }
             default: {
                 throw new Error("Not serializable data provided");

@@ -10,29 +10,24 @@ export class ProductMainPageGuard implements CanActivate {
     constructor(private productFacade: ProductFacade) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        const id = route.params['id'];
-        return this.getMaterials(id).pipe(
+        return this.getProducts().pipe(
             switchMap(() => of(true)),
             catchError(() => of(false))
         );
     }
 
-    private getMaterials(id: string) {
+    private getProducts() {
         return this.productFacade.products.pipe(
-            tap(data => this.preFetch(data, id)),
+            tap(data => this.preFetch(data)),
             filter(data => !!data),
             take(1)
         );
     }
 
-    private preFetch(material: Product[], id: string) {
-
-        if (material.filter(material => material.id === id).length < 1) {
-            this.productFacade.loadId(id);
+    private preFetch(material: Product[]) {
+        if (material.length < 1) {
+            this.productFacade.load();
         }
-
-        this.productFacade.setActiveId(id);
-
     }
 
 }

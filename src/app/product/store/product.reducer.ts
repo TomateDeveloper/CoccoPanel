@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {productAdapter, ProductState} from "./product.state";
-import {focusAll, focusProduct, getSuccess, listSuccess, setActive} from "./product.actions";
+import {focusAll, focusProduct, getSuccess, list, listSuccess, setActive} from "./product.actions";
 
 const initialState = productAdapter.getInitialState();
 

@@ -25,6 +25,9 @@ import {ProductOrderSheetComponent} from './components/product-order-sheet/produ
 import {StoreModule} from "@ngrx/store";
 import {PRODUCT_STATE_NAME} from "./store/product.selector";
 import {ProductReducer} from "./store/product.reducer";
+import {ProductMainPageGuard} from "./guards/product-main-page.guard";
+import {ProductEffects} from "./store/product.effects";
+import {EffectsModule} from "@ngrx/effects";
 
 
 @NgModule({
@@ -55,7 +58,10 @@ import {ProductReducer} from "./store/product.reducer";
         NgScrollbarModule,
         NgxPrintModule,
         StoreModule.forFeature(PRODUCT_STATE_NAME, ProductReducer),
-        //EffectsModule.forFeature([MaterialEffects])
+        EffectsModule.forFeature([ProductEffects])
+    ],
+    providers: [
+        ProductMainPageGuard
     ]
 })
 export class ProductModule { }

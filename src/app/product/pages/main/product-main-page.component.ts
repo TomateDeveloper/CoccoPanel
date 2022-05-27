@@ -9,6 +9,8 @@ import {deleteAction, focusAll} from "../../../material/store/material.actions";
 import {getFirstSelected} from "../../../material/store/material.selector";
 import {Product} from "../../store/product.model";
 import {ProductFacade} from "../../guards/product.facade";
+import {FirestoreAdapter} from "../../../shared/model/FirestoreAdapter";
+import {ProductService} from "../../store/product.service";
 
 @Component({
   selector: 'app-product-main-page',
@@ -19,7 +21,7 @@ export class ProductMainPageComponent implements OnInit {
 
   public products!: Observable<Product[]>;
 
-  constructor(private productFacade: ProductFacade, private store: Store<AppState>, private router: Router) {
+  constructor(private productFacade: ProductFacade, private store: Store<AppState>, private router: Router, private service: ProductService) {
   }
 
   public create(): void {
@@ -28,6 +30,8 @@ export class ProductMainPageComponent implements OnInit {
 
   public ngOnInit(): void {
     this.products = this.productFacade.products;
+    this.products.subscribe((products) => {
+    });
   }
 
   public selectAll(event: boolean): void {
