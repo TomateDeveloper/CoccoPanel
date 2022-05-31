@@ -48,7 +48,7 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
             {
                 structuredQuery: {
                     ...query,
-                    from: [{collectionId: this.database}]
+                    from: [{collectionId: overrideCollection}]
                 }
             }).pipe(
             map(query => {
@@ -82,6 +82,10 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
 
     public getDatabase(): string {
         return this.database;
+    }
+
+    public getOriginURL(): string {
+        return this.originURL;
     }
 
 }

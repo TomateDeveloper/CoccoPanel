@@ -1,4 +1,6 @@
 import {DatabaseReference, Model, PopulatedReferences, PopulateRegistry} from "../../core/model/model.dto";
+import {forkJoin, Observable} from "rxjs";
+import {FirestoreAdapter} from "./FirestoreAdapter";
 
 export class PopulationAdapter {
 
@@ -40,9 +42,26 @@ export class PopulationAdapter {
     /**
      * Generates a query involving all ids of a certain population registry
      * @param items to be listed in the query.
+     * @param baseRoute to be added to the reference path, as Firestore does not
+     * accept queries by id, otherwise we must provide full path instead.
      */
-    public static generateRawQuery(items: PopulateRegistry): any {
+    public static generateRawQuery(items: PopulateRegistry, baseRoute: string): any {
+        return {
+            where: {
+                fieldFilter: {
+                    field: {
+                        fieldPath: "__name__"
+                    },
+                    op: "IN",
+                    value: {
+                        arrayValue: {
+                            values: items.ids.map(item => ({referenceValue: baseRoute + "/" + items.databaseCollection + "/" + item}))
+                        }
+                    }
+                }
 
+            }
+        }
     }
 
     /**

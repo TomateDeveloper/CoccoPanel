@@ -1,13 +1,14 @@
 import {DatabaseReference, Model, PopulatedReferences, PopulateRegistry} from "../model/model.dto";
 import {HttpClient} from "@angular/common/http";
 import {FirestoreService} from "./firestore.service";
-import {forkJoin, map, mergeMap, Observable, of} from "rxjs";
+import {forkJoin, map, mergeAll, mergeMap, Observable, of} from "rxjs";
 import {PopulationAdapter} from "../../shared/model/PopulationAdapter";
 
 export abstract class PopulateService<P extends Model, M extends Model> extends FirestoreService<P, M> {
 
     protected constructor(database: string, client: HttpClient) {
         super(database, client);
+        throw new Error("Unimplemented, pending to test");
     }
 
     public override create(partial: P): Observable<M> {
@@ -34,7 +35,7 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
         return this.queryRaw(query, this.getDatabase());
     }
 
-    public override queryRaw<OverrideModel extends Model>(query: any, overrideCollection?: string): Observable<OverrideModel[]> {
+    public override queryRaw<OverrideModel extends Model>(query: any, overrideCollection?: string, sanitized?: boolean): Observable<OverrideModel[]> {
         return super.queryRaw<OverrideModel>(query, overrideCollection).pipe(
             mergeMap(query =>
                 forkJoin(query.map(result => this.populationPredicate(result)))
@@ -55,21 +56,59 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
     /**
      * Queries every {@link DatabaseReference} population from the {@link PopulateRegistry}
      * @param model
+     * @param sanitized
      */
-    public generateModelReferences<T extends Model>(model: T): Observable<PopulatedReferences[]> {
+    public generateModelReferences<T extends Model>(model: T, sanitized?: boolean): Observable<PopulatedReferences[]> {
         return of(PopulationAdapter.getPopulateRegistry(model)).pipe(
-            mergeMap(registry =>
-                forkJoin(
-                    registry.map(item => this.queryRaw(PopulationAdapter.generateRawQuery(item), item.databaseCollection).pipe(
+            mergeMap(registry => {
+
+                if (registry.length === 0) {
+                    return [];
+                }
+
+                return forkJoin(
+                    registry.map(item => (sanitized ? this.queryChunk(item.ids, item) : this.fixQuery(item)).pipe(
                         map(results => ({objects: results, databaseCollection: item.databaseCollection}))
                     ))
-                )
-            )
+                );
+
+            })
         );
     }
 
-    private populationPredicate<T extends Model>(model: T): Observable<T> {
-        return this.generateModelReferences(model).pipe(
+    /**
+     * Workaround to bypass max of 10 items per query.
+     * @param item
+     */
+    public fixQuery<T extends Model>(item: PopulateRegistry): Observable<T[]> {
+
+        const idChunks: string[][] = [];
+
+        const chunkSize = 10;
+        for (let i = 0; i < item.ids.length; i += chunkSize) {
+            const chunk = item.ids.slice(i, i + chunkSize);
+            idChunks.push(chunk);
+        }
+
+        const dividedObservables: Observable<T[]>[] = [];
+
+        for (let i = 0; i < idChunks.length; i++) {
+            const observable = this.queryChunk<T>(idChunks[i], item, true);
+            dividedObservables.push(observable);
+        }
+
+        return forkJoin(dividedObservables).pipe(mergeAll());
+    }
+
+    private queryChunk<T extends Model>(ids: string[], item: PopulateRegistry, sanitized?: boolean): Observable<T[]> {
+        return this.queryRaw<T>(PopulationAdapter.generateRawQuery(
+            {...item, ids},
+            this.getOriginURL().split("https://firestore.googleapis.com/v1/")[1],
+        ), item.databaseCollection, sanitized);
+    }
+
+    private populationPredicate<T extends Model>(model: T, sanitized?: boolean): Observable<T> {
+        return this.generateModelReferences(model, sanitized).pipe(
             map(references => PopulationAdapter.replaceModelReferences(model, references))
         );
     }

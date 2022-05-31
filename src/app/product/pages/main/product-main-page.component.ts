@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Material} from "../../../material/store/material.model";
-import {MaterialFacade} from "../../../material/guards/material.facade";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {Router} from "@angular/router";
@@ -9,8 +7,6 @@ import {deleteAction, focusAll} from "../../../material/store/material.actions";
 import {getFirstSelected} from "../../../material/store/material.selector";
 import {Product} from "../../store/product.model";
 import {ProductFacade} from "../../guards/product.facade";
-import {FirestoreAdapter} from "../../../shared/model/FirestoreAdapter";
-import {ProductService} from "../../store/product.service";
 
 @Component({
   selector: 'app-product-main-page',
@@ -21,8 +17,7 @@ export class ProductMainPageComponent implements OnInit {
 
   public products!: Observable<Product[]>;
 
-  constructor(private productFacade: ProductFacade, private store: Store<AppState>, private router: Router, private service: ProductService) {
-  }
+  constructor(private productFacade: ProductFacade, private store: Store<AppState>, private router: Router) {}
 
   public create(): void {
     this.router.navigate(['/products/create']);

@@ -30,4 +30,6 @@ export class ProductFacade {
         this.store.dispatch(get({id}));
     }
 
+    public getRequiredMaterials(): void
+
 }
