@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {forkJoin, map, mergeMap, Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.state";
 import {Router} from "@angular/router";
@@ -24,9 +24,9 @@ export class ProductMainPageComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.products = this.productFacade.products;
-    this.products.subscribe((products) => {
-    });
+    this.products = this.productFacade.products.pipe(
+        mergeMap(products => forkJoin(products.map(product => this.productFacade.populateMaterial(product))))
+    );
   }
 
   public selectAll(event: boolean): void {

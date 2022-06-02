@@ -61,7 +61,6 @@ export class ProductCreatePageComponent {
    * Save item and store it into database.
    */
   public saveForm(): void {
-    console.log(this.createForm.value);
   }
 
   /**

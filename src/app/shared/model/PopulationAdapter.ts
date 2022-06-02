@@ -11,26 +11,27 @@ export class PopulationAdapter {
      */
     public static replaceModelReferences(model: any, references: PopulatedReferences[]): any {
 
-        let mutableModel: any = model;
+        let mutableModel: any = {...model};
 
         Object.entries(mutableModel).forEach(entry => {
             if (Array.isArray(entry[1])) {
                 mutableModel[entry[0]] = entry[1].flatMap(arrayItem => this.replaceModelReferences(arrayItem, references));
             } else {
-                if (typeof mutableModel === "object") {
+                if (typeof entry[1] === "object") {
                     if (this.validateAsReference(entry[1])) {
-
                         const reference: DatabaseReference = entry[1] as DatabaseReference;
-                        const populated = references.filter(compound => compound.objects!.id === reference.id && compound.databaseCollection === reference.databaseCollection);
+                        const populated = references.filter(compound => {
+                            return compound.objects![0].id === reference.id && compound.databaseCollection === reference.databaseCollection;
+                        });
 
                         if (populated) {
-                            mutableModel[entry[0]] = {...populated, ...reference};
+                            mutableModel[entry[0]] = {...populated[0], ...reference};
                         }
-
                     } else {
-                        mutableModel[entry[0]] = this.replaceModelReferences(model, references);
+                        mutableModel[entry[0]] = this.replaceModelReferences(entry[1], references);
                     }
                 }
+
             }
         });
 

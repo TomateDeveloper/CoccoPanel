@@ -14,7 +14,6 @@ import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 export class ProductCardComponent {
 
   @Input() public product!: Product;
-  public productHelper = ProductUtilities;
 
   constructor(private store: Store<AppState>, private router: Router) {}
 
@@ -33,6 +32,10 @@ export class ProductCardComponent {
 
   public navigateToProduct(id: string): void {
     this.router.navigate(['/products/' + id]);
+  }
+
+  public getPrice(): string {
+    return JSON.stringify(this.product.breakdownGroup.map(bd => bd.breakdowns.map(b => b)));
   }
 
 }

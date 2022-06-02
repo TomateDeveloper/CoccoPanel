@@ -1,14 +1,14 @@
 import {DatabaseReference, Model, PopulatedReferences, PopulateRegistry} from "../model/model.dto";
 import {HttpClient} from "@angular/common/http";
 import {FirestoreService} from "./firestore.service";
-import {forkJoin, map, mergeAll, mergeMap, Observable, of} from "rxjs";
+import {catchError, forkJoin, map, mergeAll, mergeMap, Observable, of} from "rxjs";
 import {PopulationAdapter} from "../../shared/model/PopulationAdapter";
 
 export abstract class PopulateService<P extends Model, M extends Model> extends FirestoreService<P, M> {
 
     protected constructor(database: string, client: HttpClient) {
         super(database, client);
-        throw new Error("Unimplemented, pending to test");
+        throw new Error("Unimplemented");
     }
 
     public override create(partial: P): Observable<M> {
@@ -35,11 +35,9 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
         return this.queryRaw(query, this.getDatabase());
     }
 
-    public override queryRaw<OverrideModel extends Model>(query: any, overrideCollection?: string, sanitized?: boolean): Observable<OverrideModel[]> {
+    public override queryRaw<OverrideModel extends Model>(query: any, overrideCollection?: string): Observable<OverrideModel[]> {
         return super.queryRaw<OverrideModel>(query, overrideCollection).pipe(
-            mergeMap(query =>
-                forkJoin(query.map(result => this.populationPredicate(result)))
-            )
+            mergeMap(query => forkJoin(query.map(result => this.populationPredicate(result))))
         );
     }
 
@@ -56,9 +54,8 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
     /**
      * Queries every {@link DatabaseReference} population from the {@link PopulateRegistry}
      * @param model
-     * @param sanitized
      */
-    public generateModelReferences<T extends Model>(model: T, sanitized?: boolean): Observable<PopulatedReferences[]> {
+    public generateModelReferences<T extends Model>(model: T): Observable<PopulatedReferences[]> {
         return of(PopulationAdapter.getPopulateRegistry(model)).pipe(
             mergeMap(registry => {
 
@@ -67,7 +64,7 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
                 }
 
                 return forkJoin(
-                    registry.map(item => (sanitized ? this.queryChunk(item.ids, item) : this.fixQuery(item)).pipe(
+                    registry.map(item => this.fixQuery(item).pipe(
                         map(results => ({objects: results, databaseCollection: item.databaseCollection}))
                     ))
                 );
@@ -93,23 +90,26 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
         const dividedObservables: Observable<T[]>[] = [];
 
         for (let i = 0; i < idChunks.length; i++) {
-            const observable = this.queryChunk<T>(idChunks[i], item, true);
+            const observable = this.queryChunk<T>(idChunks[i], item).pipe(map(a => { console.log(a); return a;}));
             dividedObservables.push(observable);
         }
 
         return forkJoin(dividedObservables).pipe(mergeAll());
     }
 
-    private queryChunk<T extends Model>(ids: string[], item: PopulateRegistry, sanitized?: boolean): Observable<T[]> {
+    private queryChunk<T extends Model>(ids: string[], item: PopulateRegistry): Observable<T[]> {
         return this.queryRaw<T>(PopulationAdapter.generateRawQuery(
             {...item, ids},
             this.getOriginURL().split("https://firestore.googleapis.com/v1/")[1],
-        ), item.databaseCollection, sanitized);
+        ), item.databaseCollection);
     }
 
-    private populationPredicate<T extends Model>(model: T, sanitized?: boolean): Observable<T> {
-        return this.generateModelReferences(model, sanitized).pipe(
-            map(references => PopulationAdapter.replaceModelReferences(model, references))
+    private populationPredicate<T extends Model>(model: T): Observable<T> {
+        return this.generateModelReferences(model).pipe(
+            map(references => {
+                console.log(references);
+                return PopulationAdapter.replaceModelReferences(model, references);
+            })
         );
     }
 
