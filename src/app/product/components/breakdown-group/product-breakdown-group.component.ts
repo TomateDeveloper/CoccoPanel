@@ -17,12 +17,16 @@ export class ProductBreakdownGroupComponent {
   @Input() public materials: Material[];
   @Output('removeGroup') public eventEmitter: EventEmitter<void>;
 
-  public validationHelper = ValidationUtilities;
+  public validation = ValidationUtilities;
   public formHelper = FormUtilities;
 
   constructor() {
     this.materials = [];
     this.eventEmitter = new EventEmitter<void>();
+  }
+
+  public getForm(): FormGroup {
+    return this.formHelper.getGroupFromAbstract(this.breakdownGroup);
   }
 
   /**

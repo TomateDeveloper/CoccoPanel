@@ -47,4 +47,5 @@ export class ProductMainPageComponent implements OnInit {
       }
     })
   }
+
 }

@@ -4,6 +4,8 @@ import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {Material} from "../../../material/store/material.model";
+import {MaterialFacade} from "../../../material/guards/material.facade";
+import {Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-create',
@@ -13,28 +15,16 @@ import {Material} from "../../../material/store/material.model";
 export class ProductCreatePageComponent {
 
   public createForm: FormGroup;
-
-  public validationHelper = ValidationUtilities;
-  public productHelper = ProductUtilities;
   public formHelper = FormUtilities;
 
-  public material: Material[] = [
-    {
-      id: "0123456789abcdef",
-      name: "Demo",
-      measure: 140,
-      price: 28000
-    } as any,
-    {
-      id: "abcdef0123456789",
-      name: "Demo 2",
-      measure: 180,
-      price: 24000
-    }as any
-  ];
+  public material: Material[] = [];
 
-  constructor() {
+  constructor(private materialFacade: MaterialFacade) {
     this.createForm = this.initializeForm();
+    this.materialFacade.load({});
+    this.materialFacade.materials.subscribe(materials => {
+      console.log(materials);
+    })
   }
 
   /**
@@ -87,6 +77,14 @@ export class ProductCreatePageComponent {
   public removeBreakdownGroup(index: number): void {
     const breakdownGroup: FormArray = FormUtilities.getArrayFromControl(this.createForm.get('breakdownGroup')!);
     breakdownGroup.removeAt(index);
+  }
+
+  public getErrors(): string {
+    return JSON.stringify(this.createForm.errors);
+  }
+
+  public getProduct(): string {
+    return JSON.stringify(this.createForm.value);
   }
 
 }

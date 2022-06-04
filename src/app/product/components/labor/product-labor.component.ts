@@ -11,7 +11,6 @@ import {FormUtilities} from "../../../shared/abstract/form-utilities";
 export class ProductLaborComponent {
 
   @Input() public laborGroup!: FormGroup;
-  public validationHelper = ValidationUtilities;
   public formHelper = FormUtilities;
   @Output('addLabor') public eventEmitter: EventEmitter<void>;
 

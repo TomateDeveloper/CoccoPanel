@@ -13,11 +13,15 @@ export class ProductLaborItemComponent {
   @Input() public labor!: FormGroup;
   @Input() public laborItem!: FormGroup;
   public formHelper = FormUtilities;
-  public validationHelper = ValidationUtilities;
   @Output('removeLabor') public eventEmitter: EventEmitter<void>;
+  public validation = ValidationUtilities;
 
   constructor() {
     this.eventEmitter = new EventEmitter<void>();
+  }
+
+  public getForm(): FormGroup {
+    return this.formHelper.getGroupFromAbstract(this.laborItem);
   }
 
   /**
@@ -25,6 +29,11 @@ export class ProductLaborItemComponent {
    */
   public emitRemovalEvent(): void {
     this.eventEmitter.emit();
+  }
+
+
+  public getErrors(): string {
+    return JSON.stringify(this.getForm().errors);
   }
 
 }

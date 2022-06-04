@@ -1,6 +1,7 @@
 import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FormUtilities} from "./form-utilities";
 import {Material} from "../../material/store/material.model";
+import {Product} from "../../product/store/product.model";
 
 export class ProductUtilities {
 
@@ -12,6 +13,35 @@ export class ProductUtilities {
    */
   public static getAreaFromMaterial(material: Material): number {
     return material.measurable ? material.length  * 100 : 1;
+  }
+
+  public static getFullProductValue(product: Product): {labor: number, material: number} {
+
+    let invalid = false;
+    let materialValue: number = 0;
+    let laborValue: number = 0;
+
+
+    product.breakdownGroup.forEach(group => {
+      group.breakdowns.forEach(breakdown => {
+
+        const material = breakdown.material;
+
+
+        if (!('price' in material)) {
+          invalid = true;
+        }
+
+        materialValue += ProductUtilities.getMaterialConsume(breakdown.area, breakdown.material as Material) * (material as Material).price;
+
+      })
+    });
+
+    product.labors.forEach(labor => {
+      laborValue += parseInt(String(labor.price));
+    });
+
+    return {labor: laborValue, material: materialValue};
   }
 
   /**
@@ -49,6 +79,7 @@ export class ProductUtilities {
     };
 
   }
+
   /**
    * Utility function to obtain selected material of
    * the piece (Breakdown) from an {@link AbstractControl};

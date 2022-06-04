@@ -17,6 +17,10 @@ import {StoreModule} from "@ngrx/store";
                 }
             }
         ),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            logOnly: environment.production, // Restrict extension to log-only mode
+        }),
         EffectsModule.forRoot([]),
     ],
     providers: [

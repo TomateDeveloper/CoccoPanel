@@ -7,6 +7,10 @@
                 placeholder="Nombre"
                 type="text"
                 [tabIndex]="0"
+                [controlGroup]="getForm()"
+                [controlName]="'name'"
+                [invalid]="validate(getForm(), 'name')"
+                [invalidHelp]="'Ingresa un nombre para el producto'"
         >
         </app-input>
     </div>
@@ -18,6 +22,10 @@
                 placeholder="Referencia"
                 type="text"
                 [tabIndex]="1"
+                [controlGroup]="getForm()"
+                [controlName]="'reference'"
+                [invalid]="validate(getForm(), 'reference')"
+                [invalidHelp]="'Ingresa una referencia válida para el producto'"
         >
         </app-input>
     </div>

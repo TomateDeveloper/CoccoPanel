@@ -25,7 +25,7 @@ export class PopulationAdapter {
                         });
 
                         if (populated) {
-                            mutableModel[entry[0]] = {...populated[0], ...reference};
+                            mutableModel[entry[0]] = {...populated[0].objects[0], ...reference};
                         }
                     } else {
                         mutableModel[entry[0]] = this.replaceModelReferences(entry[1], references);

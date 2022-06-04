@@ -17,8 +17,7 @@ export class MaterialMainPageComponent implements OnInit {
 
   public materials!: Observable<Material[]>;
 
-  constructor(private materialFacade: MaterialFacade, private store: Store<AppState>, private router: Router) {
-  }
+  constructor(private materialFacade: MaterialFacade, private store: Store<AppState>, private router: Router) {}
 
   public create(): void {
     this.router.navigate(['/materials/create']);

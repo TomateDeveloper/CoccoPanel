@@ -10,6 +10,11 @@ import {FormUtilities} from "../../../shared/abstract/form-utilities";
 })
 export class ProductIdentityFormComponent {
   @Input() public form!: FormGroup;
-  public validationHelper = ValidationUtilities;
   public formHelper = FormUtilities;
+  public validate = ValidationUtilities.validate;
+
+  public getForm(): FormGroup {
+    return this.form;
+  }
+
 }

@@ -1,4 +1,4 @@
-<ng-container [formGroup]="formHelper.getGroupFromAbstract(breakdownGroup)">
+<ng-container [formGroup]="getForm()">
 
     <!-- Input name of breakdown group -->
 
@@ -9,6 +9,10 @@
                     [id]="'breakdownName'"
                     type="string"
                     placeholder="Nombre de sección"
+                    [controlGroup]="getForm()"
+                    [controlName]="'name'"
+                    [invalid]="validation.validate(getForm(), 'name')"
+                    [invalidHelp]="'Ingresa un nombre para la sección'"
             ></app-input>
         </div>
 

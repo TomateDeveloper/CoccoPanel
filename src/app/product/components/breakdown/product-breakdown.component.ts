@@ -17,7 +17,7 @@ export class ProductBreakdownComponent {
   @Input() public materials: Material[];
   @Output('remove') public eventEmitter: EventEmitter<void>;
 
-  public validationHelper = ValidationUtilities;
+  public validation = ValidationUtilities;
   public productHelper = ProductUtilities;
   public formHelper = FormUtilities;
 
@@ -26,11 +26,20 @@ export class ProductBreakdownComponent {
     this.eventEmitter = new EventEmitter<void>();
   }
 
+  public getForm(): FormGroup {
+    return this.formHelper.getGroupFromAbstract(this.breakdown);
+  }
+
   /**
    * Emit removal event in order to communicate with breakdown group.
    */
   public emitRemovalEvent(): void {
     this.eventEmitter.emit();
+  }
+
+
+  public getErrors(): string {
+    return JSON.stringify(this.getForm().errors);
   }
 
 }

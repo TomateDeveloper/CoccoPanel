@@ -1,4 +1,4 @@
-<ng-container [formGroup]="formHelper.getGroupFromAbstract(breakdown)">
+<ng-container [formGroup]="getForm()">
 
     <!-- Breakdown basic input -->
 
@@ -8,6 +8,9 @@
                 type="number"
                 placeholder="Area"
                 [standaloneHelp]="true"
+                [controlGroup]="getForm()"
+                [controlName]="'area'"
+                [invalid]="validation.validate(getForm(), 'area')"
         >
         </app-input>
     </section>
@@ -17,6 +20,9 @@
                 [id]="'mold'"
                 type="string"
                 placeholder="Moldura"
+                [controlGroup]="getForm()"
+                [controlName]="'mold'"
+                [invalid]="validation.validate(getForm(), 'mold')"
                 [standaloneHelp]="true"
         >
         </app-input>
@@ -26,8 +32,9 @@
         <ng-select [items]="materials"
                    id="type"
                    bindLabel="name"
-                   bindValue="_id"
+                   bindValue="id"
                    [searchable]="false"
+                   [formGroup]="getForm()"
                    formControlName="material"
                    placeholder="Seleccionar"
         >
@@ -57,5 +64,7 @@
                 (clickAction)="emitRemovalEvent()"
         ></app-icon-actionable>
     </div>
+
+    {{getErrors()}}
 
 </ng-container>

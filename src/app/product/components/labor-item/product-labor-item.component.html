@@ -1,4 +1,4 @@
-<ng-container [formGroup]="formHelper.getGroupFromAbstract(laborItem)">
+<ng-container [formGroup]="getForm()">
 
     <!-- Labor basic input -->
 
@@ -8,15 +8,21 @@
                 type="string"
                 placeholder="Nombre"
                 [standaloneHelp]="true"
+                [controlGroup]="getForm()"
+                [controlName]="'name'"
+                [invalid]="validation.validate(getForm(), 'name')"
         ></app-input>
     </section>
 
     <section class="col-12 col-lg-3 my-2 m-lg-0">
         <app-input
                 [id]="'price'"
-                type="string"
+                type="number"
                 placeholder="Precio"
                 [standaloneHelp]="true"
+                [controlGroup]="getForm()"
+                [controlName]="'price'"
+                [invalid]="validation.validate(getForm(), 'price')"
         ></app-input>
     </section>
 
@@ -29,5 +35,7 @@
                 (clickAction)="emitRemovalEvent()"
         ></app-icon-actionable>
     </div>
+
+    {{getErrors()}}
 
 </ng-container>
