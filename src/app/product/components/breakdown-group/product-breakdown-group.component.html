@@ -10,6 +10,7 @@
                     type="string"
                     placeholder="Nombre de sección"
                     [controlGroup]="getForm()"
+                    [tabIndex]="tabUtilities.generateTag(100 * listIndex, listIndex)"
                     [controlName]="'name'"
                     [invalid]="validation.validate(getForm(), 'name')"
                     [invalidHelp]="'Ingresa un nombre para la sección'"
@@ -66,6 +67,8 @@
             [breakdown]="breakdown"
             [breakdownGroup]="breakdownGroup"
             [materials]="materials"
+            [listIndex]="b + 1"
+            [parentIndex]="listIndex"
             (remove)="removeBreakdown(breakdownGroup, b)"
             class="row mb-4"
     ></app-product-breakdown>

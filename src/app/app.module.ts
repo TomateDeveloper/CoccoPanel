@@ -10,12 +10,19 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AuthService} from "./auth/store/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import {AppStoreModule} from "./store/app.store.module";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import {MaterialModule} from "./material/material.module";
+import {ProductModule} from "./product/product.module";
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
+        MaterialModule,
+        ProductModule,
+
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
@@ -23,7 +30,8 @@ import {AppStoreModule} from "./store/app.store.module";
         NgxIntlTelInputModule,
         NgbModule,
         HttpClientModule,
-        AppStoreModule
+        AppStoreModule,
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
     ],
     providers: [
         AuthService

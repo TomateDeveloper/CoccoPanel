@@ -36,6 +36,7 @@
     <app-product-labor-item
             *ngFor="let item of formHelper.getArrayFromControl(laborGroup).controls; let b = index"
             [labor]="laborGroup"
+            [listIndex]="b + 1"
             [laborItem]="formHelper.getGroupFromAbstract(item)"
             (removeLabor)="removeLaborGroup(b)"
             class="row mb-4"

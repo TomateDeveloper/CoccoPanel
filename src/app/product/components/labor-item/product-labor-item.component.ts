@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
+import {TabUtilities} from "../../../shared/utilities/tabUtilities";
 
 @Component({
   selector: 'app-product-labor-item',
@@ -12,9 +13,11 @@ export class ProductLaborItemComponent {
 
   @Input() public labor!: FormGroup;
   @Input() public laborItem!: FormGroup;
+  @Input() public listIndex!: number;
   public formHelper = FormUtilities;
   @Output('removeLabor') public eventEmitter: EventEmitter<void>;
   public validation = ValidationUtilities;
+  public tabUtilities = TabUtilities;
 
   constructor() {
     this.eventEmitter = new EventEmitter<void>();
@@ -29,11 +32,6 @@ export class ProductLaborItemComponent {
    */
   public emitRemovalEvent(): void {
     this.eventEmitter.emit();
-  }
-
-
-  public getErrors(): string {
-    return JSON.stringify(this.getForm().errors);
   }
 
 }

@@ -9,6 +9,7 @@
                 placeholder="Nombre"
                 [standaloneHelp]="true"
                 [controlGroup]="getForm()"
+                [tabIndex]="tabUtilities.generateTag(100000 * listIndex, 1)"
                 [controlName]="'name'"
                 [invalid]="validation.validate(getForm(), 'name')"
         ></app-input>
@@ -21,6 +22,7 @@
                 placeholder="Precio"
                 [standaloneHelp]="true"
                 [controlGroup]="getForm()"
+                [tabIndex]="tabUtilities.generateTag(100000 * listIndex, 2)"
                 [controlName]="'price'"
                 [invalid]="validation.validate(getForm(), 'price')"
         ></app-input>
@@ -35,7 +37,5 @@
                 (clickAction)="emitRemovalEvent()"
         ></app-icon-actionable>
     </div>
-
-    {{getErrors()}}
 
 </ng-container>

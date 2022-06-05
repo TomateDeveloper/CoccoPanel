@@ -4,6 +4,7 @@ import {Material} from "../../../material/store/material.model";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
+import {TabUtilities} from "../../../shared/utilities/tabUtilities";
 
 @Component({
   selector: 'app-product-breakdown',
@@ -15,11 +16,14 @@ export class ProductBreakdownComponent {
   @Input() public breakdown!: AbstractControl;
   @Input() public breakdownGroup!: FormGroup;
   @Input() public materials: Material[];
+  @Input() public listIndex!: number;
+  @Input() public parentIndex!: number;
   @Output('remove') public eventEmitter: EventEmitter<void>;
 
   public validation = ValidationUtilities;
   public productHelper = ProductUtilities;
   public formHelper = FormUtilities;
+  public tabUtilities = TabUtilities;
 
   constructor() {
     this.materials = [];
@@ -35,11 +39,6 @@ export class ProductBreakdownComponent {
    */
   public emitRemovalEvent(): void {
     this.eventEmitter.emit();
-  }
-
-
-  public getErrors(): string {
-    return JSON.stringify(this.getForm().errors);
   }
 
 }

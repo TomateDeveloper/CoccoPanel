@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
@@ -6,24 +6,32 @@ import {ValidationUtilities} from "../../../shared/abstract/validation-utilities
 import {Material} from "../../../material/store/material.model";
 import {MaterialFacade} from "../../../material/guards/material.facade";
 import {Observable, of} from "rxjs";
+import {Store} from "@ngrx/store";
+import {AppState} from "../../../store/app.state";
+import {create} from "../../store/product.actions";
+import {BreakdownGroup} from "../../store/product.model";
+import {MATERIAL_STATE_NAME} from "../../../material/store/material.selector";
 
 @Component({
   selector: 'app-create',
   templateUrl: './product-create-page.component.html',
   styleUrls: ['./product-create-page.component.scss']
 })
-export class ProductCreatePageComponent {
+export class ProductCreatePageComponent implements OnInit {
 
   public createForm: FormGroup;
   public formHelper = FormUtilities;
 
   public material: Material[] = [];
 
-  constructor(private materialFacade: MaterialFacade) {
+  constructor(private materialFacade: MaterialFacade, private store: Store<AppState>) {
     this.createForm = this.initializeForm();
+  }
+
+  ngOnInit(): void {
     this.materialFacade.load({});
-    this.materialFacade.materials.subscribe(materials => {
-      console.log(materials);
+    this.materialFacade.materials.subscribe(material => {
+      this.material = material;
     })
   }
 
@@ -51,6 +59,23 @@ export class ProductCreatePageComponent {
    * Save item and store it into database.
    */
   public saveForm(): void {
+    this.store.dispatch(create(
+        {
+          product: {
+            ...this.createForm.value,
+            breakdownGroup: (this.createForm.value.breakdownGroup as BreakdownGroup[]).map(breakdownGroup => this.restoreReferences(breakdownGroup))
+          }
+        }
+    ));
+  }
+
+  private restoreReferences(group: BreakdownGroup): BreakdownGroup {
+    return {
+      ...group,
+      breakdowns: group.breakdowns.map(breakdown =>
+          ({...breakdown, material: {id: breakdown.material as any, databaseCollection: MATERIAL_STATE_NAME}})
+      )
+    };
   }
 
   /**
@@ -77,14 +102,6 @@ export class ProductCreatePageComponent {
   public removeBreakdownGroup(index: number): void {
     const breakdownGroup: FormArray = FormUtilities.getArrayFromControl(this.createForm.get('breakdownGroup')!);
     breakdownGroup.removeAt(index);
-  }
-
-  public getErrors(): string {
-    return JSON.stringify(this.createForm.errors);
-  }
-
-  public getProduct(): string {
-    return JSON.stringify(this.createForm.value);
   }
 
 }

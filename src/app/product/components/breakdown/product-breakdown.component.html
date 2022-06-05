@@ -9,6 +9,7 @@
                 placeholder="Area"
                 [standaloneHelp]="true"
                 [controlGroup]="getForm()"
+                [tabIndex]="tabUtilities.generateTag(10 * parentIndex, tabUtilities.generateTag(listIndex, 1))"
                 [controlName]="'area'"
                 [invalid]="validation.validate(getForm(), 'area')"
         >
@@ -22,6 +23,7 @@
                 placeholder="Moldura"
                 [controlGroup]="getForm()"
                 [controlName]="'mold'"
+                [tabIndex]="tabUtilities.generateTag(10 * parentIndex, tabUtilities.generateTag(listIndex, 2))"
                 [invalid]="validation.validate(getForm(), 'mold')"
                 [standaloneHelp]="true"
         >
@@ -34,6 +36,7 @@
                    bindLabel="name"
                    bindValue="id"
                    [searchable]="false"
+                   [tabIndex]="tabUtilities.generateTag(10 * parentIndex, tabUtilities.generateTag(listIndex, 3))"
                    [formGroup]="getForm()"
                    formControlName="material"
                    placeholder="Seleccionar"
@@ -64,7 +67,5 @@
                 (clickAction)="emitRemovalEvent()"
         ></app-icon-actionable>
     </div>
-
-    {{getErrors()}}
 
 </ng-container>

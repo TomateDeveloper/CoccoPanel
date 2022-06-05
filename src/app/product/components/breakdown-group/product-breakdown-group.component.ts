@@ -4,6 +4,7 @@ import {AbstractControl, FormArray, FormGroup} from "@angular/forms";
 import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
 import {ProductUtilities} from "../../../shared/abstract/product-utilities";
+import {TabUtilities} from "../../../shared/utilities/tabUtilities";
 
 @Component({
   selector: 'app-product-breakdown-group',
@@ -15,10 +16,12 @@ export class ProductBreakdownGroupComponent {
   @Input() public breakdownGroup!: FormGroup;
   @Input() public form!: FormGroup;
   @Input() public materials: Material[];
+  @Input() public listIndex!: number;
   @Output('removeGroup') public eventEmitter: EventEmitter<void>;
 
   public validation = ValidationUtilities;
   public formHelper = FormUtilities;
+  public tabUtilities = TabUtilities;
 
   constructor() {
     this.materials = [];
