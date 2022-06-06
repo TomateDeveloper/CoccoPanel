@@ -10,6 +10,7 @@ import {MaterialService} from "../../material/store/material.service";
 import {PopulationAdapter} from "../../shared/model/PopulationAdapter";
 import {Material} from "../../material/store/material.model";
 import {PopulatedReferences} from "../../core/model/model.dto";
+import {FirestoreService} from "../../core/service/firestore.service";
 
 
 @Injectable({
@@ -46,7 +47,7 @@ export class ProductFacade {
         }
 
         const materials: Observable<PopulatedReferences> =
-            this.materialService.query(PopulationAdapter.generateRawQuery(references[0], this.materialService.getOriginURL().split("https://firestore.googleapis.com/v1/")[1]))
+            this.materialService.query(PopulationAdapter.generateRawQuery(references[0], FirestoreService.originProject))
                 .pipe(map(references => {
                     return ({objects: references, databaseCollection} as PopulatedReferences);
                 }));

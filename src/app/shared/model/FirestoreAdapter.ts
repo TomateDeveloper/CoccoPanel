@@ -1,5 +1,6 @@
 import {DatabaseReference, Model} from "../../core/model/model.dto";
 import {FirestoreDocument} from "./FirestoreDocument";
+import {FirestoreService} from "../../core/service/firestore.service";
 
 export class FirestoreAdapter {
 
@@ -19,7 +20,7 @@ export class FirestoreAdapter {
             if (Array.isArray(i[1])) {
                 sanitized[i[0]] = {
                     arrayValue: {
-                        values: i[1].map(item => this.sanitizeValue(item))
+                        values: i[1].map(item => this.transformValue(item))
                     }
                 };
             } else {
@@ -59,7 +60,7 @@ export class FirestoreAdapter {
                 if (typelessValue.id && typelessValue.databaseCollection)
                 {
                     return {
-                        referenceValue: typelessValue.id
+                        referenceValue: `${FirestoreService.originProject}/${typelessValue.databaseCollection}/${typelessValue.id}`
                     }
                 }
 

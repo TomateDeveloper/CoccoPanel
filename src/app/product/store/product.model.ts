@@ -3,7 +3,7 @@ import {Material} from "../../material/store/material.model";
 
 export interface Product extends Model, Selectable {
   name: string;
-  reference: string;
+  tag: string;
   breakdownGroup: BreakdownGroup[];
   labors: ProductLabor[];
 }

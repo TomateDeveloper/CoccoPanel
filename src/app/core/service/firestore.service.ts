@@ -7,15 +7,16 @@ import {FirestoreDocument, FirestoreQuery} from "../../shared/model/FirestoreDoc
 
 export abstract class FirestoreService<P extends Model, M extends Model> {
 
-    private database: string;
-    private originURL: string = `https://firestore.googleapis.com/v1/projects/${environment.firebase.projectId}/databases/(default)/documents`;
+    private readonly database: string;
+    public static originURL: string = `https://firestore.googleapis.com/v1/projects/${environment.firebase.projectId}/databases/(default)/documents`;
+    public static originProject: string = FirestoreService.originURL.split("https://firestore.googleapis.com/v1/")[1];
     private client: HttpClient;
     private readonly URL: string;
 
     protected constructor(database: string, client: HttpClient) {
         this.database = database;
         this.client = client;
-        this.URL = `${this.originURL}/${database}`
+        this.URL = `${FirestoreService.originURL}/${database}`
     }
 
     public create(partial: P): Observable<M> {
@@ -23,7 +24,8 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     public createRaw<OverridePartial extends Model, OverrideModel extends Model>(partial: OverridePartial, overrideCollection: string): Observable<OverrideModel> {
-        return this.client.post<FirestoreDocument<OverrideModel>>(this.originURL + "/" + overrideCollection, {fields: FirestoreAdapter.sanitizeValue(partial)}).pipe(
+        console.log(FirestoreAdapter.sanitizeValue(partial));
+        return this.client.post<FirestoreDocument<OverrideModel>>(FirestoreService.originURL + "/" + overrideCollection, {fields: FirestoreAdapter.sanitizeValue(partial)}).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }
@@ -33,7 +35,7 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     public getRaw<OverrideModel extends Model>(id: string, overrideCollection: string): Observable<OverrideModel> {
-        return this.client.get<FirestoreDocument<OverrideModel>>(this.originURL + "/" + overrideCollection + '/' + id).pipe(
+        return this.client.get<FirestoreDocument<OverrideModel>>(FirestoreService.originURL + "/" + overrideCollection + '/' + id).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }
@@ -44,7 +46,7 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
 
     public queryRaw<OverrideModel extends Model>(query: any, overrideCollection?: string): Observable<OverrideModel[]> {
         return this.client.post<FirestoreQuery<M>[]>(
-            this.originURL + ':runQuery',
+            FirestoreService.originURL + ':runQuery',
             {
                 structuredQuery: {
                     ...query,
@@ -62,14 +64,14 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     public updateRaw<OverrideModel extends Model>(model: M, overrideCollection?: string): Observable<any> {
-        const composedUpdateURL = this.originURL + "/" + overrideCollection + "/" + model.id + FirestoreAdapter.getUpdateMask(model);
+        const composedUpdateURL = FirestoreService.originURL + "/" + overrideCollection + "/" + model.id + FirestoreAdapter.getUpdateMask(model);
         return this.client.patch<FirestoreDocument<M>>(composedUpdateURL, {fields: FirestoreAdapter.sanitizeValue(model)}).pipe(
             map(document => FirestoreAdapter.transformDocument(document))
         );
     }
 
     public delete(id: string, overrideCollection?: string): Observable<boolean> {
-        return this.client.delete<boolean>((overrideCollection ? this.originURL + "/" + overrideCollection : this.URL) + '/' + id);
+        return this.client.delete<boolean>((overrideCollection ? FirestoreService.originURL + "/" + overrideCollection : this.URL) + '/' + id);
     }
 
     public deleteBulk(id: string[]): Observable<boolean> {
@@ -77,15 +79,11 @@ export abstract class FirestoreService<P extends Model, M extends Model> {
     }
 
     private beginTransaction(options?: any): Observable<any> {
-        return this.client.post<any>(this.originURL + ':beginTransaction', options);
+        return this.client.post<any>(FirestoreService.originURL + ':beginTransaction', options);
     }
 
     public getDatabase(): string {
         return this.database;
-    }
-
-    public getOriginURL(): string {
-        return this.originURL;
     }
 
 }

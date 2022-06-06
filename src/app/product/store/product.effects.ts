@@ -1,9 +1,10 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {catchError, exhaustMap, map, of} from "rxjs";
+import {catchError, exhaustMap, map, of, tap} from "rxjs";
 import {ProductService} from "./product.service";
 import {create, createError, createSuccess, list, listError, listSuccess} from "./product.actions";
-import {MaterialService} from "../../material/store/material.service";
+import {updateSuccess} from "../../material/store/material.actions";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class ProductEffects {
@@ -11,7 +12,7 @@ export class ProductEffects {
     constructor(
         private actions$: Actions,
         private productService: ProductService,
-        private materialService: MaterialService
+        private router: Router
     ) {}
 
     public list$ = createEffect(() =>
@@ -36,6 +37,16 @@ export class ProductEffects {
                 )
             )
         )
+    );
+
+    public writeSuccess$ = createEffect(() =>
+            this.actions$.pipe(
+                ofType(...[createSuccess, updateSuccess]),
+                tap((action) => {
+                    this.router.navigateByUrl('/products/view/' + (action as any).product.id);
+                })
+            ),
+        { dispatch: false }
     );
 
 }

@@ -1,5 +1,5 @@
 <h5>Resumen ficha</h5>
 <p class="mb-0"><strong>Nombre de producto:</strong> {{form.controls['name'].value || 'Un bolso estupendo'}}</p>
-<p class="mb-0"><strong>Referencia:</strong> {{form.controls['reference'].value || 'MT-XYZ'}}</p>
+<p class="mb-0"><strong>Referencia:</strong> {{form.controls['tag'].value || 'MT-XYZ'}}</p>
 <p class="mb-0"><strong>Costo de material:</strong> {{productHelper.getMaterialCost(form, materials) | currency :'USD' : 'symbol' : '1.0-0'}}</p>
 <p class="mb-0"><strong>Mano de obra:</strong> $7.000</p>

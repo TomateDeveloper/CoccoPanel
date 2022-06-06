@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductUtilities} from "../../../shared/abstract/product-utilities";
 import {FormUtilities} from "../../../shared/abstract/form-utilities";
-import {ValidationUtilities} from "../../../shared/abstract/validation-utilities";
 import {Material} from "../../../material/store/material.model";
 import {MaterialFacade} from "../../../material/guards/material.facade";
 import {Observable, of} from "rxjs";
@@ -46,7 +45,7 @@ export class ProductCreatePageComponent implements OnInit {
           null,
           [Validators.required, Validators.minLength(5)]
       ),
-      reference: new FormControl(
+      tag: new FormControl(
           null,
           [Validators.required, Validators.minLength(5)]
       ),

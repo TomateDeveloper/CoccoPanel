@@ -16,7 +16,7 @@ const routes: Routes = [
         component: ProductCreatePageComponent
     },
     {
-        path: 'view',
+        path: 'view/:id',
         component: ProductViewPageComponent,
     },
 ];

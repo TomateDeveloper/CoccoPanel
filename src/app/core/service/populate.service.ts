@@ -100,7 +100,7 @@ export abstract class PopulateService<P extends Model, M extends Model> extends 
     private queryChunk<T extends Model>(ids: string[], item: PopulateRegistry): Observable<T[]> {
         return this.queryRaw<T>(PopulationAdapter.generateRawQuery(
             {...item, ids},
-            this.getOriginURL().split("https://firestore.googleapis.com/v1/")[1],
+            FirestoreService.originProject,
         ), item.databaseCollection);
     }
 
